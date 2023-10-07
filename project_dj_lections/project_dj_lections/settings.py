@@ -25,11 +25,12 @@ SECRET_KEY = "django-insecure-wb&sudu)je6-5bs7ef#k*@)gyjfy38ng$z&d27^m7yk@^ie(b&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1',
-                 '192.168.56.1',
-                 '195.211.79.70',
-                 '192.168.1.106',
-                 ]
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "192.168.56.1",
+    "195.211.79.70",
+    "192.168.1.106",
+]
 
 
 # Application definition
@@ -41,7 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'lection_01_app',
+    "lection_01_app",
 ]
 
 MIDDLEWARE = [
@@ -127,37 +128,35 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'simple': {
-                    'format': '%(levelname)s %(message)s'
-                },
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process} {thread} {message}',
-            'style': '{',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "simple": {"format": "%(levelname)s %(message)s"},
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {process} {thread} {message}",
+            "style": "{",
         },
     },
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter' : 'verbose',
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
         },
-        'file': {
-            'class': 'logging.FileHandler',
-            'filename': './log/django.log',
-            'formatter' : 'verbose',
+        "file": {
+            "class": "logging.FileHandler",
+            "filename": "./log/django.log",
+            "formatter": "verbose",
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'INFO',
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
         },
-        'lection_01_app': {
-            'handlers':  ['console', 'file'],
-            'level': 'DEBUG',
-            'propagate': True,
+        "lection_01_app": {
+            "handlers": ["console", "file"],
+            "level": "DEBUG",
+            "propagate": True,
         },
     },
 }
