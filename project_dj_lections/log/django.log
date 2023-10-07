@@ -1,0 +1,86 @@
+Watching for file changes with StatReloader
+Not Found: /
+"GET / HTTP/1.1" 404 2183
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2234
+Not Found: /prefix
+"GET /prefix HTTP/1.1" 404 2219
+"GET /start_pref/ HTTP/1.1" 200 13
+"GET /start_pref/ HTTP/1.1" 200 13
+C:\Users\stavr\django\project_dj_lections\project_dj_lections\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Not Found: /start_pref/
+"GET /start_pref/ HTTP/1.1" 404 2614
+"GET / HTTP/1.1" 200 13
+"GET /new HTTP/1.1" 301 0
+"GET /new/ HTTP/1.1" 200 8
+"GET /new/ HTTP/1.1" 200 8
+Not Found: /newasd
+"GET /newasd HTTP/1.1" 404 2599
+"GET /about HTTP/1.1" 301 0
+"GET /about/ HTTP/1.1" 200 8
+"GET /new/ HTTP/1.1" 200 8
+C:\Users\stavr\django\project_dj_lections\lection_01_app\urls.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\stavr\django\project_dj_lections\lection_01_app\urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /new/ HTTP/1.1" 200 11
+C:\Users\stavr\django\project_dj_lections\lection_01_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\stavr\django\project_dj_lections\lection_01_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\stavr\django\project_dj_lections\lection_01_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /new/ HTTP/1.1" 200 11
+"GET / HTTP/1.1" 200 13
+C:\Users\stavr\django\project_dj_lections\lection_01_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13
+C:\Users\stavr\django\project_dj_lections\lection_01_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13
+"GET / HTTP/1.1" 200 13
+C:\Users\stavr\django\project_dj_lections\lection_01_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /about/ HTTP/1.1" 200 27
+"GET / HTTP/1.1" 200 13
+Not Found: /index
+"GET /index HTTP/1.1" 404 2596
+C:\Users\stavr\django\project_dj_lections\lection_01_app\views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 13
+"GET /about/ HTTP/1.1" 200 27
+"GET / HTTP/1.1" 200 13
+C:\Users\stavr\django\project_dj_lections\project_dj_lections\settings.py changed, reloading.
+Watching for file changes with StatReloader
+-------------------Index page accessed
+"GET / HTTP/1.1" 200 13
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2614
+"GET /about HTTP/1.1" 301 0
+Error in about page: division by zero
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\project_dj_lections\lection_01_app\views.py", line 17, in about
+    result = 1 / 0
+ZeroDivisionError: division by zero
+"GET /about/ HTTP/1.1" 200 27
+C:\Users\stavr\django\project_dj_lections\project_dj_lections\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\stavr\django\project_dj_lections\project_dj_lections\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Error in about page: division by zero
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\project_dj_lections\lection_01_app\views.py", line 17, in about
+    result = 1 / 0
+ZeroDivisionError: division by zero
+"GET /about/ HTTP/1.1" 200 27
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2614
+-------------------Index page accessed
+"GET / HTTP/1.1" 200 13
+C:\Users\stavr\django\project_dj_lections\project_dj_lections\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\stavr\django\project_dj_lections\project_dj_lections\settings.py changed, reloading.
+INFO 2023-10-07 07:26:34,786 autoreload 15012 16216 Watching for file changes with StatReloader
+INFO 2023-10-07 07:26:39,993 views 15012 10184 -------------------Index page accessed
+INFO 2023-10-07 07:26:39,993 basehttp 15012 10184 "GET / HTTP/1.1" 200 13
