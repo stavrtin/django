@@ -1,0 +1,6 @@
+INFO 2023-10-07 10:38:21,910 autoreload 14628 15528 C:\Users\stavr\django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-07 10:38:22,368 autoreload 16276 17424 Watching for file changes with StatReloader
+INFO 2023-10-07 10:38:22,685 views 16276 11104 Сработал переход на главную
+INFO 2023-10-07 10:38:22,686 basehttp 16276 11104 "GET / HTTP/1.1" 200 199
+INFO 2023-10-07 10:38:25,211 views 16276 11104 Сработал переход на "обо мне" 
+INFO 2023-10-07 10:38:25,211 basehttp 16276 11104 "GET /about/ HTTP/1.1" 200 244
