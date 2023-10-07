@@ -84,3 +84,6 @@ C:\Users\stavr\django\project_dj_lections\project_dj_lections\settings.py change
 INFO 2023-10-07 07:26:34,786 autoreload 15012 16216 Watching for file changes with StatReloader
 INFO 2023-10-07 07:26:39,993 views 15012 10184 -------------------Index page accessed
 INFO 2023-10-07 07:26:39,993 basehttp 15012 10184 "GET / HTTP/1.1" 200 13
+INFO 2023-10-07 11:50:17,868 autoreload 7544 17984 Watching for file changes with StatReloader
+INFO 2023-10-07 11:51:58,915 autoreload 15552 16100 Watching for file changes with StatReloader
+INFO 2023-10-07 11:54:17,593 autoreload 16948 15936 Watching for file changes with StatReloader
