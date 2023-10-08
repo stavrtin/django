@@ -1,0 +1,310 @@
+INFO 2023-10-07 09:20:58,234 views 12228 17996 Сработала игра 2 "кости", выпало 3
+INFO 2023-10-07 09:20:58,235 basehttp 12228 17996 "GET /game2 HTTP/1.1" 200 45
+INFO 2023-10-07 09:20:58,420 views 12228 17996 Сработала игра 2 "кости", выпало 3
+INFO 2023-10-07 09:20:58,421 basehttp 12228 17996 "GET /game2 HTTP/1.1" 200 45
+INFO 2023-10-07 09:20:58,600 views 12228 17996 Сработала игра 2 "кости", выпало 3
+INFO 2023-10-07 09:20:58,601 basehttp 12228 17996 "GET /game2 HTTP/1.1" 200 45
+INFO 2023-10-07 09:21:03,225 views 12228 17996 Сработала игра 2 "1213123", выпало 11
+INFO 2023-10-07 09:21:03,226 basehttp 12228 17996 "GET /game3 HTTP/1.1" 200 39
+INFO 2023-10-07 10:00:40,119 autoreload 9872 17676 Watching for file changes with StatReloader
+INFO 2023-10-07 10:00:45,400 views 9872 8500 Сработала игра 2 "1213123", выпало 23
+INFO 2023-10-07 10:00:45,400 basehttp 9872 8500 "GET /game3 HTTP/1.1" 200 39
+INFO 2023-10-07 10:01:03,671 views 9872 8500 Сработала игра 2 "1213123", выпало 94
+INFO 2023-10-07 10:01:03,671 basehttp 9872 8500 "GET /game3 HTTP/1.1" 200 39
+INFO 2023-10-07 20:12:04,151 autoreload 8024 8552 Watching for file changes with StatReloader
+INFO 2023-10-07 20:12:30,955 basehttp 8024 9280 "GET / HTTP/1.1" 200 26
+WARNING 2023-10-07 20:12:31,012 log 8024 9280 Not Found: /favicon.ico
+WARNING 2023-10-07 20:12:31,013 basehttp 8024 9280 "GET /favicon.ico HTTP/1.1" 404 2949
+INFO 2023-10-07 20:13:01,041 views 8024 18076 Сработала игра "орел-решка" - Результат ==> орел время броска: None
+INFO 2023-10-07 20:13:01,047 basehttp 8024 18076 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-07 20:13:47,721 views 8024 18076 Сработала игра "орел-решка" - Результат ==> орел время броска: None
+ERROR 2023-10-07 20:13:53,289 log 8024 18076 Internal Server Error: /game1
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 18, in game1
+    drop_step.save()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+ERROR 2023-10-07 20:13:53,294 basehttp 8024 18076 "GET /game1 HTTP/1.1" 500 142661
+INFO 2023-10-07 20:14:06,510 views 8024 18076 Сработала игра "орел-решка" - Результат ==> орел время броска: None
+INFO 2023-10-07 20:14:06,519 basehttp 8024 18076 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-07 20:14:11,374 views 8024 18076 Сработала игра "орел-решка" - Результат ==> орел время броска: None
+INFO 2023-10-07 20:14:11,382 basehttp 8024 18076 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-07 20:14:13,779 views 8024 18076 Сработала игра "орел-решка" - Результат ==> орел время броска: None
+INFO 2023-10-07 20:14:13,785 basehttp 8024 18076 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-07 20:14:16,063 views 8024 18076 Сработала игра "орел-решка" - Результат ==> решка время броска: None
+INFO 2023-10-07 20:14:16,071 basehttp 8024 18076 "GET /game1 HTTP/1.1" 200 135
+INFO 2023-10-07 20:14:17,756 views 8024 18076 Сработала игра "орел-решка" - Результат ==> орел время броска: None
+INFO 2023-10-07 20:14:17,766 basehttp 8024 18076 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-07 20:22:08,582 basehttp 8024 5640 "GET / HTTP/1.1" 200 26
+INFO 2023-10-07 20:22:44,326 views 8024 5640 Сработала игра "орел-решка" - Результат ==> решка время броска: None
+ERROR 2023-10-07 20:22:49,869 log 8024 5640 Internal Server Error: /game1
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 18, in game1
+    drop_step.save()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+ERROR 2023-10-07 20:22:49,872 basehttp 8024 5640 "GET /game1 HTTP/1.1" 500 143100
+INFO 2023-10-07 20:23:06,029 views 8024 5640 Сработала игра "орел-решка" - Результат ==> решка время броска: None
+INFO 2023-10-07 20:23:06,035 basehttp 8024 5640 "GET /game1 HTTP/1.1" 200 135
+INFO 2023-10-07 20:24:16,979 autoreload 2840 10440 Watching for file changes with StatReloader
+INFO 2023-10-07 20:24:20,667 views 2840 15412 Сработала игра "орел-решка" - Результат ==> орел время броска: None
+INFO 2023-10-07 20:24:20,676 basehttp 2840 15412 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-07 20:24:49,835 autoreload 2840 10440 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-07 20:24:50,311 autoreload 17748 13040 Watching for file changes with StatReloader
+INFO 2023-10-07 20:24:51,965 views 17748 4336 Сработала игра "орел-решка" - Результат ==> решка время броска: решка
+INFO 2023-10-07 20:24:51,974 basehttp 17748 4336 "GET /game1 HTTP/1.1" 200 113
+INFO 2023-10-07 20:24:57,306 views 17748 4336 Сработала игра "орел-решка" - Результат ==> решка время броска: решка
+INFO 2023-10-07 20:24:57,313 basehttp 17748 4336 "GET /game1 HTTP/1.1" 200 113
+INFO 2023-10-07 20:25:38,750 autoreload 17748 13040 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-07 20:25:39,233 autoreload 2388 18392 Watching for file changes with StatReloader
+INFO 2023-10-07 20:25:56,839 views 2388 9804 Сработала игра "орел-решка" - Результат ==> орел время броска: None
+INFO 2023-10-07 20:25:56,847 basehttp 2388 9804 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-07 20:26:02,222 views 2388 9804 Сработала игра "орел-решка" - Результат ==> решка время броска: None
+INFO 2023-10-07 20:26:02,230 basehttp 2388 9804 "GET /game1 HTTP/1.1" 200 135
+INFO 2023-10-07 20:29:23,788 autoreload 2388 18392 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-07 20:29:24,264 autoreload 17892 12856 Watching for file changes with StatReloader
+INFO 2023-10-07 20:29:25,235 views 17892 14600 Сработала игра "орел-решка" - Результат ==> орел время броска: 2023-10-07 17:29:25.230701+00:00
+INFO 2023-10-07 20:29:25,236 basehttp 17892 14600 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-07 20:29:29,661 views 17892 14600 Сработала игра "орел-решка" - Результат ==> орел время броска: 2023-10-07 17:29:29.654877+00:00
+INFO 2023-10-07 20:29:29,662 basehttp 17892 14600 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-08 10:15:17,981 autoreload 752 17756 Watching for file changes with StatReloader
+INFO 2023-10-08 10:15:21,909 basehttp 752 14632 "GET / HTTP/1.1" 200 26
+WARNING 2023-10-08 10:15:22,131 log 752 14632 Not Found: /favicon.ico
+WARNING 2023-10-08 10:15:22,131 basehttp 752 14632 "GET /favicon.ico HTTP/1.1" 404 2949
+WARNING 2023-10-08 10:15:25,473 log 752 684 Not Found: /select_all_n
+WARNING 2023-10-08 10:15:25,474 basehttp 752 684 "GET /select_all_n HTTP/1.1" 404 2952
+INFO 2023-10-08 10:15:56,276 views 752 684 Сработала игра 2 "1213123", выпало 14
+INFO 2023-10-08 10:15:56,277 basehttp 752 684 "GET /game3 HTTP/1.1" 200 39
+INFO 2023-10-08 10:15:59,969 views 752 684 Сработала игра "орел-решка" - Результат ==> решка время броска: 2023-10-08 07:15:59.961495+00:00
+INFO 2023-10-08 10:15:59,970 basehttp 752 684 "GET /game1 HTTP/1.1" 200 135
+WARNING 2023-10-08 10:16:10,058 log 752 684 Not Found: /select_all_n
+WARNING 2023-10-08 10:16:10,058 basehttp 752 684 "GET /select_all_n HTTP/1.1" 404 2952
+INFO 2023-10-08 10:16:55,802 autoreload 752 17756 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-08 10:16:56,267 autoreload 13836 7952 Watching for file changes with StatReloader
+INFO 2023-10-08 10:16:56,498 basehttp 13836 4256 "GET /select_all_n HTTP/1.1" 200 431
+INFO 2023-10-08 10:17:30,159 autoreload 13836 7952 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-08 10:17:30,636 autoreload 13108 17136 Watching for file changes with StatReloader
+INFO 2023-10-08 10:17:32,493 basehttp 13108 7680 "GET /select_all_n HTTP/1.1" 200 27
+INFO 2023-10-08 10:23:10,797 autoreload 13108 17136 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-08 10:23:11,268 autoreload 11140 1888 Watching for file changes with StatReloader
+ERROR 2023-10-08 10:23:12,442 log 11140 1076 Internal Server Error: /select_all_n
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: select_all_n() missing 1 required positional argument: 'n'
+ERROR 2023-10-08 10:23:12,443 basehttp 11140 1076 "GET /select_all_n HTTP/1.1" 500 61221
+WARNING 2023-10-08 10:23:23,065 log 11140 1076 Not Found: /select_all_n 4
+WARNING 2023-10-08 10:23:23,066 basehttp 11140 1076 "GET /select_all_n%204 HTTP/1.1" 404 3140
+WARNING 2023-10-08 10:23:32,762 log 11140 1076 Not Found: /select_all_n 2
+WARNING 2023-10-08 10:23:32,763 basehttp 11140 1076 "GET /select_all_n%202 HTTP/1.1" 404 3140
+INFO 2023-10-08 10:23:42,958 autoreload 11140 1888 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-08 10:23:43,430 autoreload 12404 11196 Watching for file changes with StatReloader
+WARNING 2023-10-08 10:23:44,199 log 12404 13884 Not Found: /select_all_n 2
+WARNING 2023-10-08 10:23:44,199 basehttp 12404 13884 "GET /select_all_n%202 HTTP/1.1" 404 3140
+INFO 2023-10-08 10:25:11,970 autoreload 12404 11196 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-08 10:25:12,436 autoreload 17308 4784 Watching for file changes with StatReloader
+WARNING 2023-10-08 10:25:15,928 log 17308 2108 Not Found: /select_all_n 2
+WARNING 2023-10-08 10:25:15,928 basehttp 17308 2108 "GET /select_all_n%202 HTTP/1.1" 404 3150
+WARNING 2023-10-08 10:25:17,745 log 17308 2108 Not Found: /select_all_n 2
+WARNING 2023-10-08 10:25:17,745 basehttp 17308 2108 "GET /select_all_n%202 HTTP/1.1" 404 3150
+WARNING 2023-10-08 10:25:27,471 log 17308 2108 Not Found: /select_all_n 2
+WARNING 2023-10-08 10:25:27,472 basehttp 17308 2108 "GET /select_all_n%202 HTTP/1.1" 404 3150
+INFO 2023-10-08 10:26:26,289 autoreload 17308 4784 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-08 10:26:26,784 autoreload 5360 2816 Watching for file changes with StatReloader
+WARNING 2023-10-08 10:26:31,778 log 5360 12064 Not Found: /select_all_n 2
+WARNING 2023-10-08 10:26:31,778 basehttp 5360 12064 "GET /select_all_n%202 HTTP/1.1" 404 3154
+INFO 2023-10-08 10:27:01,813 basehttp 5360 12064 "GET /select_all_n/2 HTTP/1.1" 200 27
+INFO 2023-10-08 10:27:13,965 basehttp 5360 12064 "GET /select_all_n/3 HTTP/1.1" 200 27
+INFO 2023-10-08 10:27:17,916 basehttp 5360 12064 "GET /select_all_n/5 HTTP/1.1" 200 27
+INFO 2023-10-08 10:27:21,508 basehttp 5360 12064 "GET /select_all_n/10 HTTP/1.1" 200 27
+INFO 2023-10-08 10:27:25,229 basehttp 5360 12064 "GET /select_all_n/101 HTTP/1.1" 200 28
+INFO 2023-10-08 10:27:28,556 basehttp 5360 12064 "GET /select_all_n/1011 HTTP/1.1" 200 28
+INFO 2023-10-08 10:28:21,547 autoreload 5360 2816 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-08 10:28:22,041 autoreload 5792 14812 Watching for file changes with StatReloader
+WARNING 2023-10-08 10:28:23,854 log 5792 18056 Not Found: /select_all_n/1011
+WARNING 2023-10-08 10:28:23,855 basehttp 5792 18056 "GET /select_all_n/1011 HTTP/1.1" 404 3161
+INFO 2023-10-08 10:28:28,645 basehttp 5792 18056 "GET /select_all_n%2010 HTTP/1.1" 200 27
+INFO 2023-10-08 10:30:46,168 autoreload 5792 14812 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:30:46,650 autoreload 15480 12752 Watching for file changes with StatReloader
+INFO 2023-10-08 10:30:47,219 basehttp 15480 9748 "GET /select_all_n%2010 HTTP/1.1" 200 28
+INFO 2023-10-08 10:30:52,843 basehttp 15480 9748 "GET /select_all_n%2010444 HTTP/1.1" 200 28
+INFO 2023-10-08 10:31:29,889 autoreload 15480 12752 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-08 10:31:30,349 autoreload 15172 5116 Watching for file changes with StatReloader
+INFO 2023-10-08 10:31:31,266 basehttp 15172 8788 "GET /select_all_n%2010444 HTTP/1.1" 200 1532
+INFO 2023-10-08 10:32:19,838 autoreload 15172 5116 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:32:20,327 autoreload 16820 11332 Watching for file changes with StatReloader
+INFO 2023-10-08 10:32:21,041 basehttp 16820 11164 "GET /select_all_n%2010444 HTTP/1.1" 200 1532
+INFO 2023-10-08 10:32:25,196 basehttp 16820 11164 "GET /select_all_n%2010444 HTTP/1.1" 200 1532
+INFO 2023-10-08 10:32:30,211 basehttp 16820 11164 "GET /select_all_n%2045 HTTP/1.1" 200 1532
+INFO 2023-10-08 10:34:07,934 autoreload 16820 11332 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-08 10:34:08,413 autoreload 696 11156 Watching for file changes with StatReloader
+INFO 2023-10-08 10:34:10,682 basehttp 696 18012 "GET /select_all_n%2045 HTTP/1.1" 200 1347
+INFO 2023-10-08 10:35:11,636 autoreload 696 11156 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:35:12,109 autoreload 1444 11196 Watching for file changes with StatReloader
+INFO 2023-10-08 10:35:12,371 basehttp 1444 8524 "GET /select_all_n%2045 HTTP/1.1" 200 1407
+INFO 2023-10-08 10:35:35,441 autoreload 1444 11196 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:35:35,917 autoreload 6584 12480 Watching for file changes with StatReloader
+INFO 2023-10-08 10:35:36,120 basehttp 6584 15740 "GET /select_all_n%2045 HTTP/1.1" 200 2
+INFO 2023-10-08 10:35:52,959 basehttp 6584 15740 "GET /select_all_n%2045 HTTP/1.1" 200 2
+INFO 2023-10-08 10:35:53,011 autoreload 6584 12480 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:35:53,474 autoreload 14156 7800 Watching for file changes with StatReloader
+INFO 2023-10-08 10:37:13,879 autoreload 14156 7800 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:37:14,335 autoreload 6764 9828 Watching for file changes with StatReloader
+ERROR 2023-10-08 10:37:14,665 log 6764 7744 Internal Server Error: /select_all_n 45
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 35, in select_all_n
+    drops_all = Drop.sum_drops(n)
+  File "C:\Users\stavr\django\sem02_task1_app\models.py", line 16, in sum_drops
+    return [str(i) + '<br>' for i in drops[-n:]]
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 429, in __getitem__
+    raise ValueError("Negative indexing is not supported.")
+ValueError: Negative indexing is not supported.
+ERROR 2023-10-08 10:37:14,667 basehttp 6764 7744 "GET /select_all_n%2045 HTTP/1.1" 500 74018
+INFO 2023-10-08 10:37:30,329 autoreload 6764 9828 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:37:30,820 autoreload 17064 11388 Watching for file changes with StatReloader
+INFO 2023-10-08 10:37:30,993 basehttp 17064 14548 "GET /select_all_n%2045 HTTP/1.1" 200 1407
+INFO 2023-10-08 10:39:01,006 autoreload 17064 11388 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:39:01,476 autoreload 4292 11548 Watching for file changes with StatReloader
+INFO 2023-10-08 10:39:03,827 basehttp 4292 13148 "GET /select_all_n%2045 HTTP/1.1" 200 1407
+INFO 2023-10-08 10:39:07,660 basehttp 4292 13148 "GET /select_all_n%2045 HTTP/1.1" 200 1407
+INFO 2023-10-08 10:39:21,992 basehttp 4292 13148 "GET /select_all_n%204 HTTP/1.1" 200 376
+INFO 2023-10-08 10:43:43,930 autoreload 4292 11548 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:43:44,418 autoreload 18208 13884 Watching for file changes with StatReloader
+INFO 2023-10-08 10:43:46,904 basehttp 18208 12628 "GET /select_all_n%204 HTTP/1.1" 200 376
+INFO 2023-10-08 10:44:50,800 autoreload 18208 13884 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:44:51,276 autoreload 17872 12136 Watching for file changes with StatReloader
+INFO 2023-10-08 10:44:52,519 basehttp 17872 2116 "GET /select_all_n%204 HTTP/1.1" 200 384
+INFO 2023-10-08 10:45:01,417 basehttp 17872 2116 "GET /select_all_n%2010 HTTP/1.1" 200 960
+INFO 2023-10-08 10:46:47,987 autoreload 17872 12136 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:46:48,544 autoreload 9788 6848 Watching for file changes with StatReloader
+INFO 2023-10-08 10:46:56,696 basehttp 9788 18368 "GET /select_all_n%2010 HTTP/1.1" 200 1028
+INFO 2023-10-08 10:47:09,520 basehttp 9788 18368 "GET /select_all_n%2012 HTTP/1.1" 200 1228
+INFO 2023-10-08 10:47:15,232 basehttp 9788 18368 "GET /select_all_n%2013 HTTP/1.1" 200 1327
+INFO 2023-10-08 10:47:28,840 basehttp 9788 18368 "GET /select_all_n%203 HTTP/1.1" 200 327
+INFO 2023-10-08 10:48:21,754 autoreload 9788 6848 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:48:22,227 autoreload 17688 6976 Watching for file changes with StatReloader
+INFO 2023-10-08 10:52:01,520 autoreload 17688 6976 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:52:01,988 autoreload 17292 1772 Watching for file changes with StatReloader
+INFO 2023-10-08 10:53:35,493 autoreload 17292 1772 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:53:35,997 autoreload 15624 2028 Watching for file changes with StatReloader
+INFO 2023-10-08 10:53:41,551 basehttp 15624 12552 "GET /select_all_n%203 HTTP/1.1" 200 32
+INFO 2023-10-08 10:53:50,012 basehttp 15624 12552 "GET /select_all_n%2013 HTTP/1.1" 200 32
+INFO 2023-10-08 10:55:58,149 autoreload 15624 2028 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:55:58,624 autoreload 13360 14096 Watching for file changes with StatReloader
+INFO 2023-10-08 10:58:58,442 autoreload 13360 14096 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 10:58:58,947 autoreload 18364 10744 Watching for file changes with StatReloader
+INFO 2023-10-08 10:59:02,379 basehttp 18364 17028 "GET /select_all_n%2013 HTTP/1.1" 200 1362
+INFO 2023-10-08 11:00:59,067 autoreload 18364 10744 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:00:59,565 autoreload 10012 14972 Watching for file changes with StatReloader
+INFO 2023-10-08 11:00:59,886 basehttp 10012 2132 "GET /select_all_n%2013 HTTP/1.1" 200 32
+INFO 2023-10-08 11:01:04,079 basehttp 10012 2132 "GET /select_all_n%206 HTTP/1.1" 200 32
+INFO 2023-10-08 11:01:07,441 basehttp 10012 2132 "GET /select_all_n%204 HTTP/1.1" 200 32
+INFO 2023-10-08 11:01:15,172 basehttp 10012 2132 "GET /select_all_n%202 HTTP/1.1" 200 32
+INFO 2023-10-08 11:01:22,728 basehttp 10012 2132 "GET /select_all_n%206 HTTP/1.1" 200 32
+INFO 2023-10-08 11:01:48,471 autoreload 10012 14972 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:01:48,957 autoreload 8308 12672 Watching for file changes with StatReloader
+INFO 2023-10-08 11:01:50,471 basehttp 8308 3616 "GET /select_all_n%206 HTTP/1.1" 200 1508
+INFO 2023-10-08 11:03:00,074 autoreload 8308 12672 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:03:00,607 autoreload 12456 10736 Watching for file changes with StatReloader
+INFO 2023-10-08 11:03:00,887 basehttp 12456 7716 "GET /select_all_n%206 HTTP/1.1" 200 32
+INFO 2023-10-08 11:03:04,640 basehttp 12456 7716 "GET /select_all_n%2014 HTTP/1.1" 200 32
+INFO 2023-10-08 11:09:54,376 autoreload 12456 10736 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:09:54,900 autoreload 11420 12484 Watching for file changes with StatReloader
+INFO 2023-10-08 11:10:05,668 autoreload 11420 12484 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:10:06,174 autoreload 6244 12300 Watching for file changes with StatReloader
+INFO 2023-10-08 11:11:46,892 autoreload 6244 12300 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:11:47,376 autoreload 2004 7820 Watching for file changes with StatReloader
+INFO 2023-10-08 11:12:42,571 autoreload 2004 7820 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:12:43,056 autoreload 4776 7844 Watching for file changes with StatReloader
+INFO 2023-10-08 11:13:34,696 autoreload 4776 7844 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:13:35,181 autoreload 10808 14228 Watching for file changes with StatReloader
+INFO 2023-10-08 11:13:39,647 autoreload 10808 14228 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:13:40,133 autoreload 17036 2376 Watching for file changes with StatReloader
+INFO 2023-10-08 11:14:10,982 autoreload 17036 2376 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-08 11:14:11,474 autoreload 7392 1284 Watching for file changes with StatReloader

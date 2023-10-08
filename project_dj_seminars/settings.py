@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'sem01_app',
     'sem01_games_app',
+    'sem02_task1_app',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ WSGI_APPLICATION = "project_dj_seminars.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": BASE_DIR / "db_sem02.sqlite3",
     }
 }
 
@@ -145,7 +146,7 @@ LOGGING = {
         },
         'file': {
             'class': 'logging.FileHandler',
-            'filename': './log_seminar/django.log',
+            'filename': 'project_dj_seminars/log_seminar/django.log',
             'formatter': 'verbose',  # добавлен параметр formatter
             'encoding': 'utf-8',
         },
