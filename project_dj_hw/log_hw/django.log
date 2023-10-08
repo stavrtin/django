@@ -4,3 +4,20 @@ INFO 2023-10-07 10:38:22,685 views 16276 11104 Сработал переход �
 INFO 2023-10-07 10:38:22,686 basehttp 16276 11104 "GET / HTTP/1.1" 200 199
 INFO 2023-10-07 10:38:25,211 views 16276 11104 Сработал переход на "обо мне" 
 INFO 2023-10-07 10:38:25,211 basehttp 16276 11104 "GET /about/ HTTP/1.1" 200 244
+INFO 2023-10-07 11:30:36,647 views 16276 14480 Сработал переход на "обо мне" 
+INFO 2023-10-07 11:30:36,648 basehttp 16276 14480 "GET /about/ HTTP/1.1" 200 244
+INFO 2023-10-07 11:30:43,165 views 16276 14480 Сработал переход на главную
+INFO 2023-10-07 11:30:43,165 basehttp 16276 14480 "GET / HTTP/1.1" 200 199
+INFO 2023-10-08 13:13:05,595 autoreload 3392 18348 Watching for file changes with StatReloader
+WARNING 2023-10-08 13:13:11,357 log 3392 3044 Not Found: /select_all_n 14
+WARNING 2023-10-08 13:13:11,358 basehttp 3392 3044 "GET /select_all_n%2014 HTTP/1.1" 404 2463
+INFO 2023-10-08 13:13:18,114 views 3392 3044 Сработал переход на главную
+INFO 2023-10-08 13:13:18,114 basehttp 3392 3044 "GET / HTTP/1.1" 200 199
+INFO 2023-10-08 13:17:07,311 autoreload 3392 18348 C:\Users\stavr\django\project_dj_hw\hw01_app\models.py changed, reloading.
+INFO 2023-10-08 13:17:07,788 autoreload 15732 13748 Watching for file changes with StatReloader
+INFO 2023-10-08 13:17:38,251 autoreload 15732 13748 C:\Users\stavr\django\project_dj_hw\hw01_app\models.py changed, reloading.
+INFO 2023-10-08 13:17:38,721 autoreload 13232 2440 Watching for file changes with StatReloader
+INFO 2023-10-08 13:19:29,883 autoreload 13232 2440 C:\Users\stavr\django\project_dj_hw\hw01_app\models.py changed, reloading.
+INFO 2023-10-08 13:19:30,389 autoreload 15916 11044 Watching for file changes with StatReloader
+INFO 2023-10-08 13:20:13,400 autoreload 15916 11044 C:\Users\stavr\django\project_dj_hw\hw01_app\models.py changed, reloading.
+INFO 2023-10-08 13:20:13,876 autoreload 8684 13596 Watching for file changes with StatReloader
