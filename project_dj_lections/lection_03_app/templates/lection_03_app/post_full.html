@@ -1,0 +1,9 @@
+{% extends 'base_proj.html' %}
+
+{% block title %} {{ post.title }}'s Posts {% endblock %}
+
+{% block content %}
+    <h3>{{ post.title }}</h3>
+     <p>{{ post.content }}</p>
+
+{% endblock %}
