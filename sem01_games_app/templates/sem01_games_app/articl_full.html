@@ -1,0 +1,19 @@
+{% extends 'sem01_games_app/base_03.html' %}
+{% block title %}Это - новый заголовок {% endblock %}
+
+{% block text1 %}
+<h1>Статья автора {{ articl.title }}</h1>
+{% endblock %}
+
+{% block text2 %}
+<p>{{articl.title}} <br>
+<p>{{articl.description}} <br><br>
+    {{articl.count_view}}<br>
+{% if comments %}
+{% for comment in comments %}
+    {{comment.description}}<br>
+    {% endfor %}
+{% else %}
+    <p>нет комментариев</p>
+    {% endif %}
+{% endblock %}

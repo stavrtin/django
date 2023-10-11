@@ -1,0 +1,18 @@
+{% extends 'sem01_games_app/base_03.html' %}
+{% block title %}Это - новый заголовок {% endblock %}
+
+{% block text1 %}
+<h1>Обо мне</h1>
+{% endblock %}
+
+{% block text2 %}
+<p>Результаты бросков: <br>
+    <ul>
+{% for item in result_drops %}
+<li>{{ item }}</li>
+{% endfor %}
+    </ul>
+
+    </p>
+{% endblock %}
+{{ prosto_text}}

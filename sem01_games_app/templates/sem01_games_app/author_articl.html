@@ -1,0 +1,24 @@
+{% extends 'sem01_games_app/base_03.html' %}
+{% block title %}Это - новый заголовок {% endblock %}
+
+{% block text1 %}
+<h1>Статья автора {{ author }}</h1>
+{% endblock %}
+
+{% block text2 %}
+<p>Его статьи: <br>
+    <ul>
+{% for articl in articls %}
+<li>
+    {% if articl.publicated == 1 %}
+     <a href="{% url 'articl_full' articl.id %}">{{ articl.title  }}</a>
+   {% else %}
+         {{ articl.title }}
+    {% endif %}
+
+</li>
+{% endfor %}
+    </ul>
+
+    </p>
+{% endblock %}
