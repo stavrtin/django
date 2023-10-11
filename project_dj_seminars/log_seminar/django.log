@@ -308,3 +308,1269 @@ INFO 2023-10-08 11:13:39,647 autoreload 10808 14228 C:\Users\stavr\django\sem02_
 INFO 2023-10-08 11:13:40,133 autoreload 17036 2376 Watching for file changes with StatReloader
 INFO 2023-10-08 11:14:10,982 autoreload 17036 2376 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
 INFO 2023-10-08 11:14:11,474 autoreload 7392 1284 Watching for file changes with StatReloader
+INFO 2023-10-10 21:46:54,628 autoreload 7908 5284 Watching for file changes with StatReloader
+INFO 2023-10-10 21:47:08,119 basehttp 7908 680 "GET / HTTP/1.1" 200 26
+WARNING 2023-10-10 21:47:08,212 log 7908 680 Not Found: /favicon.ico
+WARNING 2023-10-10 21:47:08,213 basehttp 7908 680 "GET /favicon.ico HTTP/1.1" 404 3143
+WARNING 2023-10-10 21:47:17,040 log 7908 18160 Not Found: /for/
+WARNING 2023-10-10 21:47:17,041 basehttp 7908 18160 "GET /for/ HTTP/1.1" 404 3122
+WARNING 2023-10-10 21:47:22,814 log 7908 18160 Not Found: /for/2
+WARNING 2023-10-10 21:47:22,815 basehttp 7908 18160 "GET /for/2 HTTP/1.1" 404 3125
+INFO 2023-10-11 20:42:39,260 autoreload 9792 16312 Watching for file changes with StatReloader
+INFO 2023-10-11 20:42:47,945 basehttp 9792 7376 "GET / HTTP/1.1" 200 26
+WARNING 2023-10-11 20:42:48,040 log 9792 7376 Not Found: /favicon.ico
+WARNING 2023-10-11 20:42:48,041 basehttp 9792 7376 "GET /favicon.ico HTTP/1.1" 404 3143
+INFO 2023-10-11 20:43:08,611 basehttp 9792 9828 "GET /select_all_n%202 HTTP/1.1" 200 32
+INFO 2023-10-11 20:43:14,229 basehttp 9792 9828 "GET /select_all_n%203 HTTP/1.1" 200 32
+INFO 2023-10-11 20:43:23,179 basehttp 9792 9828 "GET /select_all_n%2010 HTTP/1.1" 200 32
+INFO 2023-10-11 20:43:27,368 basehttp 9792 9828 "GET /select_all_n%2012 HTTP/1.1" 200 32
+INFO 2023-10-11 20:43:29,940 basehttp 9792 9828 "GET /select_all_n%2014 HTTP/1.1" 200 32
+ERROR 2023-10-11 20:43:47,601 log 9792 9828 Internal Server Error: /game1
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 17, in game1
+    drop_step.save()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+ERROR 2023-10-11 20:43:47,607 basehttp 9792 9828 "GET /game1 HTTP/1.1" 500 143951
+INFO 2023-10-11 20:44:09,829 views 9792 9828 Сработала игра "орел-решка" - Результат ==> орел время броска: 2023-10-11 17:44:09.822470+00:00
+INFO 2023-10-11 20:44:09,830 basehttp 9792 9828 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-11 20:44:14,629 views 9792 9828 Сработала игра 2 "кости", выпало 1
+INFO 2023-10-11 20:44:14,629 basehttp 9792 9828 "GET /game2 HTTP/1.1" 200 45
+INFO 2023-10-11 20:46:56,384 autoreload 9792 16312 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 20:46:57,690 autoreload 17128 17308 Watching for file changes with StatReloader
+INFO 2023-10-11 20:47:41,842 autoreload 17128 17308 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 20:47:42,342 autoreload 12468 13012 Watching for file changes with StatReloader
+WARNING 2023-10-11 20:48:01,425 log 12468 10404 Not Found: /view_strt
+WARNING 2023-10-11 20:48:01,426 basehttp 12468 10404 "GET /view_strt HTTP/1.1" 404 3137
+INFO 2023-10-11 20:48:49,747 autoreload 12468 13012 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 20:48:50,225 autoreload 3456 6160 Watching for file changes with StatReloader
+INFO 2023-10-11 20:48:58,110 basehttp 3456 10176 "GET /start HTTP/1.1" 200 168
+INFO 2023-10-11 20:50:32,138 autoreload 3456 6160 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 20:50:32,620 autoreload 14440 16200 Watching for file changes with StatReloader
+ERROR 2023-10-11 20:50:33,132 log 14440 8748 Internal Server Error: /start
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 42, in view_start
+    return render(request, 'sem01_games_app/start.html', context=context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\backends\django.py", line 57, in render
+    context = make_context(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\context.py", line 278, in make_context
+    raise TypeError(
+TypeError: context must be a dict rather than str.
+ERROR 2023-10-11 20:50:33,134 basehttp 14440 8748 "GET /start HTTP/1.1" 500 80102
+INFO 2023-10-11 20:51:01,200 autoreload 14440 16200 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 20:51:01,680 autoreload 4252 6244 Watching for file changes with StatReloader
+INFO 2023-10-11 20:51:01,902 basehttp 4252 18120 "GET /start HTTP/1.1" 200 184
+INFO 2023-10-11 20:51:13,504 autoreload 4252 6244 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 20:51:13,970 autoreload 13032 4600 Watching for file changes with StatReloader
+INFO 2023-10-11 20:51:14,230 basehttp 13032 11088 "GET /start HTTP/1.1" 200 184
+INFO 2023-10-11 20:51:19,475 autoreload 13032 4600 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 20:51:19,946 autoreload 1296 5288 Watching for file changes with StatReloader
+INFO 2023-10-11 20:51:21,097 basehttp 1296 3852 "GET /start HTTP/1.1" 200 189
+INFO 2023-10-11 20:51:42,271 autoreload 1296 5288 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 20:51:42,750 autoreload 15144 17012 Watching for file changes with StatReloader
+INFO 2023-10-11 20:51:43,492 basehttp 15144 10844 "GET /start HTTP/1.1" 200 181
+INFO 2023-10-11 20:58:00,988 autoreload 15144 17012 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 20:58:01,477 autoreload 640 9548 Watching for file changes with StatReloader
+ERROR 2023-10-11 20:58:05,992 log 640 4740 Internal Server Error: /start
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\engine.py", line 161, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base_03.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 47, in view_start
+    return render(request, 'sem01_games_app/start.html', context=exit_cont)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base_03.html
+ERROR 2023-10-11 20:58:05,996 basehttp 640 4740 "GET /start HTTP/1.1" 500 127893
+INFO 2023-10-11 20:58:29,540 basehttp 640 4740 "GET /start HTTP/1.1" 200 251
+INFO 2023-10-11 20:59:26,956 autoreload 640 9548 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 20:59:27,443 autoreload 13304 11192 Watching for file changes with StatReloader
+INFO 2023-10-11 21:01:25,943 autoreload 13304 11192 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 21:01:26,421 autoreload 13880 16216 Watching for file changes with StatReloader
+INFO 2023-10-11 21:02:35,361 autoreload 16140 11592 Watching for file changes with StatReloader
+WARNING 2023-10-11 21:02:39,791 log 16140 17744 Not Found: /startq
+WARNING 2023-10-11 21:02:39,792 basehttp 16140 17744 "GET /startq HTTP/1.1" 404 3313
+ERROR 2023-10-11 21:02:43,850 log 16140 17744 Internal Server Error: /start/q
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() got an unexpected keyword argument 'n'
+ERROR 2023-10-11 21:02:43,851 basehttp 16140 17744 "GET /start/q HTTP/1.1" 500 61015
+ERROR 2023-10-11 21:03:08,843 log 16140 17744 Internal Server Error: /start/ q
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() got an unexpected keyword argument 'n'
+ERROR 2023-10-11 21:03:08,844 basehttp 16140 17744 "GET /start/%20q HTTP/1.1" 500 61033
+ERROR 2023-10-11 21:03:12,955 log 16140 17744 Internal Server Error: /start/n
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() got an unexpected keyword argument 'n'
+ERROR 2023-10-11 21:03:12,956 basehttp 16140 17744 "GET /start/n HTTP/1.1" 500 61015
+ERROR 2023-10-11 21:03:22,355 log 16140 17744 Internal Server Error: /start/nsad
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() got an unexpected keyword argument 'n'
+ERROR 2023-10-11 21:03:22,356 basehttp 16140 17744 "GET /start/nsad HTTP/1.1" 500 61045
+WARNING 2023-10-11 21:03:59,271 log 16140 17744 Not Found: /start
+WARNING 2023-10-11 21:03:59,272 basehttp 16140 17744 "GET /start HTTP/1.1" 404 3310
+ERROR 2023-10-11 21:04:04,602 log 16140 17744 Internal Server Error: /start/e
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() got an unexpected keyword argument 'n'
+ERROR 2023-10-11 21:04:04,604 basehttp 16140 17744 "GET /start/e HTTP/1.1" 500 61015
+ERROR 2023-10-11 21:04:32,947 log 16140 17744 Internal Server Error: /start/'asd'
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() got an unexpected keyword argument 'n'
+ERROR 2023-10-11 21:04:32,948 basehttp 16140 17744 "GET /start/'asd' HTTP/1.1" 500 61155
+INFO 2023-10-11 21:05:07,743 autoreload 16140 11592 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 21:05:08,217 autoreload 4408 10708 Watching for file changes with StatReloader
+INFO 2023-10-11 21:05:10,663 basehttp 4408 3660 "GET /start HTTP/1.1" 200 251
+INFO 2023-10-11 21:05:23,225 autoreload 4408 10708 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 21:05:23,687 autoreload 16632 16376 Watching for file changes with StatReloader
+INFO 2023-10-11 21:05:24,006 basehttp 16632 680 "GET /start HTTP/1.1" 200 251
+INFO 2023-10-11 21:05:59,007 basehttp 16632 680 "GET /start HTTP/1.1" 200 251
+INFO 2023-10-11 21:06:08,966 autoreload 16632 16376 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 21:06:09,440 autoreload 15316 4968 Watching for file changes with StatReloader
+INFO 2023-10-11 21:06:09,786 basehttp 15316 3080 "GET /start HTTP/1.1" 200 257
+INFO 2023-10-11 21:06:39,600 basehttp 15316 3080 "GET /start HTTP/1.1" 200 252
+INFO 2023-10-11 21:07:00,459 basehttp 15316 3080 "GET /start HTTP/1.1" 200 259
+INFO 2023-10-11 21:07:45,021 autoreload 15316 4968 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 21:07:45,508 autoreload 16640 13256 Watching for file changes with StatReloader
+INFO 2023-10-11 21:07:45,937 basehttp 16640 548 "GET /start HTTP/1.1" 200 259
+INFO 2023-10-11 21:08:14,113 basehttp 16640 548 "GET /start HTTP/1.1" 200 260
+INFO 2023-10-11 21:08:30,918 autoreload 16640 13256 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 21:08:31,402 autoreload 12348 15592 Watching for file changes with StatReloader
+ERROR 2023-10-11 21:08:31,799 log 12348 3748 Internal Server Error: /start
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() missing 1 required positional argument: 'n'
+ERROR 2023-10-11 21:08:31,800 basehttp 12348 3748 "GET /start HTTP/1.1" 500 61126
+WARNING 2023-10-11 21:08:37,927 log 12348 3748 Not Found: /start/d
+WARNING 2023-10-11 21:08:37,928 basehttp 12348 3748 "GET /start/d HTTP/1.1" 404 3302
+INFO 2023-10-11 21:08:56,920 autoreload 12348 15592 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 21:08:57,395 autoreload 16592 4156 Watching for file changes with StatReloader
+ERROR 2023-10-11 21:08:58,291 log 16592 2488 Internal Server Error: /start/d
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() got an unexpected keyword argument 's'
+ERROR 2023-10-11 21:08:58,292 basehttp 16592 2488 "GET /start/d HTTP/1.1" 500 61152
+INFO 2023-10-11 21:09:47,875 autoreload 16592 4156 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 21:09:48,352 autoreload 5516 8376 Watching for file changes with StatReloader
+INFO 2023-10-11 21:09:50,541 basehttp 5516 11824 "GET /start/d HTTP/1.1" 301 0
+ERROR 2023-10-11 21:09:50,575 log 5516 9504 Internal Server Error: /start/d/
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() got an unexpected keyword argument 's'
+ERROR 2023-10-11 21:09:50,576 basehttp 5516 9504 "GET /start/d/ HTTP/1.1" 500 61024
+INFO 2023-10-11 21:09:58,561 basehttp 5516 9504 "GET /start/dqweq HTTP/1.1" 301 0
+ERROR 2023-10-11 21:09:58,586 log 5516 288 Internal Server Error: /start/dqweq/
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_start() got an unexpected keyword argument 's'
+ERROR 2023-10-11 21:09:58,587 basehttp 5516 288 "GET /start/dqweq/ HTTP/1.1" 500 61064
+INFO 2023-10-11 21:11:17,819 autoreload 5516 8376 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 21:11:18,296 autoreload 17632 8328 Watching for file changes with StatReloader
+INFO 2023-10-11 21:12:34,104 autoreload 2496 8900 Watching for file changes with StatReloader
+INFO 2023-10-11 21:12:38,747 basehttp 2496 12888 "GET /start/dqweq/ HTTP/1.1" 200 258
+INFO 2023-10-11 21:13:25,849 basehttp 2496 12888 "GET /start/dqweq/ HTTP/1.1" 200 314
+INFO 2023-10-11 21:14:07,698 basehttp 2496 12888 "GET /start/dqweq/ HTTP/1.1" 200 314
+INFO 2023-10-11 21:14:34,975 autoreload 2496 8900 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 21:14:35,468 autoreload 14852 15776 Watching for file changes with StatReloader
+INFO 2023-10-11 21:25:11,872 autoreload 14852 15776 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 21:25:12,394 autoreload 16208 12668 Watching for file changes with StatReloader
+ERROR 2023-10-11 21:25:20,014 log 16208 2876 Internal Server Error: /game1/3
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: game1() got an unexpected keyword argument 'count_drop'
+ERROR 2023-10-11 21:25:20,015 basehttp 16208 2876 "GET /game1/3 HTTP/1.1" 500 61013
+INFO 2023-10-11 21:25:53,815 autoreload 16208 12668 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 21:25:54,286 autoreload 11464 13484 Watching for file changes with StatReloader
+INFO 2023-10-11 21:25:55,943 basehttp 11464 15168 "GET /game3/3 HTTP/1.1" 200 342
+INFO 2023-10-11 21:26:21,471 basehttp 11464 15168 "GET /game3/3 HTTP/1.1" 200 342
+INFO 2023-10-11 21:26:26,897 basehttp 11464 15168 "GET /game3/3 HTTP/1.1" 200 342
+INFO 2023-10-11 21:26:59,279 basehttp 11464 15168 "GET /game3/3 HTTP/1.1" 200 400
+INFO 2023-10-11 21:28:55,271 basehttp 11464 9860 "GET /game3/3 HTTP/1.1" 200 426
+INFO 2023-10-11 21:29:02,711 basehttp 11464 9860 "GET /game3/7 HTTP/1.1" 200 486
+INFO 2023-10-11 21:29:07,112 basehttp 11464 9860 "GET /game3/12 HTTP/1.1" 200 565
+INFO 2023-10-11 21:46:55,511 basehttp 11464 6788 "GET / HTTP/1.1" 200 26
+WARNING 2023-10-11 21:46:55,549 log 11464 6788 Not Found: /favicon.ico
+WARNING 2023-10-11 21:46:55,550 basehttp 11464 6788 "GET /favicon.ico HTTP/1.1" 404 3355
+INFO 2023-10-11 21:47:00,784 views 11464 11144 Сработала игра "орел-решка" - Результат ==> орел время броска: 2023-10-11 18:47:00.777988+00:00
+INFO 2023-10-11 21:47:00,785 basehttp 11464 11144 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-11 21:47:08,471 basehttp 11464 11144 "GET /game3/23 HTTP/1.1" 200 738
+INFO 2023-10-11 21:48:20,718 autoreload 11464 13484 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 21:48:21,220 autoreload 8168 1548 Watching for file changes with StatReloader
+INFO 2023-10-11 21:59:17,551 autoreload 8168 1548 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 21:59:18,033 autoreload 8008 17984 Watching for file changes with StatReloader
+ERROR 2023-10-11 21:59:23,828 log 8008 6460 Internal Server Error: /author/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    articl = Article.objects.filter(pk=author_id)
+NameError: name 'author_id' is not defined
+ERROR 2023-10-11 21:59:23,829 basehttp 8008 6460 "GET /author/2 HTTP/1.1" 500 64487
+INFO 2023-10-11 22:00:38,861 autoreload 8008 17984 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:00:39,346 autoreload 11632 12172 Watching for file changes with StatReloader
+INFO 2023-10-11 22:00:41,228 basehttp 11632 8996 "GET /author/2 HTTP/1.1" 200 371
+INFO 2023-10-11 22:03:11,513 autoreload 11632 12172 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:03:11,979 autoreload 17804 6708 Watching for file changes with StatReloader
+INFO 2023-10-11 22:03:14,382 basehttp 17804 8948 "GET /author/2 HTTP/1.1" 200 368
+INFO 2023-10-11 22:03:22,891 basehttp 17804 8948 "GET /author/3 HTTP/1.1" 200 368
+INFO 2023-10-11 22:03:44,821 autoreload 17804 6708 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:03:45,344 autoreload 14720 12248 Watching for file changes with StatReloader
+INFO 2023-10-11 22:03:45,773 basehttp 14720 4336 "GET /author/3 HTTP/1.1" 200 368
+INFO 2023-10-11 22:03:47,679 basehttp 14720 4336 "GET /author/3 HTTP/1.1" 200 368
+INFO 2023-10-11 22:04:00,565 basehttp 14720 4336 "GET /author/3 HTTP/1.1" 200 368
+INFO 2023-10-11 22:04:55,755 autoreload 14720 12248 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:04:56,476 autoreload 13920 9944 Watching for file changes with StatReloader
+INFO 2023-10-11 22:04:56,705 basehttp 13920 16424 "GET /author/3 HTTP/1.1" 200 369
+INFO 2023-10-11 22:06:16,289 autoreload 13920 9944 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:06:16,780 autoreload 4520 3172 Watching for file changes with StatReloader
+INFO 2023-10-11 22:06:18,808 basehttp 4520 11300 "GET /author/3 HTTP/1.1" 200 369
+INFO 2023-10-11 22:12:47,730 autoreload 4520 3172 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:12:48,228 autoreload 14532 11164 Watching for file changes with StatReloader
+INFO 2023-10-11 22:13:30,404 autoreload 14532 11164 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:13:30,897 autoreload 15804 9496 Watching for file changes with StatReloader
+INFO 2023-10-11 22:14:26,961 autoreload 15804 9496 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:14:27,422 autoreload 8292 17956 Watching for file changes with StatReloader
+ERROR 2023-10-11 22:14:29,224 log 8292 15252 Internal Server Error: /author/3
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    author = Author.objects.get(pk=author.id)
+UnboundLocalError: local variable 'author' referenced before assignment
+ERROR 2023-10-11 22:14:29,224 basehttp 8292 15252 "GET /author/3 HTTP/1.1" 500 64993
+INFO 2023-10-11 22:14:51,847 autoreload 8292 17956 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:14:52,309 autoreload 16192 6860 Watching for file changes with StatReloader
+ERROR 2023-10-11 22:14:52,691 log 16192 3968 Internal Server Error: /author/3
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    author = Author.objects.get(author_id=pk)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'author_id' into field. Choices are: article, biography, birthday, email, firstname, id, lastname
+ERROR 2023-10-11 22:14:52,694 basehttp 16192 3968 "GET /author/3 HTTP/1.1" 500 113655
+INFO 2023-10-11 22:15:11,407 autoreload 16192 6860 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:15:11,878 autoreload 10516 10440 Watching for file changes with StatReloader
+ERROR 2023-10-11 22:15:13,250 log 10516 3868 Internal Server Error: /author/3
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    author = Author.objects.get(pk=pk)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+sem02_task1_app.models.Author.DoesNotExist: Author matching query does not exist.
+ERROR 2023-10-11 22:15:13,253 basehttp 10516 3868 "GET /author/3 HTTP/1.1" 500 73696
+INFO 2023-10-11 22:16:17,314 autoreload 10516 10440 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:16:17,780 autoreload 10672 15328 Watching for file changes with StatReloader
+ERROR 2023-10-11 22:16:18,036 log 10672 11824 Internal Server Error: /author/3
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: view_author_art() got an unexpected keyword argument 'n'
+ERROR 2023-10-11 22:16:18,037 basehttp 10672 11824 "GET /author/3 HTTP/1.1" 500 61184
+INFO 2023-10-11 22:16:29,573 autoreload 10672 15328 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 22:16:30,047 autoreload 3456 11380 Watching for file changes with StatReloader
+ERROR 2023-10-11 22:16:30,470 log 3456 8648 Internal Server Error: /author/3
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    author = Author.objects.get(pk=author_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+sem02_task1_app.models.Author.DoesNotExist: Author matching query does not exist.
+ERROR 2023-10-11 22:16:30,473 basehttp 3456 8648 "GET /author/3 HTTP/1.1" 500 73573
+WARNING 2023-10-11 22:17:01,482 log 3456 8648 Not Found: /author
+WARNING 2023-10-11 22:17:01,483 basehttp 3456 8648 "GET /author HTTP/1.1" 404 3539
+WARNING 2023-10-11 22:17:21,774 log 3456 8648 Not Found: /author/
+WARNING 2023-10-11 22:17:21,775 basehttp 3456 8648 "GET /author/ HTTP/1.1" 404 3542
+ERROR 2023-10-11 22:17:24,365 log 3456 8648 Internal Server Error: /author/1
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    author = Author.objects.get(pk=author_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+sem02_task1_app.models.Author.DoesNotExist: Author matching query does not exist.
+ERROR 2023-10-11 22:17:24,366 basehttp 3456 8648 "GET /author/1 HTTP/1.1" 500 73436
+ERROR 2023-10-11 22:17:30,276 log 3456 8648 Internal Server Error: /author/14
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 64, in view_author_art
+    return render(request, 'sem01_games_app/author_articl.html', context=exit_context)
+NameError: name 'exit_context' is not defined
+ERROR 2023-10-11 22:17:30,277 basehttp 3456 8648 "GET /author/14 HTTP/1.1" 500 63912
+ERROR 2023-10-11 22:17:42,628 log 3456 8648 Internal Server Error: /author/13
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    author = Author.objects.get(pk=author_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+sem02_task1_app.models.Author.DoesNotExist: Author matching query does not exist.
+ERROR 2023-10-11 22:17:42,630 basehttp 3456 8648 "GET /author/13 HTTP/1.1" 500 73450
+ERROR 2023-10-11 22:17:46,391 log 3456 8648 Internal Server Error: /author/12
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    author = Author.objects.get(pk=author_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+sem02_task1_app.models.Author.DoesNotExist: Author matching query does not exist.
+ERROR 2023-10-11 22:17:46,392 basehttp 3456 8648 "GET /author/12 HTTP/1.1" 500 73450
+ERROR 2023-10-11 22:17:49,310 log 3456 8648 Internal Server Error: /author/11
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    author = Author.objects.get(pk=author_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+sem02_task1_app.models.Author.DoesNotExist: Author matching query does not exist.
+ERROR 2023-10-11 22:17:49,311 basehttp 3456 8648 "GET /author/11 HTTP/1.1" 500 73450
+ERROR 2023-10-11 22:17:52,956 log 3456 8648 Internal Server Error: /author/15
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 64, in view_author_art
+    return render(request, 'sem01_games_app/author_articl.html', context=exit_context)
+NameError: name 'exit_context' is not defined
+ERROR 2023-10-11 22:17:52,957 basehttp 3456 8648 "GET /author/15 HTTP/1.1" 500 63912
+INFO 2023-10-11 22:19:56,067 autoreload 3456 11380 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:19:56,559 autoreload 17260 11496 Watching for file changes with StatReloader
+INFO 2023-10-11 22:19:57,034 basehttp 17260 14224 "GET /author/15 HTTP/1.1" 200 625
+INFO 2023-10-11 22:20:22,926 autoreload 17260 11496 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:20:23,396 autoreload 13148 3664 Watching for file changes with StatReloader
+INFO 2023-10-11 22:21:22,256 basehttp 13148 7940 "GET /author/15 HTTP/1.1" 200 424
+INFO 2023-10-11 22:21:47,180 basehttp 13148 7940 "GET /author/17 HTTP/1.1" 200 442
+INFO 2023-10-11 22:21:50,963 basehttp 13148 7940 "GET /author/18 HTTP/1.1" 200 370
+INFO 2023-10-11 22:21:54,428 basehttp 13148 7940 "GET /author/19 HTTP/1.1" 200 442
+ERROR 2023-10-11 22:21:59,388 log 13148 7940 Internal Server Error: /author/21
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 57, in view_author_art
+    author = Author.objects.get(pk=author_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+sem02_task1_app.models.Author.DoesNotExist: Author matching query does not exist.
+ERROR 2023-10-11 22:21:59,390 basehttp 13148 7940 "GET /author/21 HTTP/1.1" 500 73457
+INFO 2023-10-11 22:22:02,755 basehttp 13148 7940 "GET /author/20 HTTP/1.1" 200 370
+INFO 2023-10-11 22:22:07,379 basehttp 13148 7940 "GET /author/17 HTTP/1.1" 200 442
+INFO 2023-10-11 22:23:26,402 autoreload 13148 3664 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:23:26,858 autoreload 18016 17632 Watching for file changes with StatReloader
+INFO 2023-10-11 22:23:28,089 basehttp 18016 3008 "GET /author/17 HTTP/1.1" 200 448
+INFO 2023-10-11 22:23:32,834 basehttp 18016 3008 "GET /author/16 HTTP/1.1" 200 394
+INFO 2023-10-11 22:23:35,924 basehttp 18016 3008 "GET /author/15 HTTP/1.1" 200 430
+INFO 2023-10-11 22:23:39,891 basehttp 18016 3008 "GET /author/19 HTTP/1.1" 200 448
+INFO 2023-10-11 22:37:14,948 autoreload 18016 17632 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 22:37:15,441 autoreload 15320 13480 Watching for file changes with StatReloader
+ERROR 2023-10-11 22:37:15,963 log 15320 17676 Internal Server Error: /author/19
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\smartif.py", line 179, in translate_token
+    op = OPERATORS[token]
+KeyError: '='
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 64, in view_author_art
+    return render(request, 'sem01_games_app/author_articl.html', context=exit_context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 853, in do_for
+    nodelist_loop = parser.parse(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 952, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 885, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\smartif.py", line 170, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\smartif.py", line 181, in translate_token
+    return self.create_var(token)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 888, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 600, in compile_filter
+    return FilterExpression(token, self)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 703, in __init__
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: '=' from '='
+ERROR 2023-10-11 22:37:15,970 basehttp 15320 17676 "GET /author/19 HTTP/1.1" 500 218361
+ERROR 2023-10-11 22:38:03,066 log 15320 17676 Internal Server Error: /author/19
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 64, in view_author_art
+    return render(request, 'sem01_games_app/author_articl.html', context=exit_context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'articl_full' not found. 'articl_full' is not a valid view function or pattern name.
+ERROR 2023-10-11 22:38:03,071 basehttp 15320 17676 "GET /author/19 HTTP/1.1" 500 194820
+ERROR 2023-10-11 22:38:40,683 log 15320 17676 Internal Server Error: /author/19
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 64, in view_author_art
+    return render(request, 'sem01_games_app/author_articl.html', context=exit_context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'articl_full' not found. 'articl_full' is not a valid view function or pattern name.
+ERROR 2023-10-11 22:38:40,688 basehttp 15320 17676 "GET /author/19 HTTP/1.1" 500 195051
+ERROR 2023-10-11 22:40:33,301 log 15320 17676 Internal Server Error: /author/19
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 64, in view_author_art
+    return render(request, 'sem01_games_app/author_articl.html', context=exit_context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 238, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'articl_full' not found. 'articl_full' is not a valid view function or pattern name.
+ERROR 2023-10-11 22:40:33,305 basehttp 15320 17676 "GET /author/19 HTTP/1.1" 500 195200
+INFO 2023-10-11 22:40:44,394 basehttp 15320 17676 "GET /author/19 HTTP/1.1" 200 560
+INFO 2023-10-11 22:41:33,591 autoreload 15320 13480 C:\Users\stavr\django\sem01_games_app\urls_games_app.py changed, reloading.
+INFO 2023-10-11 22:41:34,079 autoreload 11496 17908 Watching for file changes with StatReloader
+INFO 2023-10-11 22:41:35,572 basehttp 11496 13748 "GET /author/19 HTTP/1.1" 200 586
+ERROR 2023-10-11 22:41:37,514 log 11496 13748 Internal Server Error: /articl_full/31
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.filter(articl_id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'articl_id' into field. Choices are: author_id, author_id_id, category, count_view, create_at, description, id, publicated, title
+ERROR 2023-10-11 22:41:37,517 basehttp 11496 13748 "GET /articl_full/31 HTTP/1.1" 500 112838
+INFO 2023-10-11 22:44:50,080 autoreload 11496 17908 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:44:50,572 autoreload 2540 17468 Watching for file changes with StatReloader
+INFO 2023-10-11 22:45:20,174 autoreload 2540 17468 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:45:20,660 autoreload 8096 12696 Watching for file changes with StatReloader
+ERROR 2023-10-11 22:46:44,200 log 8096 10264 Internal Server Error: /articl_full/31
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.get(articl_id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'articl_id' into field. Choices are: author_id, author_id_id, category, count_view, create_at, description, id, publicated, title
+ERROR 2023-10-11 22:46:44,203 basehttp 8096 10264 "GET /articl_full/31 HTTP/1.1" 500 118457
+ERROR 2023-10-11 22:46:46,577 log 8096 10264 Internal Server Error: /articl_full/31
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.get(articl_id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'articl_id' into field. Choices are: author_id, author_id_id, category, count_view, create_at, description, id, publicated, title
+ERROR 2023-10-11 22:46:46,579 basehttp 8096 10264 "GET /articl_full/31 HTTP/1.1" 500 118320
+ERROR 2023-10-11 22:47:47,695 log 8096 10264 Internal Server Error: /articl_full/31
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.get(articl_id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'articl_id' into field. Choices are: author_id, author_id_id, category, count_view, create_at, description, id, publicated, title
+ERROR 2023-10-11 22:47:47,698 basehttp 8096 10264 "GET /articl_full/31 HTTP/1.1" 500 118457
+ERROR 2023-10-11 22:47:54,732 log 8096 10264 Internal Server Error: /articl_full/3
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.get(articl_id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'articl_id' into field. Choices are: author_id, author_id_id, category, count_view, create_at, description, id, publicated, title
+ERROR 2023-10-11 22:47:54,735 basehttp 8096 10264 "GET /articl_full/3 HTTP/1.1" 500 118138
+INFO 2023-10-11 22:48:02,244 basehttp 8096 10264 "GET /author/19 HTTP/1.1" 200 586
+INFO 2023-10-11 22:48:07,593 basehttp 8096 10264 "GET /author/18 HTTP/1.1" 200 376
+INFO 2023-10-11 22:48:12,521 basehttp 8096 10264 "GET /author/17 HTTP/1.1" 200 611
+ERROR 2023-10-11 22:48:14,207 log 8096 10264 Internal Server Error: /articl_full/26
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.get(articl_id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'articl_id' into field. Choices are: author_id, author_id_id, category, count_view, create_at, description, id, publicated, title
+ERROR 2023-10-11 22:48:14,209 basehttp 8096 10264 "GET /articl_full/26 HTTP/1.1" 500 118320
+INFO 2023-10-11 22:49:20,541 autoreload 8096 12696 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:49:21,040 autoreload 16240 2352 Watching for file changes with StatReloader
+ERROR 2023-10-11 22:49:22,426 log 16240 7692 Internal Server Error: /articl_full/26
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.get(articl_id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'articl_id' into field. Choices are: author_id, author_id_id, category, count_view, create_at, description, id, publicated, title
+ERROR 2023-10-11 22:49:22,431 basehttp 16240 7692 "GET /articl_full/26 HTTP/1.1" 500 118356
+ERROR 2023-10-11 22:49:25,167 log 16240 7692 Internal Server Error: /articl_full/27
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.get(articl_id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'articl_id' into field. Choices are: author_id, author_id_id, category, count_view, create_at, description, id, publicated, title
+ERROR 2023-10-11 22:49:25,170 basehttp 16240 7692 "GET /articl_full/27 HTTP/1.1" 500 118219
+ERROR 2023-10-11 22:51:53,145 log 16240 16228 Internal Server Error: /articl_full/29
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.get(articl_id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 623, in get
+    clone = self._chain() if self.query.combinator else self.filter(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'articl_id' into field. Choices are: author_id, author_id_id, category, count_view, create_at, description, id, publicated, title
+ERROR 2023-10-11 22:51:53,148 basehttp 16240 16228 "GET /articl_full/29 HTTP/1.1" 500 118219
+INFO 2023-10-11 22:53:45,732 autoreload 16240 2352 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 22:53:46,189 autoreload 8520 10528 Watching for file changes with StatReloader
+ERROR 2023-10-11 22:53:48,954 log 8520 3268 Internal Server Error: /articl_full/29
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 74, in articl_full
+    return render(request, 'lection_03_app/articl_full.html', context=context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: lection_03_app/articl_full.html
+ERROR 2023-10-11 22:53:48,956 basehttp 8520 3268 "GET /articl_full/29 HTTP/1.1" 500 79246
+ERROR 2023-10-11 22:53:57,037 log 8520 3268 Internal Server Error: /articl_full/26
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 74, in articl_full
+    return render(request, 'lection_03_app/articl_full.html', context=context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: lection_03_app/articl_full.html
+ERROR 2023-10-11 22:53:57,039 basehttp 8520 3268 "GET /articl_full/26 HTTP/1.1" 500 79109
+ERROR 2023-10-11 22:54:12,978 log 8520 3268 Internal Server Error: /articl_full/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 67, in articl_full
+    articl = Article.objects.get(id=articl_id)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+sem02_task1_app.models.Article.DoesNotExist: Article matching query does not exist.
+ERROR 2023-10-11 22:54:12,980 basehttp 8520 3268 "GET /articl_full/2 HTTP/1.1" 500 74305
+INFO 2023-10-11 22:54:22,359 basehttp 8520 3268 "GET /author/17 HTTP/1.1" 200 611
+ERROR 2023-10-11 22:54:25,744 log 8520 3268 Internal Server Error: /articl_full/29
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 74, in articl_full
+    return render(request, 'lection_03_app/articl_full.html', context=context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: lection_03_app/articl_full.html
+ERROR 2023-10-11 22:54:25,746 basehttp 8520 3268 "GET /articl_full/29 HTTP/1.1" 500 79109
+ERROR 2023-10-11 22:55:54,760 log 8520 3268 Internal Server Error: /articl_full/29
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 74, in articl_full
+    return render(request, 'lection_03_app/articl_full.html', context=context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: lection_03_app/articl_full.html
+ERROR 2023-10-11 22:55:54,762 basehttp 8520 3268 "GET /articl_full/29 HTTP/1.1" 500 79246
+ERROR 2023-10-11 22:56:24,400 log 8520 3268 Internal Server Error: /articl_full/21
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 74, in articl_full
+    return render(request, 'lection_03_app/articl_full.html', context=context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: lection_03_app/articl_full.html
+ERROR 2023-10-11 22:56:24,401 basehttp 8520 3268 "GET /articl_full/21 HTTP/1.1" 500 78949
+INFO 2023-10-11 22:56:44,294 basehttp 8520 3268 "GET /author/20 HTTP/1.1" 200 376
+ERROR 2023-10-11 22:56:51,217 log 8520 3268 Internal Server Error: /articl_full/20
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 74, in articl_full
+    return render(request, 'lection_03_app/articl_full.html', context=context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: lection_03_app/articl_full.html
+ERROR 2023-10-11 22:56:51,219 basehttp 8520 3268 "GET /articl_full/20 HTTP/1.1" 500 78949
+ERROR 2023-10-11 22:57:59,840 log 8520 3268 Internal Server Error: /articl_full/20
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\sem01_games_app\views.py", line 74, in articl_full
+    return render(request, 'lection_03_app/articl_full.html', context=context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: lection_03_app/articl_full.html
+ERROR 2023-10-11 22:57:59,842 basehttp 8520 3268 "GET /articl_full/20 HTTP/1.1" 500 79086
+INFO 2023-10-11 23:00:19,188 autoreload 8520 10528 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 23:00:19,683 autoreload 18412 17876 Watching for file changes with StatReloader
+INFO 2023-10-11 23:00:20,261 basehttp 18412 14492 "GET /articl_full/20 HTTP/1.1" 200 392
+INFO 2023-10-11 23:00:34,903 basehttp 18412 14492 "GET /articl_full/27 HTTP/1.1" 200 392
+INFO 2023-10-11 23:00:51,802 basehttp 18412 14492 "GET /articl_full/27 HTTP/1.1" 200 426
+INFO 2023-10-11 23:01:23,393 basehttp 18412 14492 "GET /articl_full/27 HTTP/1.1" 200 352
+INFO 2023-10-11 23:01:39,840 basehttp 18412 14492 "GET /articl_full/27 HTTP/1.1" 200 426
+INFO 2023-10-11 23:02:41,308 basehttp 18412 14492 "GET /articl_full/27 HTTP/1.1" 200 359
+INFO 2023-10-11 23:04:19,984 autoreload 18412 17876 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-11 23:04:20,498 autoreload 5196 1572 Watching for file changes with StatReloader
+INFO 2023-10-11 23:04:43,966 autoreload 5196 1572 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-11 23:04:44,462 autoreload 17988 17364 Watching for file changes with StatReloader
+INFO 2023-10-11 23:05:00,445 autoreload 17988 17364 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-11 23:05:01,038 autoreload 14764 14564 Watching for file changes with StatReloader
+INFO 2023-10-11 23:05:25,441 autoreload 14764 14564 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-11 23:05:25,966 autoreload 7740 10232 Watching for file changes with StatReloader
+INFO 2023-10-11 23:06:09,531 autoreload 7740 10232 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-11 23:06:10,008 autoreload 16208 14492 Watching for file changes with StatReloader
+INFO 2023-10-11 23:06:18,707 autoreload 16208 14492 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-11 23:06:19,203 autoreload 10216 7456 Watching for file changes with StatReloader
+INFO 2023-10-11 23:06:27,894 autoreload 10216 7456 C:\Users\stavr\django\sem02_task1_app\models.py changed, reloading.
+INFO 2023-10-11 23:06:28,374 autoreload 8772 10368 Watching for file changes with StatReloader
+INFO 2023-10-11 23:24:22,419 autoreload 15400 1476 Watching for file changes with StatReloader
+INFO 2023-10-11 23:24:24,526 basehttp 15400 9944 "GET /author/16 HTTP/1.1" 200 416
+INFO 2023-10-11 23:24:29,285 basehttp 15400 9944 "GET /author/17 HTTP/1.1" 200 611
+INFO 2023-10-11 23:24:33,693 basehttp 15400 9944 "GET /articl_full/26 HTTP/1.1" 200 368
+INFO 2023-10-11 23:24:39,866 basehttp 15400 9944 "GET /articl_full/27 HTTP/1.1" 200 368
+INFO 2023-10-11 23:24:43,535 basehttp 15400 9944 "GET /articl_full/29 HTTP/1.1" 200 368
+INFO 2023-10-11 23:25:39,800 basehttp 15400 9944 "GET /author/17 HTTP/1.1" 200 611
+INFO 2023-10-11 23:25:41,208 basehttp 15400 9944 "GET /articl_full/29 HTTP/1.1" 200 368
+INFO 2023-10-11 23:25:43,957 basehttp 15400 9944 "GET /articl_full/27 HTTP/1.1" 200 368
+INFO 2023-10-11 23:25:47,237 basehttp 15400 9944 "GET /articl_full/26 HTTP/1.1" 200 368
+INFO 2023-10-11 23:26:20,460 basehttp 15400 9944 "GET /articl_full/26 HTTP/1.1" 200 368
+INFO 2023-10-11 23:26:28,306 basehttp 15400 9944 "GET /articl_full/27 HTTP/1.1" 200 368
+INFO 2023-10-11 23:26:30,941 basehttp 15400 9944 "GET /articl_full/29 HTTP/1.1" 200 368
+INFO 2023-10-11 23:26:33,234 basehttp 15400 9944 "GET /articl_full/26 HTTP/1.1" 200 368
+INFO 2023-10-11 23:26:35,448 basehttp 15400 9944 "GET /articl_full/27 HTTP/1.1" 200 368
+INFO 2023-10-11 23:29:13,939 basehttp 15400 11380 "GET /articl_full/27 HTTP/1.1" 200 411
+INFO 2023-10-11 23:29:23,134 basehttp 15400 11380 "GET /articl_full/26 HTTP/1.1" 200 375
+INFO 2023-10-11 23:29:28,563 basehttp 15400 11380 "GET /articl_full/26 HTTP/1.1" 200 375
+INFO 2023-10-11 23:29:50,492 basehttp 15400 11380 "GET /articl_full/26 HTTP/1.1" 200 381
+INFO 2023-10-11 23:31:22,006 basehttp 15400 11380 "GET /articl_full/26 HTTP/1.1" 200 400
+INFO 2023-10-11 23:31:36,713 basehttp 15400 11380 "GET /articl_full/26 HTTP/1.1" 200 408
+INFO 2023-10-11 23:32:14,608 autoreload 15400 1476 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 23:32:15,095 autoreload 15760 11556 Watching for file changes with StatReloader
+INFO 2023-10-11 23:34:40,851 autoreload 15760 11556 C:\Users\stavr\django\sem01_games_app\views.py changed, reloading.
+INFO 2023-10-11 23:34:41,430 autoreload 15592 12052 Watching for file changes with StatReloader
+INFO 2023-10-11 23:34:44,179 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 408
+INFO 2023-10-11 23:34:44,823 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 408
+INFO 2023-10-11 23:34:45,270 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 408
+INFO 2023-10-11 23:34:45,770 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 408
+INFO 2023-10-11 23:34:46,221 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 408
+INFO 2023-10-11 23:35:24,361 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 420
+INFO 2023-10-11 23:35:25,403 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 420
+INFO 2023-10-11 23:35:25,877 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 420
+INFO 2023-10-11 23:35:26,090 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 420
+INFO 2023-10-11 23:35:26,306 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 420
+INFO 2023-10-11 23:35:26,547 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 420
