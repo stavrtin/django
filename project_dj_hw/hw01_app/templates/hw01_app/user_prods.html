@@ -1,0 +1,16 @@
+{% extends 'hw01_app/shop_base.html' %}
+{% block title %}Это - новый заголовок {% endblock %}
+
+{% block content %}
+<h1>Тут будет Юзер {{ user.name }}</h1>
+<h2>Тут будет Заказ {{ orders }}</h2>
+<br>
+    <ul>
+{% for product_ in product_set %}
+    <li> {{ product_.prodname }} {{ product_.price }}  </li>
+<!--         {{  prods }}-->
+
+{% endfor %}
+    </ul>
+
+{% endblock %}
