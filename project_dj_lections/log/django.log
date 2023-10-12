@@ -87,3 +87,327 @@ INFO 2023-10-07 07:26:39,993 basehttp 15012 10184 "GET / HTTP/1.1" 200 13
 INFO 2023-10-07 11:50:17,868 autoreload 7544 17984 Watching for file changes with StatReloader
 INFO 2023-10-07 11:51:58,915 autoreload 15552 16100 Watching for file changes with StatReloader
 INFO 2023-10-07 11:54:17,593 autoreload 16948 15936 Watching for file changes with StatReloader
+INFO 2023-10-12 18:37:50,410 autoreload 17096 17336 Watching for file changes with StatReloader
+INFO 2023-10-12 18:38:56,640 autoreload 18172 25340 Watching for file changes with StatReloader
+WARNING 2023-10-12 18:39:01,948 log 18172 24948 Not Found: /user/add
+WARNING 2023-10-12 18:39:01,948 basehttp 18172 24948 "GET /user/add HTTP/1.1" 404 2528
+INFO 2023-10-12 18:39:14,716 basehttp 18172 24948 "GET /lec4/user/add HTTP/1.1" 301 0
+ERROR 2023-10-12 18:39:14,851 log 18172 1944 Internal Server Error: /lec4/user/add/
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py", line 20, in user_form
+    return render(request, 'myapp4/user_form.html', {'form':
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: myapp4/user_form.html
+ERROR 2023-10-12 18:39:14,853 basehttp 18172 1944 "GET /lec4/user/add/ HTTP/1.1" 500 80109
+INFO 2023-10-12 18:39:39,565 autoreload 18172 25340 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 18:39:39,989 autoreload 26564 26584 Watching for file changes with StatReloader
+ERROR 2023-10-12 18:39:41,070 log 26564 33672 Internal Server Error: /lec4/user/add/
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\engine.py", line 161, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py", line 20, in user_form
+    return render(request, 'lection_04_app/user_form.html', {'form':
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base.html
+ERROR 2023-10-12 18:39:41,074 basehttp 26564 33672 "GET /lec4/user/add/ HTTP/1.1" 500 129331
+ERROR 2023-10-12 18:40:00,205 log 26564 33672 Internal Server Error: /lec4/user/add/
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\engine.py", line 161, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py", line 20, in user_form
+    return render(request, 'lection_04_app/user_form.html', {'form':
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: base.html
+ERROR 2023-10-12 18:40:00,208 basehttp 26564 33672 "GET /lec4/user/add/ HTTP/1.1" 500 129331
+INFO 2023-10-12 18:40:03,545 basehttp 26564 33672 "GET /lec4/user/add/ HTTP/1.1" 200 744
+INFO 2023-10-12 18:42:47,344 basehttp 26564 33672 "GET /lec4/user/add/ HTTP/1.1" 200 744
+INFO 2023-10-12 18:42:48,535 basehttp 26564 33672 "GET /lec4/user/add/ HTTP/1.1" 200 974
+INFO 2023-10-12 18:43:10,536 basehttp 26564 33672 "POST /lec4/user/add/ HTTP/1.1" 200 1075
+INFO 2023-10-12 18:43:25,708 basehttp 26564 33672 "POST /lec4/user/add/ HTTP/1.1" 200 1082
+INFO 2023-10-12 18:44:16,645 autoreload 26564 26584 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 18:44:17,033 autoreload 25232 19244 Watching for file changes with StatReloader
+INFO 2023-10-12 18:44:17,276 basehttp 25232 5636 "POST /lec4/user/add/ HTTP/1.1" 200 1082
+INFO 2023-10-12 18:44:41,055 autoreload 25232 19244 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 18:44:41,448 autoreload 3228 9532 Watching for file changes with StatReloader
+INFO 2023-10-12 18:44:52,908 basehttp 3228 16028 "POST /lec4/user/add/ HTTP/1.1" 200 1022
+INFO 2023-10-12 18:44:59,335 basehttp 3228 16028 "POST /lec4/user/add/ HTTP/1.1" 200 1022
+INFO 2023-10-12 18:47:05,696 basehttp 3228 16028 "POST /lec4/user/add/ HTTP/1.1" 200 1022
+INFO 2023-10-12 18:47:18,399 basehttp 3228 16028 "POST /lec4/user/add/ HTTP/1.1" 200 1022
+INFO 2023-10-12 18:48:59,282 autoreload 3228 9532 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\project_dj_lections\settings.py changed, reloading.
+INFO 2023-10-12 18:49:50,763 autoreload 27660 18916 Watching for file changes with StatReloader
+INFO 2023-10-12 18:49:54,883 views 27660 31772 ----------Отправлено name='wer@sdf.we', email='wer@sdf.we', age=2.
+INFO 2023-10-12 18:49:54,897 basehttp 27660 31772 "POST /lec4/user/add/ HTTP/1.1" 200 1022
+INFO 2023-10-12 18:51:59,112 autoreload 27660 18916 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\forms_app4.py changed, reloading.
+INFO 2023-10-12 18:51:59,612 autoreload 27864 32644 Watching for file changes with StatReloader
+INFO 2023-10-12 18:52:12,442 autoreload 27864 32644 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\forms_app4.py changed, reloading.
+INFO 2023-10-12 18:52:13,139 autoreload 16548 30232 Watching for file changes with StatReloader
+INFO 2023-10-12 18:54:39,996 autoreload 16548 30232 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 18:54:40,390 autoreload 16012 4016 Watching for file changes with StatReloader
+INFO 2023-10-12 18:54:43,734 views 16012 7892 ----------Отправлено name='wer@sdf.we', email='wer@sdf.we', age=2.
+INFO 2023-10-12 18:54:43,745 basehttp 16012 7892 "POST /lec4/user/add/ HTTP/1.1" 200 1022
+INFO 2023-10-12 18:54:49,908 views 16012 7892 ----------Отправлено name='wer@sdf.we', email='wer@sdf.we', age=2.
+INFO 2023-10-12 18:54:49,911 basehttp 16012 7892 "POST /lec4/user/add/ HTTP/1.1" 200 1022
+INFO 2023-10-12 18:54:51,278 views 16012 7892 ----------Отправлено name='wer@sdf.we', email='wer@sdf.we', age=2.
+INFO 2023-10-12 18:54:51,280 basehttp 16012 7892 "POST /lec4/user/add/ HTTP/1.1" 200 1022
+INFO 2023-10-12 18:55:24,123 autoreload 16012 4016 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 18:55:24,661 autoreload 27460 20572 Watching for file changes with StatReloader
+INFO 2023-10-12 18:55:52,804 autoreload 27460 20572 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 18:55:53,309 autoreload 35324 20032 Watching for file changes with StatReloader
+INFO 2023-10-12 18:56:25,697 autoreload 35324 20032 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 18:56:26,077 autoreload 20308 33884 Watching for file changes with StatReloader
+INFO 2023-10-12 18:57:36,496 autoreload 20308 33884 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 18:57:36,899 autoreload 10496 2896 Watching for file changes with StatReloader
+INFO 2023-10-12 18:58:23,525 autoreload 10496 2896 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\urls_app4.py changed, reloading.
+INFO 2023-10-12 18:58:23,970 autoreload 10056 19028 Watching for file changes with StatReloader
+INFO 2023-10-12 18:58:33,078 basehttp 10056 33200 "GET /lec4/forms HTTP/1.1" 301 0
+INFO 2023-10-12 18:58:33,093 basehttp 10056 18280 "GET /lec4/forms/ HTTP/1.1" 200 1766
+INFO 2023-10-12 18:58:58,948 views 10056 18280 ----------Отправлено form.cleaned_data={'name': 'sd', 'email': 'stavrtin@yandex.ru', 'age': 18, 'height': 1.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'F'}.
+INFO 2023-10-12 18:58:58,951 basehttp 10056 18280 "POST /lec4/forms/ HTTP/1.1" 200 1842
+INFO 2023-10-12 18:59:32,869 views 10056 18280 ----------Отправлено form.cleaned_data={'name': 'sd', 'email': 'stavrtin@yandex.ru', 'age': 18, 'height': 1.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'F'}.
+INFO 2023-10-12 18:59:32,907 basehttp 10056 18280 "POST /lec4/forms/ HTTP/1.1" 200 1555
+INFO 2023-10-12 18:59:43,941 views 10056 18280 ----------Отправлено form.cleaned_data={'name': 'sd', 'email': 'stavrtin@yandex.ru', 'age': 18, 'height': 1.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'F'}.
+INFO 2023-10-12 18:59:43,945 basehttp 10056 18280 "POST /lec4/forms/ HTTP/1.1" 200 1555
+INFO 2023-10-12 18:59:52,474 views 10056 18280 ----------Отправлено form.cleaned_data={'name': 'sd', 'email': 'stavrtin@yandex.ru', 'age': 18, 'height': 1.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'F'}.
+INFO 2023-10-12 18:59:52,476 basehttp 10056 18280 "POST /lec4/forms/ HTTP/1.1" 200 418
+INFO 2023-10-12 19:00:02,198 views 10056 18280 ----------Отправлено form.cleaned_data={'name': 'sd', 'email': 'stavrtin@yandex.ru', 'age': 18, 'height': 1.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'F'}.
+INFO 2023-10-12 19:00:02,200 basehttp 10056 18280 "POST /lec4/forms/ HTTP/1.1" 200 418
+INFO 2023-10-12 19:00:07,998 views 10056 18280 ----------Отправлено form.cleaned_data={'name': 'sd', 'email': 'stavrtin@yandex.ru', 'age': 18, 'height': 1.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'F'}.
+INFO 2023-10-12 19:00:08,002 basehttp 10056 18280 "POST /lec4/forms/ HTTP/1.1" 200 1555
+INFO 2023-10-12 19:00:14,958 views 10056 18280 ----------Отправлено form.cleaned_data={'name': 'sd', 'email': 'stavrtin@yandex.ru', 'age': 18, 'height': 1.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'M'}.
+INFO 2023-10-12 19:00:14,963 basehttp 10056 18280 "POST /lec4/forms/ HTTP/1.1" 200 1555
+INFO 2023-10-12 19:00:52,239 views 10056 18280 ----------Отправлено form.cleaned_data={'name': 'sd', 'email': 'stavrtin@yandex.ru', 'age': 22, 'height': 1.0, 'is_active': False, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'M'}.
+INFO 2023-10-12 19:00:52,242 basehttp 10056 18280 "POST /lec4/forms/ HTTP/1.1" 200 1547
+INFO 2023-10-12 19:04:14,392 autoreload 10056 19028 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:04:14,960 autoreload 11348 36724 Watching for file changes with StatReloader
+INFO 2023-10-12 19:04:24,393 views 11348 7764 ----------Отправлено form.cleaned_data={'name': 'sd', 'email': 'stavrtin@yandex.ru', 'age': 22, 'height': 1.0, 'is_active': False, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'M'}.
+INFO 2023-10-12 19:04:24,406 basehttp 11348 7764 "POST /lec4/forms/ HTTP/1.1" 200 1547
+INFO 2023-10-12 19:04:54,605 autoreload 11348 36724 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:04:54,983 autoreload 16988 35476 Watching for file changes with StatReloader
+INFO 2023-10-12 19:05:01,435 basehttp 16988 12108 "POST /lec4/forms/ HTTP/1.1" 200 2239
+INFO 2023-10-12 19:05:08,894 views 16988 12108 ----------Отправлено form.cleaned_data={'name': 'wwqe', 'email': 'stavrtin@yandex.ru', 'age': 25, 'height': 2112.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'M', 'message': 'sadasdasd'}.
+INFO 2023-10-12 19:05:08,899 basehttp 16988 12108 "POST /lec4/forms/ HTTP/1.1" 200 2189
+INFO 2023-10-12 19:05:22,073 views 16988 12108 ----------Отправлено form.cleaned_data={'name': 'www', 'email': 'stavrtin@yandex.ru', 'age': 22, 'height': 11.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'M', 'message': 'dsfsfd'}.
+INFO 2023-10-12 19:05:22,077 basehttp 16988 12108 "POST /lec4/forms/ HTTP/1.1" 200 2184
+INFO 2023-10-12 19:09:42,241 autoreload 16988 35476 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\forms_app4.py changed, reloading.
+INFO 2023-10-12 19:09:42,814 autoreload 36700 27080 Watching for file changes with StatReloader
+INFO 2023-10-12 19:10:01,765 autoreload 36700 27080 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\forms_app4.py changed, reloading.
+INFO 2023-10-12 19:10:02,152 autoreload 16288 20904 Watching for file changes with StatReloader
+INFO 2023-10-12 19:10:04,149 views 16288 22308 ----------Отправлено form.cleaned_data={'name': 'www', 'email': 'stavrtin@yandex.ru', 'age': 22, 'height': 11.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 12), 'gender': 'M', 'message': 'dsfsfd'}.
+INFO 2023-10-12 19:10:04,171 basehttp 16288 22308 "POST /lec4/forms/ HTTP/1.1" 200 2184
+INFO 2023-10-12 19:10:08,648 views 16288 22308 ----------Отправлено form.cleaned_data={'name': 'www', 'email': 'stavrtin@yandex.ru', 'age': 22, 'height': 11.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 4), 'gender': 'M', 'message': 'dsfsfd'}.
+INFO 2023-10-12 19:10:08,652 basehttp 16288 22308 "POST /lec4/forms/ HTTP/1.1" 200 2184
+INFO 2023-10-12 19:15:17,695 autoreload 16288 20904 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\forms_app4.py changed, reloading.
+INFO 2023-10-12 19:15:18,256 autoreload 35184 27232 Watching for file changes with StatReloader
+INFO 2023-10-12 19:16:24,633 autoreload 35184 27232 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\forms_app4.py changed, reloading.
+INFO 2023-10-12 19:16:25,006 autoreload 13276 33616 Watching for file changes with StatReloader
+INFO 2023-10-12 19:16:29,742 views 13276 34444 ----------Отправлено form.cleaned_data={'name': 'qw', 'email': 'stavrtin@yandex.ru', 'age': 22, 'height': 11.0, 'is_active': True, 'birthdate': datetime.date(2023, 10, 4), 'gender': 'M', 'message': 'dsfsfd'}.
+INFO 2023-10-12 19:16:29,757 basehttp 13276 34444 "POST /lec4/forms/ HTTP/1.1" 200 2183
+INFO 2023-10-12 19:16:56,932 basehttp 13276 34444 "GET /lec4/user/add/ HTTP/1.1" 200 974
+INFO 2023-10-12 19:17:06,200 basehttp 13276 34444 "POST /lec4/user/add/ HTTP/1.1" 200 1233
+INFO 2023-10-12 19:19:12,479 autoreload 13276 33616 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\models.py changed, reloading.
+INFO 2023-10-12 19:19:12,888 autoreload 17228 22040 Watching for file changes with StatReloader
+INFO 2023-10-12 19:38:19,822 autoreload 27240 6908 Watching for file changes with StatReloader
+INFO 2023-10-12 19:39:01,216 autoreload 27240 6908 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:39:01,595 autoreload 9024 28212 Watching for file changes with StatReloader
+INFO 2023-10-12 19:39:01,863 basehttp 9024 20616 "GET /lec4/forms/ HTTP/1.1" 200 2100
+INFO 2023-10-12 19:39:28,962 views 9024 20616 ----------Отправлено form.cleaned_data={'name': 'Макс', 'email': 'wer@sdf.we', 'age': 18, 'height': 22.0, 'is_active': False, 'birthdate': datetime.date(2023, 9, 27), 'gender': 'M', 'message': 'ййц'}.
+INFO 2023-10-12 19:39:28,968 basehttp 9024 20616 "POST /lec4/forms/ HTTP/1.1" 200 2172
+INFO 2023-10-12 19:40:40,937 autoreload 9024 28212 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\urls_app4.py changed, reloading.
+INFO 2023-10-12 19:40:41,363 autoreload 1836 32292 Watching for file changes with StatReloader
+ERROR 2023-10-12 19:40:44,665 log 1836 20680 Internal Server Error: /lec4/add_user/
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py", line 57, in add_user
+    return render(request, 'myapp4/user_form.html', {'form':    form, 'message': message})
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: myapp4/user_form.html
+ERROR 2023-10-12 19:40:44,667 basehttp 1836 20680 "GET /lec4/add_user/ HTTP/1.1" 500 81347
+ERROR 2023-10-12 19:41:01,417 log 1836 20680 Internal Server Error: /lec4/add_user/
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py", line 57, in add_user
+    return render(request, 'lection_04_app/user_form.html', {'form':    form, 'message': message})
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: myapp4/user_form.html
+ERROR 2023-10-12 19:41:01,418 basehttp 1836 20680 "GET /lec4/add_user/ HTTP/1.1" 500 81500
+INFO 2023-10-12 19:41:01,479 autoreload 1836 32292 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:41:01,877 autoreload 600 12584 Watching for file changes with StatReloader
+INFO 2023-10-12 19:41:04,546 basehttp 600 37836 "GET /lec4/add_user/ HTTP/1.1" 200 927
+INFO 2023-10-12 19:41:18,864 basehttp 600 37836 "GET /lec4/add_user/ HTTP/1.1" 200 927
+INFO 2023-10-12 19:41:20,865 basehttp 600 37836 "GET /lec4/add_user/ HTTP/1.1" 200 926
+INFO 2023-10-12 19:41:26,737 basehttp 600 37836 "GET /lec4/add_user/ HTTP/1.1" 200 926
+INFO 2023-10-12 19:41:34,460 basehttp 600 37836 "GET /lec4/add_user/ HTTP/1.1" 200 943
+INFO 2023-10-12 19:41:45,756 basehttp 600 37836 "POST /lec4/add_user/ HTTP/1.1" 200 1204
+INFO 2023-10-12 19:41:50,017 basehttp 600 37836 "POST /lec4/add_user/ HTTP/1.1" 200 1095
+INFO 2023-10-12 19:42:26,746 basehttp 600 37836 "POST /lec4/add_user/ HTTP/1.1" 200 1107
+INFO 2023-10-12 19:42:33,289 basehttp 600 37836 "POST /lec4/add_user/ HTTP/1.1" 200 1103
+INFO 2023-10-12 19:43:10,653 basehttp 600 37836 "POST /lec4/add_user/ HTTP/1.1" 200 1105
+INFO 2023-10-12 19:43:16,975 views 600 37836 Получили name='asdsa', email='weasr@corp.mail.ru', age=1.
+INFO 2023-10-12 19:43:17,144 basehttp 600 37836 "POST /lec4/add_user/ HTTP/1.1" 200 1006
+INFO 2023-10-12 19:44:22,346 views 600 37836 Получили name='asdsa', email='weasr@corp.mail.ru', age=1.
+INFO 2023-10-12 19:44:22,485 basehttp 600 37836 "POST /lec4/add_user/ HTTP/1.1" 200 940
+INFO 2023-10-12 19:48:56,436 autoreload 600 12584 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\project_dj_lections\settings.py changed, reloading.
+INFO 2023-10-12 19:48:56,970 autoreload 29100 25404 Watching for file changes with StatReloader
+INFO 2023-10-12 19:50:02,256 autoreload 29100 25404 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:50:02,707 autoreload 33164 34584 Watching for file changes with StatReloader
+INFO 2023-10-12 19:50:36,899 autoreload 33164 34584 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:50:37,401 autoreload 31548 10832 Watching for file changes with StatReloader
+INFO 2023-10-12 19:51:01,512 autoreload 31548 10832 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:51:01,939 autoreload 18232 27880 Watching for file changes with StatReloader
+INFO 2023-10-12 19:51:13,422 autoreload 18232 27880 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:51:13,789 autoreload 3596 20684 Watching for file changes with StatReloader
+INFO 2023-10-12 19:51:53,216 autoreload 3596 20684 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:51:53,643 autoreload 16124 15452 Watching for file changes with StatReloader
+INFO 2023-10-12 19:52:03,310 autoreload 16124 15452 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:52:03,797 autoreload 36216 28676 Watching for file changes with StatReloader
+INFO 2023-10-12 19:52:18,628 autoreload 36216 28676 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:52:19,034 autoreload 2336 10068 Watching for file changes with StatReloader
+INFO 2023-10-12 19:53:35,591 autoreload 2336 10068 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:53:36,020 autoreload 25748 308 Watching for file changes with StatReloader
+INFO 2023-10-12 19:54:19,677 autoreload 25748 308 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:54:20,218 autoreload 16260 32892 Watching for file changes with StatReloader
+INFO 2023-10-12 19:55:02,513 autoreload 16260 32892 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 19:55:02,957 autoreload 31852 8944 Watching for file changes with StatReloader
+INFO 2023-10-12 19:56:34,777 autoreload 31852 8944 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\forms_app4.py changed, reloading.
+INFO 2023-10-12 19:56:35,387 autoreload 34960 26344 Watching for file changes with StatReloader
+INFO 2023-10-12 19:58:41,575 autoreload 34960 26344 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\urls_app4.py changed, reloading.
+INFO 2023-10-12 19:58:42,047 autoreload 22860 30196 Watching for file changes with StatReloader
+INFO 2023-10-12 20:00:39,553 basehttp 22860 7524 "GET /lec4/upload_img HTTP/1.1" 301 0
+ERROR 2023-10-12 20:00:39,581 log 22860 30712 Internal Server Error: /lec4/upload_img/
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py", line 75, in upload_img
+    return render(request, 'lection_04_app/upload_image.html', {'form': form})
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: lection_04_app/upload_image.html
+ERROR 2023-10-12 20:00:39,583 basehttp 22860 30712 "GET /lec4/upload_img/ HTTP/1.1" 500 80890
+ERROR 2023-10-12 20:01:09,594 log 22860 30712 Internal Server Error: /lec4/upload_img/
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py", line 75, in upload_img
+    return render(request, 'lection_04_app/upload_img.html', {'form': form})
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: lection_04_app/upload_image.html
+ERROR 2023-10-12 20:01:09,595 basehttp 22860 30712 "GET /lec4/upload_img/ HTTP/1.1" 500 81023
+INFO 2023-10-12 20:01:09,750 autoreload 22860 30196 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 20:01:10,151 autoreload 31192 36076 Watching for file changes with StatReloader
+INFO 2023-10-12 20:01:11,841 basehttp 31192 588 "GET /lec4/upload_img/ HTTP/1.1" 200 651
+WARNING 2023-10-12 20:01:30,927 log 31192 588 Not Found: /lec4/upload_img/multipart/form-data
+WARNING 2023-10-12 20:01:30,927 basehttp 31192 588 "POST /lec4/upload_img/multipart/form-data HTTP/1.1" 404 3224
+WARNING 2023-10-12 20:02:26,708 log 31192 588 Not Found: /lec4/upload_img/multipart/form-data
+WARNING 2023-10-12 20:02:26,709 basehttp 31192 588 "POST /lec4/upload_img/multipart/form-data HTTP/1.1" 404 3224
+WARNING 2023-10-12 20:02:55,411 log 31192 588 Not Found: /lec4/upload_img/multipart/form-data
+WARNING 2023-10-12 20:02:55,411 basehttp 31192 588 "POST /lec4/upload_img/multipart/form-data HTTP/1.1" 404 3224
+WARNING 2023-10-12 20:02:59,495 log 31192 588 Not Found: /lec4/upload
+WARNING 2023-10-12 20:02:59,495 basehttp 31192 588 "GET /lec4/upload HTTP/1.1" 404 3151
+INFO 2023-10-12 20:03:12,335 basehttp 31192 588 "GET /lec4/upload_img/ HTTP/1.1" 200 652
+INFO 2023-10-12 20:03:17,046 basehttp 31192 588 "POST /lec4/upload_img/ HTTP/1.1" 200 652
