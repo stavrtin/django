@@ -411,3 +411,433 @@ WARNING 2023-10-12 20:02:59,495 log 31192 588 Not Found: /lec4/upload
 WARNING 2023-10-12 20:02:59,495 basehttp 31192 588 "GET /lec4/upload HTTP/1.1" 404 3151
 INFO 2023-10-12 20:03:12,335 basehttp 31192 588 "GET /lec4/upload_img/ HTTP/1.1" 200 652
 INFO 2023-10-12 20:03:17,046 basehttp 31192 588 "POST /lec4/upload_img/ HTTP/1.1" 200 652
+INFO 2023-10-12 22:26:12,698 autoreload 17192 2972 Watching for file changes with StatReloader
+INFO 2023-10-12 22:26:22,393 basehttp 17192 10372 "GET / HTTP/1.1" 200 301
+WARNING 2023-10-12 22:26:22,482 log 17192 10372 Not Found: /favicon.ico
+WARNING 2023-10-12 22:26:22,482 basehttp 17192 10372 "GET /favicon.ico HTTP/1.1" 404 2537
+WARNING 2023-10-12 22:26:35,761 log 17192 13524 Not Found: /le4
+WARNING 2023-10-12 22:26:35,762 basehttp 17192 13524 "GET /le4 HTTP/1.1" 404 2513
+INFO 2023-10-12 22:31:36,494 autoreload 17192 2972 C:\Users\stavr\django\project_dj_lections\lection_04_app\urls_app4.py changed, reloading.
+INFO 2023-10-12 22:31:36,996 autoreload 2380 5364 Watching for file changes with StatReloader
+INFO 2023-10-12 22:32:17,117 autoreload 2380 5364 C:\Users\stavr\django\project_dj_lections\lection_04_app\urls_app4.py changed, reloading.
+INFO 2023-10-12 22:32:17,590 autoreload 16704 10104 Watching for file changes with StatReloader
+WARNING 2023-10-12 22:32:17,753 log 16704 5928 Not Found: /le4
+WARNING 2023-10-12 22:32:17,753 basehttp 16704 5928 "GET /le4 HTTP/1.1" 404 2513
+INFO 2023-10-12 22:32:23,168 autoreload 6972 9480 Watching for file changes with StatReloader
+WARNING 2023-10-12 22:32:26,781 log 6972 17072 Not Found: /le4
+WARNING 2023-10-12 22:32:26,782 basehttp 6972 17072 "GET /le4 HTTP/1.1" 404 2513
+INFO 2023-10-12 22:33:32,055 basehttp 6972 17072 "GET /lec4 HTTP/1.1" 301 0
+INFO 2023-10-12 22:33:32,066 basehttp 6972 14756 "GET /lec4/ HTTP/1.1" 200 301
+INFO 2023-10-12 22:40:03,197 autoreload 6972 9480 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 22:40:03,702 autoreload 13920 17036 Watching for file changes with StatReloader
+INFO 2023-10-12 22:40:12,054 basehttp 13920 13996 "GET /lec4/user_add_my HTTP/1.1" 301 0
+INFO 2023-10-12 22:40:12,078 basehttp 13920 13780 "GET /lec4/user_add_my/ HTTP/1.1" 200 848
+INFO 2023-10-12 22:40:39,578 basehttp 13920 13780 "POST /lec4/user_add_my/ HTTP/1.1" 200 989
+ERROR 2023-10-12 22:41:00,778 log 13920 13780 Internal Server Error: /lec4/user_add_my/
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 94, in user_add_my
+    user.save()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+ERROR 2023-10-12 22:41:00,784 basehttp 13920 13780 "POST /lec4/user_add_my/ HTTP/1.1" 500 144653
+INFO 2023-10-12 22:41:11,428 views 13920 13780 ----------Отправлено name='Dfcz', email='asd@corp.mail.ru', age=3.
+INFO 2023-10-12 22:41:11,430 basehttp 13920 13780 "POST /lec4/user_add_my/ HTTP/1.1" 200 896
+INFO 2023-10-12 22:41:12,941 views 13920 13780 ----------Отправлено name='Dfcz', email='asd@corp.mail.ru', age=3.
+INFO 2023-10-12 22:41:12,944 basehttp 13920 13780 "POST /lec4/user_add_my/ HTTP/1.1" 200 896
+ERROR 2023-10-12 22:41:37,725 log 13920 13780 Internal Server Error: /lec4/user_add_my/
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 94, in user_add_my
+    user.save()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+ERROR 2023-10-12 22:41:37,729 basehttp 13920 13780 "POST /lec4/user_add_my/ HTTP/1.1" 500 144777
+INFO 2023-10-12 22:42:07,870 views 13920 13780 ----------Отправлено name='Dfcz', email='asd@corp.mail.ru', age=3.
+INFO 2023-10-12 22:42:07,873 basehttp 13920 13780 "POST /lec4/user_add_my/ HTTP/1.1" 200 896
+INFO 2023-10-12 22:47:03,738 autoreload 13920 17036 C:\Users\stavr\django\project_dj_lections\lection_04_app\urls_app4.py changed, reloading.
+INFO 2023-10-12 22:47:04,227 autoreload 9856 12276 Watching for file changes with StatReloader
+INFO 2023-10-12 22:47:42,612 autoreload 8380 8308 Watching for file changes with StatReloader
+INFO 2023-10-12 22:48:06,839 autoreload 8380 8308 C:\Users\stavr\django\project_dj_lections\lection_04_app\urls_app4.py changed, reloading.
+INFO 2023-10-12 22:48:07,332 autoreload 15772 17684 Watching for file changes with StatReloader
+INFO 2023-10-12 22:48:10,281 basehttp 15772 2416 "GET /lec4/add_user HTTP/1.1" 301 0
+INFO 2023-10-12 22:48:10,310 basehttp 15772 4188 "GET /lec4/add_user/ HTTP/1.1" 200 2130
+INFO 2023-10-12 22:50:14,883 autoreload 15772 17684 C:\Users\stavr\django\project_dj_lections\lection_04_app\models.py changed, reloading.
+INFO 2023-10-12 22:50:15,383 autoreload 8492 13832 Watching for file changes with StatReloader
+INFO 2023-10-12 22:56:42,757 autoreload 5792 17604 Watching for file changes with StatReloader
+INFO 2023-10-12 22:59:12,094 autoreload 7476 3804 Watching for file changes with StatReloader
+INFO 2023-10-12 22:59:15,366 views 7476 3744 Получили name='Sdsd', email='asd@corp.mail.ru', age=21.
+INFO 2023-10-12 22:59:15,389 basehttp 7476 3744 "POST /lec4/add_user/ HTTP/1.1" 200 2212
+INFO 2023-10-12 22:59:38,830 views 7476 3744 Получили name='zxcz1', email='asd@corp.mail.ru', age=33.
+ERROR 2023-10-12 22:59:44,504 log 7476 3744 Internal Server Error: /lec4/add_user/
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 62, in add_user
+    user.save()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+ERROR 2023-10-12 22:59:44,509 basehttp 7476 3744 "POST /lec4/add_user/ HTTP/1.1" 500 146782
+INFO 2023-10-12 22:59:56,105 views 7476 3744 Получили name='zxcz1', email='asd@corp.mail.ru', age=33.
+INFO 2023-10-12 22:59:56,119 basehttp 7476 3744 "POST /lec4/add_user/ HTTP/1.1" 200 2213
+INFO 2023-10-12 23:08:50,617 autoreload 7476 3804 C:\Users\stavr\django\project_dj_lections\lection_04_app\urls_app4.py changed, reloading.
+INFO 2023-10-12 23:08:51,111 autoreload 10896 10084 Watching for file changes with StatReloader
+INFO 2023-10-12 23:09:24,942 autoreload 10896 10084 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:09:25,427 autoreload 16112 2608 Watching for file changes with StatReloader
+ERROR 2023-10-12 23:09:27,751 log 16112 7600 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 105, in edit_user
+    'user_name':user_name,
+UnboundLocalError: local variable 'user_name' referenced before assignment
+ERROR 2023-10-12 23:09:27,753 basehttp 16112 7600 "GET /lec4/edit_user/2 HTTP/1.1" 500 66134
+ERROR 2023-10-12 23:11:45,400 log 16112 13160 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 105, in edit_user
+    else:
+UnboundLocalError: local variable 'user_name' referenced before assignment
+ERROR 2023-10-12 23:11:45,402 basehttp 16112 13160 "GET /lec4/edit_user/2 HTTP/1.1" 500 66593
+INFO 2023-10-12 23:11:46,311 autoreload 16112 2608 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:11:46,793 autoreload 17540 13752 Watching for file changes with StatReloader
+ERROR 2023-10-12 23:11:50,067 log 17540 15144 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 111, in edit_user
+    return render(request, 'lection_04_app/user_form.html', content=content)
+TypeError: render() got an unexpected keyword argument 'content'
+ERROR 2023-10-12 23:11:50,068 basehttp 17540 15144 "GET /lec4/edit_user/2 HTTP/1.1" 500 65993
+ERROR 2023-10-12 23:12:39,514 log 17540 15144 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 111, in edit_user
+    return render(request, 'lection_04_app/user_form.html', content=content)
+TypeError: render() got an unexpected keyword argument 'content'
+ERROR 2023-10-12 23:12:39,515 basehttp 17540 15144 "GET /lec4/edit_user/2 HTTP/1.1" 500 65981
+INFO 2023-10-12 23:12:39,550 autoreload 17540 13752 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:12:40,041 autoreload 2128 1984 Watching for file changes with StatReloader
+ERROR 2023-10-12 23:12:42,136 log 2128 13168 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 111, in edit_user
+    return render(request, 'lection_04_app/user_form.html', content=content)
+TypeError: render() got an unexpected keyword argument 'content'
+ERROR 2023-10-12 23:12:42,137 basehttp 2128 13168 "GET /lec4/edit_user/2 HTTP/1.1" 500 65981
+INFO 2023-10-12 23:13:44,376 autoreload 2128 1984 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:13:44,893 autoreload 10420 17140 Watching for file changes with StatReloader
+ERROR 2023-10-12 23:13:47,025 log 10420 10108 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 111, in edit_user
+    return render(request, 'lection_04_app/user_form.html', content=content)
+TypeError: render() got an unexpected keyword argument 'content'
+ERROR 2023-10-12 23:13:47,027 basehttp 10420 10108 "GET /lec4/edit_user/2 HTTP/1.1" 500 65985
+ERROR 2023-10-12 23:14:07,153 log 10420 10108 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 111, in edit_user
+    form = ManyFieldsFormWidget()
+TypeError: render() got an unexpected keyword argument 'content'
+ERROR 2023-10-12 23:14:07,155 basehttp 10420 10108 "GET /lec4/edit_user/2 HTTP/1.1" 500 66750
+INFO 2023-10-12 23:14:07,357 autoreload 10420 17140 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:14:07,863 autoreload 10080 12140 Watching for file changes with StatReloader
+ERROR 2023-10-12 23:14:09,908 log 10080 3256 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 116, in edit_user
+    return render(request, 'lection_04_app/user_form.html', content=content)
+TypeError: render() got an unexpected keyword argument 'content'
+ERROR 2023-10-12 23:14:09,910 basehttp 10080 3256 "GET /lec4/edit_user/2 HTTP/1.1" 500 65985
+ERROR 2023-10-12 23:14:25,266 log 10080 3256 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 116, in edit_user
+    return render(request, 'lection_04_app/user_form.html', content=content)
+TypeError: render() got an unexpected keyword argument 'content'
+ERROR 2023-10-12 23:14:25,268 basehttp 10080 3256 "GET /lec4/edit_user/2 HTTP/1.1" 500 65973
+INFO 2023-10-12 23:14:26,120 autoreload 10080 12140 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:14:26,594 autoreload 13156 3292 Watching for file changes with StatReloader
+ERROR 2023-10-12 23:14:26,813 log 13156 8464 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 116, in edit_user
+    return render(request, 'lection_04_app/user_form.html', content=content)
+TypeError: render() got an unexpected keyword argument 'content'
+ERROR 2023-10-12 23:14:26,815 basehttp 13156 8464 "GET /lec4/edit_user/2 HTTP/1.1" 500 65973
+INFO 2023-10-12 23:15:19,289 autoreload 13156 3292 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:15:19,777 autoreload 5284 16364 Watching for file changes with StatReloader
+ERROR 2023-10-12 23:15:21,695 log 5284 16684 Internal Server Error: /lec4/edit_user/2
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 119, in edit_user
+    return render(request, 'lection_04_app/user_form.html', content=content)
+TypeError: render() got an unexpected keyword argument 'content'
+ERROR 2023-10-12 23:15:21,696 basehttp 5284 16684 "GET /lec4/edit_user/2 HTTP/1.1" 500 66133
+INFO 2023-10-12 23:16:03,354 autoreload 5284 16364 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:16:03,845 autoreload 16784 17784 Watching for file changes with StatReloader
+INFO 2023-10-12 23:16:05,077 basehttp 16784 1104 "GET /lec4/edit_user/2 HTTP/1.1" 200 2179
+INFO 2023-10-12 23:17:16,274 basehttp 16784 1104 "GET /lec4/edit_user/2 HTTP/1.1" 200 2179
+INFO 2023-10-12 23:17:18,848 basehttp 16784 1104 "GET /lec4/edit_user/2 HTTP/1.1" 200 2182
+INFO 2023-10-12 23:17:22,107 basehttp 16784 1104 "GET /lec4/edit_user/1 HTTP/1.1" 200 2182
+INFO 2023-10-12 23:19:27,676 basehttp 16784 13152 "GET /lec4/edit_user/1 HTTP/1.1" 200 2182
+INFO 2023-10-12 23:19:27,965 autoreload 16784 17784 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:19:28,457 autoreload 3012 15976 Watching for file changes with StatReloader
+ERROR 2023-10-12 23:19:29,944 log 3012 11872 Internal Server Error: /lec4/edit_user/1
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 117, in edit_user
+    'user_name': user.name,
+UnboundLocalError: local variable 'user' referenced before assignment
+ERROR 2023-10-12 23:19:29,946 basehttp 3012 11872 "GET /lec4/edit_user/1 HTTP/1.1" 500 66351
+ERROR 2023-10-12 23:20:06,053 log 3012 11872 Internal Server Error: /lec4/edit_user/1
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 117, in edit_user
+    'message': message,
+UnboundLocalError: local variable 'user' referenced before assignment
+ERROR 2023-10-12 23:20:06,055 basehttp 3012 11872 "GET /lec4/edit_user/1 HTTP/1.1" 500 66510
+INFO 2023-10-12 23:20:06,664 autoreload 3012 15976 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:20:07,178 autoreload 16372 10736 Watching for file changes with StatReloader
+ERROR 2023-10-12 23:20:09,455 log 16372 11968 Internal Server Error: /lec4/edit_user/1
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 84, in edit_user
+    user = User.object.get(id=user_id)
+AttributeError: type object 'User' has no attribute 'object'
+ERROR 2023-10-12 23:20:09,456 basehttp 16372 11968 "GET /lec4/edit_user/1 HTTP/1.1" 500 66024
+ERROR 2023-10-12 23:20:12,441 log 16372 11968 Internal Server Error: /lec4/edit_user/1
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 84, in edit_user
+    user = User.object.get(id=user_id)
+AttributeError: type object 'User' has no attribute 'object'
+ERROR 2023-10-12 23:20:12,442 basehttp 16372 11968 "GET /lec4/edit_user/1 HTTP/1.1" 500 66024
+ERROR 2023-10-12 23:20:19,061 log 16372 11968 Internal Server Error: /lec4/edit_user/1
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 84, in edit_user
+    user = User.objects.get(id=user_id)
+AttributeError: type object 'User' has no attribute 'object'
+ERROR 2023-10-12 23:20:19,062 basehttp 16372 11968 "GET /lec4/edit_user/1 HTTP/1.1" 500 66026
+INFO 2023-10-12 23:20:19,126 autoreload 16372 10736 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:20:19,685 autoreload 16596 9944 Watching for file changes with StatReloader
+INFO 2023-10-12 23:20:20,755 basehttp 16596 17676 "GET /lec4/edit_user/1 HTTP/1.1" 200 2188
+INFO 2023-10-12 23:21:08,207 views 16596 17676 Получили name='Sdsd-www', email='asd@corp.mail.ru', age=88.
+INFO 2023-10-12 23:21:08,218 basehttp 16596 17676 "POST /lec4/edit_user/1 HTTP/1.1" 200 2276
+INFO 2023-10-12 23:23:51,213 autoreload 16596 9944 C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py changed, reloading.
+INFO 2023-10-12 23:23:51,723 autoreload 17488 16140 Watching for file changes with StatReloader
+INFO 2023-10-12 23:23:54,426 basehttp 17488 8104 "GET /lec4/edit_user/4 HTTP/1.1" 200 2192
+INFO 2023-10-12 23:24:11,665 views 17488 8104 Получили name='Sdsd-www', email='asd@corp.mail.ru', age=44.
+ERROR 2023-10-12 23:24:17,254 log 17488 8104 Internal Server Error: /lec4/edit_user/4
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+sqlite3.OperationalError: database is locked
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\stavr\django\project_dj_lections\lection_04_app\views.py", line 106, in edit_user
+    user.save()
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 990, in _save_table
+    updated = self._do_update(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\base.py", line 1054, in _do_update
+    return filtered._update(values) > 0
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\query.py", line 1231, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1984, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\stavr\django\venv\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+django.db.utils.OperationalError: database is locked
+ERROR 2023-10-12 23:24:17,260 basehttp 17488 8104 "POST /lec4/edit_user/4 HTTP/1.1" 500 148595
+INFO 2023-10-12 23:24:25,677 views 17488 8104 Получили name='Sdsd-www', email='asd@corp.mail.ru', age=44.
+INFO 2023-10-12 23:24:25,687 basehttp 17488 8104 "POST /lec4/edit_user/4 HTTP/1.1" 200 2299
