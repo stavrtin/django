@@ -1574,3 +1574,18 @@ INFO 2023-10-11 23:35:25,877 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 
 INFO 2023-10-11 23:35:26,090 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 420
 INFO 2023-10-11 23:35:26,306 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 420
 INFO 2023-10-11 23:35:26,547 basehttp 15592 5520 "GET /articl_full/26 HTTP/1.1" 200 420
+INFO 2023-10-12 09:38:49,555 autoreload 22084 22128 Watching for file changes with StatReloader
+INFO 2023-10-12 09:40:33,768 basehttp 22084 24312 "GET / HTTP/1.1" 200 26
+WARNING 2023-10-12 09:40:34,874 log 22084 24312 Not Found: /favicon.ico
+WARNING 2023-10-12 09:40:34,874 basehttp 22084 24312 "GET /favicon.ico HTTP/1.1" 404 3754
+INFO 2023-10-12 09:41:44,861 views 22084 24312 Сработала игра "орел-решка" - Результат ==> орел время броска: 2023-10-12 06:41:44.661711+00:00
+INFO 2023-10-12 09:41:44,871 basehttp 22084 24312 "GET /game1 HTTP/1.1" 200 133
+INFO 2023-10-12 11:03:29,824 autoreload 29684 9180 Watching for file changes with StatReloader
+INFO 2023-10-12 11:03:36,940 basehttp 29684 10428 "GET /about/ HTTP/1.1" 200 25
+WARNING 2023-10-12 11:03:37,116 log 29684 10428 Not Found: /favicon.ico
+WARNING 2023-10-12 11:03:37,117 basehttp 29684 10428 "GET /favicon.ico HTTP/1.1" 404 3754
+INFO 2023-10-12 19:37:49,889 autoreload 28512 33796 Watching for file changes with StatReloader
+WARNING 2023-10-12 19:37:50,215 log 28512 19788 Not Found: /lec4/forms/
+WARNING 2023-10-12 19:37:50,216 basehttp 28512 19788 "GET /lec4/forms/ HTTP/1.1" 404 3754
+WARNING 2023-10-12 19:37:51,811 log 28512 19788 Not Found: /lec4/forms/
+WARNING 2023-10-12 19:37:51,811 basehttp 28512 19788 "GET /lec4/forms/ HTTP/1.1" 404 3754
