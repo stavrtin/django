@@ -12,6 +12,10 @@ logger = logging.getLogger(__name__)
 
 
 # Create your views here.
+def lec4_start(request):
+    context = {'qqq': 123}
+    return render(request, "lection_04_app/index.html", context=context)
+
 
 def user_form(request):
     if request.method == 'POST':
@@ -45,18 +49,20 @@ def user_manyform(request):
 
 def add_user(request):
     if request.method == 'POST':
-        form = UserForm(request.POST)
+        form = ManyFieldsFormWidget(request.POST)
         message = 'Ошибка в данных'
         if form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             age = form.cleaned_data['age']
+            gender = form.cleaned_data['gender']
+
             logger.info(f'Получили {name=}, {email=}, {age=}.')
-            user = User(name=name, email=email, age=age)
+            user = User(name=name, email=email, age=age, gender=gender)
             user.save()
             message = 'Пользователь сохранён'
     else:
-        form = UserForm()
+        form = ManyFieldsFormWidget()
         message = 'Заполните форму'
     return render(request, 'lection_04_app/user_form.html', {'form': form, 'message': message})
 
@@ -73,3 +79,46 @@ def upload_img(request):
         form = ImageForm()
 
     return render(request, 'lection_04_app/upload_img.html', {'form': form})
+
+def edit_user(request, user_id: int):
+    user = User.objects.get(id=user_id)
+    user_name = user.name
+    user_age = user.age
+    if request.method == 'POST':
+        form = ManyFieldsFormWidget(request.POST)
+
+        message = 'Ошибка в данных'
+        context = {
+            'message': message,
+            'user_name': user_name,
+            'user_age': user_age,
+            'form': form,
+        }
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            age = form.cleaned_data['age']
+            gender = form.cleaned_data['gender']
+
+            logger.info(f'Получили {name=}, {email=}, {age=}.')
+            user.name = name,
+            user.age = age
+            user.save()
+            message = 'Пользователь сохранён'
+            context = {
+                'message': message,
+                'user_name':user_name,
+                'user_age': user_age,
+                'form': form
+            }
+    else:
+        form = ManyFieldsFormWidget()
+        message = 'Заполните форму'
+    context = {
+    'message': message,
+        'user_name': user.name,
+    'user_age' : user.age,
+        'form': form,
+        }
+    return render(request, 'lection_04_app/user_form.html', context=context)
+

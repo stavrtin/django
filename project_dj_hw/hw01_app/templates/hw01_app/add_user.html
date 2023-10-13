@@ -1,8 +1,6 @@
-{% extends 'base_proj.html' %}
-{{user_name }}  {{ user_age}}
+{% extends 'hw01_app/base_shop.html' %}
+
 {% block content %}
-Будем вносить исправления
-{{user_name }}  {{ user_age}}
 {{ message }}
     <form action="" method="post">
     {% csrf_token %}
