@@ -4,7 +4,7 @@
 https://yandex.ru/video/preview/7035404840106240398?translate_snippets=1
 
 ### студенты джанго
-https://github.com/SergeiEremkin/project-django
+https://github.com/SergeiEremkin/project-django<br>
 https://github.com/AleksNest/Django_project/tree/main
 
 
