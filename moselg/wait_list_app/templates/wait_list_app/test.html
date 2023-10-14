@@ -1,0 +1,37 @@
+{% extends 'wait_list_app/base_moselg.html' %}
+
+{% block content %}
+<!--    Тут просто тест вывода содержимого БД Мед-организации<br>-->
+<!--    {% for med_ in beds|slice:":6" %}-->
+<!--        {{ med_ }} m_employ: {{ med_.m_employ }} <br>-->
+<!--     {% endfor %}-->
+<!--    {{ beds.as_table }}-->
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Название МО</th>
+            <th>Занято мужских коек</th>
+            <th>Занято женских коек</th>
+            <th>Свободно мужских коек</th>
+            <th>Свободно женских коек</th>
+            <th>Дата сообщения о койках</th>
+            <th>Примечание</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for med_ in beds|slice:":15" %}
+        <tr>
+            <td>{{ med_.id }}</td>
+            <td>{{ med_.med_org }}</td>
+            <td>{{ med_.m_employ }}</td>
+            <td>{{ med_.f_employ }}</td>
+            <td>{{ med_.m_free }}</td>
+            <td>{{ med_.f_free }}</td>
+            <td>{{ med_.create_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
