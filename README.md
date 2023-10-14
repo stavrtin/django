@@ -14,8 +14,11 @@ https://proproprogs.ru/django4
 https://translated.turbopages.org/proxy_u/en-ru.ru.2ef66177-65280aca-8e3c92de-74722d776562/https/www.geeksforgeeks.org/custom-field-validations-in-django-forms/<br>
 -- видосы - 
 https://yandex.ru/video/preview/3342190525861179586<br>
-https://yandex.ru/video/preview/3893376968677664027
+https://yandex.ru/video/preview/3893376968677664027<br>
 
+#####-- видос с фильтрами(перед) а тут - авторизация 
+https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=758s
+-- перевод --- https://ya.ru/video/preview/17367165445052815564
 ### шпаргалка джанго
 https://www.reg.ru/blog/shpargalka-po-python-dlya-django/
 
