@@ -9,8 +9,8 @@ https://github.com/AleksNest/Django_project/tree/main
 
 
 ## ништяки
-https://translated.turbopages.org/proxy_u/en-ru.ru.2ef66177-65280aca-8e3c92de-74722d776562/https/www.geeksforgeeks.org/custom-field-validations-in-django-forms/
-
+https://translated.turbopages.org/proxy_u/en-ru.ru.2ef66177-65280aca-8e3c92de-74722d776562/https/www.geeksforgeeks.org/custom-field-validations-in-django-forms/<br>
+https://yandex.ru/video/preview/3342190525861179586<br>
 https://yandex.ru/video/preview/3893376968677664027
 
 ### шпаргалка джанго
