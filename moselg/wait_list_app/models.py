@@ -18,6 +18,7 @@ class ReportBedsMod(models.Model):
     m_free = models.IntegerField()
     f_free = models.IntegerField()
     create_at = models.DateTimeField(auto_now_add=True)
+    note = models.CharField(max_length=150)
 
     def __str__(self):
         return f'Койки от : {self.med_org}'
@@ -40,3 +41,12 @@ class ZayavkaNaGospit(models.Model):
 
     def __str__(self):
         return f' Пациент {self.fio} {self.birthday}'
+
+class Client(models.Model):
+    name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=20)
+    created = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return f' Client {self.name}'
+

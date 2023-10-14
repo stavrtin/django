@@ -1,11 +1,30 @@
 {% extends 'wait_list_app/base_moselg.html' %}
 
+{# yonetim/templates/list.html #}
+{% load render_table from django_tables2 %}
+{% load static %}
+
+
+
 {% block content %}
 <!--    Тут просто тест вывода содержимого БД Мед-организации<br>-->
 <!--    {% for med_ in beds|slice:":6" %}-->
 <!--        {{ med_ }} m_employ: {{ med_.m_employ }} <br>-->
 <!--     {% endfor %}-->
 <!--    {{ beds.as_table }}-->
+<br>
+<div class="row">
+    <div class="col">
+        <div class="card card-body's">
+            <form method="get">
+                {{ myFilter.form}}
+                <button class="btn btn-primary" type="submit">Поиск</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
 
 <table class="table table-striped">
     <thead>
@@ -21,7 +40,7 @@
         </tr>
     </thead>
     <tbody>
-        {% for med_ in beds|slice:":15" %}
+        {% for med_ in beds|slice:":105" %}
         <tr>
             <td>{{ med_.id }}</td>
             <td>{{ med_.med_org }}</td>
@@ -30,8 +49,10 @@
             <td>{{ med_.m_free }}</td>
             <td>{{ med_.f_free }}</td>
             <td>{{ med_.create_at }}</td>
+            <td>{{ med_.note }}</td>
         </tr>
         {% endfor %}
+<!--     { render_table table %}-->
     </tbody>
 </table>
 {% endblock %}

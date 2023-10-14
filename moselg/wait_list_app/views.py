@@ -3,6 +3,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .forms_moselg import BedsForm, ZayavkaForm
 from .models import ReportBedsMod
 from .models import MedOrgMod
+from .filters import OrderFilter
+from .tables import BedsTable
 
 
 # Create your views here.
@@ -23,12 +25,6 @@ def v_medorg_info(request):
     context = {"meds": meds}
     return render(request, "wait_list_app/test.html", context)
 
-def v_beds_info(request):
-    # - просто вывод сведений об beds от Мед
-
-    beds = ReportBedsMod.objects.all()
-    context = {"beds": beds}
-    return render(request, "wait_list_app/test.html", context)
 
 
 def v_message_beds(request):
@@ -53,6 +49,27 @@ def v_zayavka(request):
     else:
         form = ZayavkaForm()
     return render(request, 'wait_list_app/zayavka.html', {'form': form})
+
+
+
+def v_beds_info(request):
+    # - просто вывод сведений об beds от Мед
+
+
+    beds = ReportBedsMod.objects.all()
+    myFilter = OrderFilter(request.GET, queryset=beds)
+    beds = myFilter.qs
+
+    context = {"beds": beds,
+              'myFilter':myFilter }
+    return render(request, "wait_list_app/test.html", context)
+
+def books(request):
+    table = BedsTable(ReportBedsMod.objects.all())
+
+    return render(request, 'wait_list_app/test.html', {'table': table})
+#
+
 
 
 # -------------- это - просто к форме (без связки модель-форма) --------
