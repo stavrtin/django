@@ -24,7 +24,8 @@ https://youtu.be/PtQiiknWUcI
 --фильтры-сортировка ----
 https://qaa-engineer.ru/kak-dobavit-filtry-i-sortirovku-v-django/<br>
 
---video по которому реализован поиск/фильтр -
+###
+--video по которому реализован поиск/фильтр---
 https://yandex.ru/video/preview/10466969074554951995
 
 #####-- видос с фильтрами(перед) а тут - авторизация 
