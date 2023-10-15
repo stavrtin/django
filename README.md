@@ -11,13 +11,18 @@ https://github.com/AleksNest/Django_project/tree/main
 https://proproprogs.ru/django4
 
 ## ништяки
-https://translated.turbopages.org/proxy_u/en-ru.ru.2ef66177-65280aca-8e3c92de-74722d776562/https/www.geeksforgeeks.org/custom-field-validations-in-django-forms/<br>
+https://translated.turbopages.org/proxy_u/en-ru.ru.2ef66177-65280aca-8e3c92de-74722d776562/
+
+https/www.geeksforgeeks.org/custom-field-validations-in-django-forms/<br>
 -- видосы - 
 https://yandex.ru/video/preview/3342190525861179586<br>
 https://yandex.ru/video/preview/3893376968677664027<br>
 
 --7часов на англ ---<br>
 https://youtu.be/PtQiiknWUcI
+
+--фильтры-сортировка ----
+https://qaa-engineer.ru/kak-dobavit-filtry-i-sortirovku-v-django/
 
 #####-- видос с фильтрами(перед) а тут - авторизация 
 https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=758s
