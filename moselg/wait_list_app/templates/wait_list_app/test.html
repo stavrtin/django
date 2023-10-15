@@ -26,22 +26,26 @@
 </div>
 
 
-<table class="table table-striped">
+<table  class="table table-striped table-hover">
     <thead>
         <tr>
+            <th>Произвести госп</th>
             <th>№</th>
-            <th>Название МО</th>
-            <th>Занято мужских коек</th>
-            <th>Занято женских коек</th>
-            <th>Свободно мужских коек</th>
-            <th>Свободно женских коек</th>
-            <th>Дата сообщения о койках</th>
-            <th>Примечание</th>
+            <th>Организация</th>
+            <th>Занято муж.</th>
+            <th>Занято жен.</th>
+            <th>Свободно муж.</th>
+            <th>Свободно жен.</th>
+            <th>Дата сообщениях</th>
+            <th>Прим.</th>
+            <th>фыв</th>
+            <th>фыв</th>
         </tr>
     </thead>
     <tbody>
         {% for med_ in beds|slice:":105" %}
         <tr>
+            <td><button class="editbtn">Госпит</button></td>
             <td>{{ med_.id }}</td>
             <td>{{ med_.med_org }}</td>
             <td>{{ med_.m_employ }}</td>
@@ -50,6 +54,10 @@
             <td>{{ med_.f_free }}</td>
             <td>{{ med_.create_at }}</td>
             <td>{{ med_.note }}</td>
+<!--            <td><button> <a href="{% url 'v_start_page' %}"> Исправить {{ med_.id  }}</a> </button></td>-->
+            <td><a href="{% url 'edit_report_beds' report_beds_id=med_.id %}">Исправить {{ med_.id  }}</a></td>
+            <td><button  type="submit" onclick="location.href='{% url 'v_start_page' %}'" >Исправить {{ med_.id  }} </button></td>
+            <td><button class="editbtn">Удалить</button></td>
         </tr>
         {% endfor %}
 <!--     { render_table table %}-->

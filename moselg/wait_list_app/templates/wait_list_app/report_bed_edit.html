@@ -1,0 +1,15 @@
+{% extends 'wait_list_app/base_moselg.html' %}
+{{user_name }}  {{ user_age}}
+{% block content %}
+{{ message }}
+Были переданы ранее данные
+{{report_namemo }} - report_m_free {{ report_m_free}} - report_f_free {{ report_f_free}}
+    <form action="" method="post">
+    {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+
+    <input type="submit" value="Отправить">
+    </form>
+{% endblock %}

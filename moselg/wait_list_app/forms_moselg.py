@@ -18,6 +18,18 @@ class BedsForm(forms.ModelForm):
                 'm_free' ,        'f_free',
                  ]
 
+class EditBedsForm(forms.ModelForm):
+# -- форма ввода данных по ИЗМЕНЕНИЮ инф по уже переданным КОЙКАМ ----
+    def __init__(self, name_edited_med_org, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["med_org"].empty_label= name_edited_med_org
+        self.fields["med_org"].label='Выберите стационар'
+    class Meta:
+        model = ReportBedsMod
+        fields = ['med_org',  'm_employ', 'f_employ',
+                'm_free' ,        'f_free',
+                 ]
+
 class ZayavkaForm(forms.ModelForm):
     # ----- форма ввода данных для передачи инф по ПАЦИЕНТУ -------------
     def __init__(self, *args, **kwargs):
