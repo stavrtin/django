@@ -14,6 +14,12 @@ class BedsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields["med_org"].empty_label='Не выбран стационар'
         self.fields["med_org"].label='Выберите стационар'
+
+        self.fields["m_employ"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
+        self.fields["f_employ"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
+        self.fields["m_free"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
+        self.fields["f_free"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
+
     class Meta:
         model = ReportBedsMod
         fields = ['med_org',  'm_employ', 'f_employ',
