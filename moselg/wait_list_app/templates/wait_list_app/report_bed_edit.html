@@ -4,7 +4,19 @@
 {{ message }}
 Были переданы ранее данные
 {{report_namemo }} - report_m_free {{ report_m_free}} - report_f_free {{ report_f_free}}
-    <form action="" method="post">
+<style>
+    .center {
+      margin: auto;
+      width: 50%;
+      border: 1px solid lightgray;
+      padding: 50px;
+    }
+    .inputs {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+<form action="" method="post" class="center">
     {% csrf_token %}
         <table>
         {{ form.as_table }}

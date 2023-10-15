@@ -1,0 +1,59 @@
+{% extends 'wait_list_app/base_moselg.html' %}
+{% load static %}
+
+{% block content %}
+<!-- установка фильтров-->
+<br>
+    <div class="row">
+        <div class="col">
+            <div class="card card-body's">
+                <form method="get">
+                    {{ myFilter.form}}
+                    <button class="btn btn-primary" type="submit">Поиск1</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+ <table  class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Решение</th>
+                <th>№</th>
+                <th>Дата заявки</th>
+                <th>Срочность</th>
+                <th>Фио</th>
+                <th>ДР</th>
+                <th>Пол</th>
+                <th>Диагноз</th>
+                <th>Откуда</th>
+                <th>Прим.</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for zayavka_ in zayavki %}
+            <tr>
+                <td><button class="editbtn">Госпит</button></td>
+                <td>{{ zayavka_.id }}</td>
+                <td>{{ zayavka_.create_at}}</td>
+                <td>{{ zayavka_.quickly_categor }}</td>
+                <td>{{ zayavka_.fio }}</td>
+                <td>{{ zayavka_.birthday }}</td>
+                <td>{{ zayavka_.gender }}</td>
+                <td>{{ zayavka_.diagnoz }}</td>
+                <td>{{ zayavka_.med_org }}</td>
+                <td>{{ zayavka_.comment }}</td>
+    <!--        <td><button> <a href="{% url 'v_start_page' %}"> Исправить {{ med_.id  }}</a> </button></td>-->
+                <td><a href="#">Исправить {{ med_.id  }}</a></td>
+<!--                <td><button  type="submit" onclick="location.href='{% url 'v_start_page' %}'" >Исправить {{ med_.id  }} </button></td>-->
+                <td><button class="editbtn">Удалить</button></td>
+            </tr>
+            {% endfor %}
+    <!--     { render_table table %}-->
+        </tbody>
+    </table>
+
+{% endblock %}

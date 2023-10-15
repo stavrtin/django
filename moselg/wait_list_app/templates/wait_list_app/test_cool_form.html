@@ -1,0 +1,30 @@
+{% extends 'wait_list_app/base_moselg.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<style>
+    .center {
+      margin: auto;
+      width: 50%;
+      border: 1px solid gray;
+      padding: 50px;
+    }
+    .inputs {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+      {% csrf_token %}
+
+<div class='center'>
+
+    {% crispy form %}
+</div>
+
+
+
+
+
+{% endblock %}

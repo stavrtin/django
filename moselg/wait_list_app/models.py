@@ -26,6 +26,7 @@ class ReportBedsMod(models.Model):
 class ZayavkaNaGospit(models.Model):
     fio = models.CharField(unique=True, max_length=150)
     birthday = models.DateField(unique=True)
+
     diagnoz = models.CharField(max_length=150)
     dateVk = models.DateField()
     quickly_categor = models.CharField(max_length=15,

@@ -1,4 +1,5 @@
 <!--{% load static %}-->
+
 <!doctype html>
 <html lang="ru">
   <head>
@@ -14,11 +15,12 @@
   <li><a href="{% url 'v_message_beds' %}">Запросить койки</a></li>
   <li><a href="{% url 'v_zayavka' %}">Подача заявки</a></li>
   <li><a href="{% url 'v_beds_info' %}">Сведения о койках</a></li>
+  <li><a href="{% url 'v_zayavka_info' %}">Сведения о заявках</a></li>
   <li><a href="#">О нас</a></li>
 </ul>
 <body>
 {% block content %}
-Будем вносить исправления
+Тут разместим основные сведения
 {% endblock %}
 
 

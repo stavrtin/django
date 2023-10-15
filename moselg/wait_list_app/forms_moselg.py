@@ -4,6 +4,8 @@ from .models import MedOrgMod
 from .models import ReportBedsMod
 from .models import ZayavkaNaGospit
 import datetime
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit
 
 
 class BedsForm(forms.ModelForm):
@@ -34,9 +36,23 @@ class ZayavkaForm(forms.ModelForm):
     # ----- форма ввода данных для передачи инф по ПАЦИЕНТУ -------------
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields["med_org"].empty_label='Не выбран источник заявки'
         self.fields["quickly_categor"].empty_label='Не выбран признак срочности'
         self.fields["gender"].empty_label='Не выбран пол'
+
         self.fields["fio"].label='Введите фио'
+        self.fields["fio"].widget = forms.TextInput(attrs={'class': 'special',
+                                                           'size': '50'})
+
+        self.fields["quickly_categor"].label='Введите катег'
+        # self.fields["quickly_categor"].widget = forms.ChoiceField(attrs={'class': 'form-control'})
+        # self.fields["quickly_categor"].widget = forms.RadioSelect(attrs={'class': 'form-check-input'})
+
+        self.fields["birthday"].label='Введите ДР'
+        self.fields["birthday"].widget = forms.DateInput(attrs={'class': 'form-control', 'type':'date'})
+        self.fields["dateVk"].widget = forms.DateInput(attrs={'class': 'form-control', 'type':'date'})
+
+
     class Meta:
         model = ZayavkaNaGospit
         fields = '__all__'
@@ -44,23 +60,34 @@ class ZayavkaForm(forms.ModelForm):
 
 
 # class BedsForm(forms.Form):
-#     # ----- форма ввода данных для передачи инф по КОЙКАМ -------------
-#
-#     medorg = forms.ModelMultipleChoiceField(queryset=MedOrgMod.objects.all()
-#     # medorg = forms.ModelChoiceField(queryset=MedOrgMod.objects.all()
-#                                             , label="Укажите стационар"
-#                                             , required=False
-#                                             , widget=forms.SelectMultiple
-#                                             , help_text="Unselect the photos you want to delete",
-#                                             )
-#                                             # empty_label="(Nothing)")
+#     # ----- форма ввода данных для передачи инф по КОЙКАМ c CRISPY-------------
 #
 #
+#     # medorg = forms.ModelMultipleChoiceField(queryset=MedOrgMod.objects.all()
+#     # # medorg = forms.ModelChoiceField(queryset=MedOrgMod.objects.all()
+#     #                                         , label="Укажите стационар"
+#     #                                         , required=False
+#     #                                         , widget=forms.SelectMultiple
+#     #                                         , help_text="Unselect the photos you want to delete"
+#     #                                         , empty_label="(Nothing)")
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.helper = FormHelper()
+#         self.helper.add_input(Submit('submit','Submit' ))
 #
-#     # medorg = forms.ModelMultipleChoiceField(queryset=MedOrgMod.objects.none())
+#     MO = (
+#         (1, '1. ГКБ-15'),
+#         (2, '2. ГКБ-16'),
+#         (3, '3. ГКБ-17'),
+#         (4, '4. ГКБ-165'),
+#         (5, '15. 1 ОПМП'),
+#         (6, '21. 2 ОПМП'),
+#            )
+#     med_org = forms.ChoiceField(choices=MO)
 #     m_employ = forms.IntegerField(min_value=0, max_value=50)
 #     f_employ = forms.IntegerField(min_value=0, max_value=50)
 #     m_free = forms.IntegerField(min_value=0, max_value=50)
 #     f_free = forms.IntegerField(min_value=0, max_value=50)
+#
 
 

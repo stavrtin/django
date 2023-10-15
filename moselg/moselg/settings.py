@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'wait_list_app',
     'django_tables2',
     'django_filters',
+    'crispy_forms',
+    'crispy_bootstrap4',
+
 ]
 
 MIDDLEWARE = [
@@ -136,3 +139,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# django-crispy-forms
+# https://django-crispy-forms.readthedocs.io/en/latest/install.html
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'uni_form'
+
+# END django-crispy-forms

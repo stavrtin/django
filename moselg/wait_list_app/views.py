@@ -1,10 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+
 from .forms_moselg import BedsForm, ZayavkaForm, EditBedsForm
+
 from .models import ReportBedsMod
 from .models import MedOrgMod
-from .filters import OrderFilter
+from .models import ZayavkaNaGospit
+
+from .filters import OrderFilter, FilterZayavki
+
 from .tables import BedsTable
+
+
+
+from django.core.paginator import Paginator
+
 
 
 # Create your views here.
@@ -44,6 +54,7 @@ def v_zayavka(request):
     if request.method == 'POST':
         form = ZayavkaForm(request.POST)
         if form.is_valid():
+            print('s--------------------------dddddddddd')
             form.save()
         return HttpResponseRedirect('/') # --- переход на ГЛАВНУЮ--
     else:
@@ -56,19 +67,43 @@ def v_beds_info(request):
     # - просто вывод сведений об beds от Мед
 
     beds = ReportBedsMod.objects.all()
+
+    # ---------- фильтры ---------------
     myFilter = OrderFilter(request.GET, queryset=beds)
     beds = myFilter.qs
 
+    # ---- пагинация ----------
+    # pagination = Paginator(beds, 5)
+    #
+    # page_number = request.GET.get('page')
+    # page_obj = pagination.get_page(page_number)
+
     context = {"beds": beds,
-              'myFilter':myFilter }
+              'myFilter':myFilter,
+              # 'page_obj':page_obj,
+
+               }
     return render(request, "wait_list_app/test.html", context)
+
+def v_zayavka_info(request):
+    # - просто вывод сведений о PATIENT
+
+    zayavki = ZayavkaNaGospit.objects.all()
+
+    # ---------- фильтры ---------------
+    myFilterZayv = FilterZayavki(request.GET, queryset=zayavki)
+    zayavki = myFilterZayv.qs
+
+    context = {"zayavki": zayavki,
+              'myFilter':myFilterZayv,
+              # 'page_obj':page_obj,
+
+               }
+    return render(request, "wait_list_app/zayavki_list.html", context)
 
 def books(request):
     table = BedsTable(ReportBedsMod.objects.all())
-
     return render(request, 'wait_list_app/test.html', {'table': table})
-#
-
 
 
 def edit_report_beds(request, report_beds_id: int):
@@ -118,4 +153,8 @@ def edit_report_beds(request, report_beds_id: int):
         'form': form,
         }
     return render(request, 'wait_list_app/report_bed_edit.html', context=context)
+
+def cool_forms(request):
+    context = {'form': BedsForm()}
+    return render(request, 'wait_list_app/test_cool_form.html', context=context)
 

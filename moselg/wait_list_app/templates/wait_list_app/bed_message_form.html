@@ -1,9 +1,23 @@
 {% extends 'wait_list_app/base_moselg.html' %}
-{{user_name }}  {{ user_age}}
+{% load crispy_forms_tags %}
+
 {% block content %}
-Будем вносить исправления
-{{user_name }}  {{ user_age}}
+
 {{ message }}
+
+<style>
+    .center {
+      margin: auto;
+      width: 50%;
+      border: 1px solid lightgray;
+      padding: 50px;
+    }
+    .inputs {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+<div class='center'>
     <form action="" method="post">
     {% csrf_token %}
         <table>
@@ -12,4 +26,14 @@
 
     <input type="submit" value="Отправить">
     </form>
+</div>
+
+<!--      {% csrf_token %}-->
+
+<!--<div class='center'>-->
+
+<!--    {% crispy form %}-->
+<!--    <input type="submit" value="Отправить">-->
+<!--</div>-->
+
 {% endblock %}

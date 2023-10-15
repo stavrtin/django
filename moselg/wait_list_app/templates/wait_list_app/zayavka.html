@@ -1,10 +1,23 @@
 {% extends 'wait_list_app/base_moselg.html' %}
-{{user_name }}  {{ user_age}}
+
 {% block content %}
-Будем вносить исправления
-{{user_name }}  {{ user_age}}
+
 {{ message }}
-    <form action="" method="post">
+
+<style>
+    .center {
+      margin: auto;
+      width: 50%;
+      border: 1px solid lightgray;
+      padding: 50px;
+    }
+    .inputs {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+    <form action="" method="post" class='center'>
     {% csrf_token %}
             <table>
         {{ form.as_table }}
