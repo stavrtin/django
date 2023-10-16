@@ -3,6 +3,10 @@
 работа со статическими файлами в django
 https://yandex.ru/video/preview/7035404840106240398?translate_snippets=1
 
+### Ссылка на описание классов
+
+https://ccbv.co.uk/projects/Django/4.2/django.views.generic.list/ListView/
+
 ### студенты джанго
 https://github.com/SergeiEremkin/project-django<br>
 https://github.com/AleksNest/Django_project/tree/main
@@ -23,6 +27,12 @@ https://youtu.be/PtQiiknWUcI
 
 --фильтры-сортировка ----
 https://qaa-engineer.ru/kak-dobavit-filtry-i-sortirovku-v-django/<br>
+
+--- авторизация. В предыдущих - переход отфункци к классам ----<br>
+https://yandex.ru/video/preview/16930559092380033243
+
+-- от функц к классам ----<br>
+https://yandex.ru/video/preview/1959494122188458531
 
 ###
 --video по которому реализован поиск/фильтр---
