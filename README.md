@@ -27,7 +27,7 @@ https://qaa-engineer.ru/kak-dobavit-filtry-i-sortirovku-v-django/<br>
 --- авторизация. В предыдущих - переход отфункци к классам ----<br>
 https://yandex.ru/video/preview/16930559092380033243
 
--- от функц к классам ----
+-- от функц к классам ----<br>
 https://yandex.ru/video/preview/1959494122188458531
 
 ###
