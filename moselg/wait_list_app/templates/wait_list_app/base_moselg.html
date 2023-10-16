@@ -5,27 +5,61 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}   Демо Bootstrap   {% endblock %}</title>
+    <title>{% block title %}   Главная   {% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 <!--    <link href="{% static 'css/style.css' %}" rel="stylesheet">-->
-
+<!--    <link rel="stylesheet" href="nicepage.css" media="screen">-->
   </head>
-    <ul id="navbar">
-  <li><a href="{% url 'v_start_page' %}">Главная</a></li>
-  <li><a href="{% url 'v_message_beds' %}">Запросить койки</a></li>
-  <li><a href="{% url 'v_zayavka' %}">Подача заявки</a></li>
-  <li><a href="{% url 'v_beds_info' %}">Сведения о койках</a></li>
-  <li><a href="{% url 'v_zayavka_info' %}">Сведения о заявках</a></li>
-  <li><a href="#">О нас</a></li>
-</ul>
+
+
 <body>
+<!--    <ul id="navbar" class="nav nav-pills">-->
+  <div class="container mt-4">
+   <ul class="nav nav-pills" >
+
+  <li><a class="nav-link {% if page  == 'main' %}active{% endif %}" href="{% url 'v_start_page' %}">Главная</a></li>
+  <li><a class="nav-link {% if page  == 'beds1' %}active{% endif %}" href="{% url 'v_message_beds' %}">Передать сведения по койкам</a></li>
+  <li><a class="nav-link {% if page  == 'zayavka' %}active{% endif %}" href="{% url 'v_zayavka' %}">Подать заявку на госпитализацию</a></li>
+
+
+  {% if request.user.is_authenticated %}
+   <li><a class="nav-link {% if page  == 'beds_info' %}active{% endif %}" href="{% url 'v_beds_info' %}">Сведения о койках</a></li>
+  <li><a class="nav-link {% if page  == 'zayav_info' %}active{% endif %}" href="{% url 'v_zayavka_info' %}">Сведения о заявках</a></li>
+    <li class="nav-item">   {% url 'logout_page' as url_logout_page %}
+    <a class="nav-link btn-danger" href="{{url_logout_page}}">Выйти</a>      </li>
+  {% else %}
+    <li class="nav-item">
+    {% url 'login_page' as url_login_page %}
+    <a class="nav-link {% if url_login_page  == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
+  {% endif %}
+
+
+
+
+<!--  <li><a class="nav-link {% if page  == 'zayavka2' %}active{% endif %}" href="#">Контакты</a></li>-->
+</ul>
+    {{user}}<br>
+     1 {{request.user.groups}}<br>
+     2  {{user.groups.all}}<br>
+     3 {{user.groups.filter.values}}<br>
+     4  {{user.groups.values.0.name}}<br>
+     5  {{user.groups.name}}<br>
+
+
+<br><br><br>
+
 {% block content %}
-Тут разместим основные сведения
+
+    <h1 class="mt-4">Тут разместим основные сведения</h1>
+
 {% endblock %}
 
 
+
+      </div>
 </body>
 </html>
+
 
 
 

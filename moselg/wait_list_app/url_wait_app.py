@@ -9,6 +9,10 @@ from .views import books
 from .views import edit_report_beds
 from .views import v_zayavka_info
 from .views import cool_forms
+from .views import v_login
+from .views import MyprojectLoginView
+from .views import MyprojectLogout
+
 
 
 
@@ -27,4 +31,11 @@ urlpatterns = [
 
 #     ------- тест кул_форм-----
     path('cool/', cool_forms, name='cool_forms'),
+#     ------- login-----
+    path('login1/', MyprojectLoginView.as_view(), name='login_page'),
+    # path('login/', v_login, name='v_login'),
+
+#     ------- logout-----
+    path('logout/', MyprojectLogout.as_view(), name='logout_page'),
+
 ]

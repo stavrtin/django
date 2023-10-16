@@ -6,7 +6,8 @@ from .models import ZayavkaNaGospit
 import datetime
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
-
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import User
 
 class BedsForm(forms.ModelForm):
     # ----- форма ввода данных для передачи инф по КОЙКАМ -------------
@@ -64,6 +65,15 @@ class ZayavkaForm(forms.ModelForm):
         fields = '__all__'
 
 
+class AuthUserForm(AuthenticationForm, forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password')
+
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control'
 
 # class BedsForm(forms.Form):
 #     # ----- форма ввода данных для передачи инф по КОЙКАМ c CRISPY-------------

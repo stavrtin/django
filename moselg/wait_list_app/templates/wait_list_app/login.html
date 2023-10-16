@@ -1,0 +1,17 @@
+{% extends 'wait_list_app/base_moselg.html' %}
+
+{% block content %}
+  <h1 class="mt-4">Авторизация33</h1>
+  <p><a href="/">Вернуться назад</a></p>
+<!--{{ form }}-->
+{{user}}
+<div class="col-5">
+  <form class="form-control" id="add form" method="POST">
+    {% csrf_token %}
+    {{form}}
+    <button form="add form" type="submit" class="btn btn-primary mt-4">Добавить </button>
+  </form>
+</div>
+
+
+{% endblock %}

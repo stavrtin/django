@@ -51,3 +51,12 @@ class Client(models.Model):
     def __str__(self):
         return f' Client {self.name}'
 
+
+class UserPatient(models.Model):
+    username = models.CharField(max_length=150)
+    password = models.CharField(max_length=150)
+    create_at = models.DateTimeField(auto_now_add=True)
+    on_activ = models.BooleanField()
+
+    def __str__(self):
+        return f'{self.username}'
