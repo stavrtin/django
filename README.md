@@ -3,6 +3,10 @@
 работа со статическими файлами в django
 https://yandex.ru/video/preview/7035404840106240398?translate_snippets=1
 
+### Ссылка на описание классов
+
+https://ccbv.co.uk/projects/Django/4.2/django.views.generic.list/ListView/
+
 ### студенты джанго
 https://github.com/SergeiEremkin/project-django<br>
 https://github.com/AleksNest/Django_project/tree/main
