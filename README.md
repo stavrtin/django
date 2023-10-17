@@ -45,5 +45,7 @@ https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=758s
 https://www.reg.ru/blog/shpargalka-po-python-dlya-django/
 
 поиск по выпадающему списку в Django?
+##
+https://yandex.ru/video/preview/17046742689099059192
 
 
