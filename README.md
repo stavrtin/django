@@ -44,4 +44,6 @@ https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=758s
 ### шпаргалка джанго
 https://www.reg.ru/blog/shpargalka-po-python-dlya-django/
 
+поиск по выпадающему списку в Django?
+
 
