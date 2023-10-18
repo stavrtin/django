@@ -21,3 +21,243 @@ INFO 2023-10-08 13:19:29,883 autoreload 13232 2440 C:\Users\stavr\django\project
 INFO 2023-10-08 13:19:30,389 autoreload 15916 11044 Watching for file changes with StatReloader
 INFO 2023-10-08 13:20:13,400 autoreload 15916 11044 C:\Users\stavr\django\project_dj_hw\hw01_app\models.py changed, reloading.
 INFO 2023-10-08 13:20:13,876 autoreload 8684 13596 Watching for file changes with StatReloader
+INFO 2023-10-12 10:20:41,015 autoreload 35364 31872 Watching for file changes with StatReloader
+INFO 2023-10-12 10:20:57,140 views 35364 27704 Сработал переход на главную
+INFO 2023-10-12 10:20:57,141 basehttp 35364 27704 "GET / HTTP/1.1" 200 199
+INFO 2023-10-12 10:21:42,953 views 35364 34636 Сработал переход на главную
+INFO 2023-10-12 10:21:42,954 basehttp 35364 34636 "GET / HTTP/1.1" 200 199
+WARNING 2023-10-12 10:21:43,040 log 35364 34636 Not Found: /favicon.ico
+WARNING 2023-10-12 10:21:43,040 basehttp 35364 34636 "GET /favicon.ico HTTP/1.1" 404 2449
+INFO 2023-10-12 10:21:55,824 basehttp 35364 34636 "GET /about HTTP/1.1" 301 0
+INFO 2023-10-12 10:21:55,827 views 35364 29740 Сработал переход на "обо мне" 
+INFO 2023-10-12 10:21:55,827 basehttp 35364 29740 "GET /about/ HTTP/1.1" 200 244
+INFO 2023-10-12 10:27:56,088 autoreload 35364 31872 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 10:27:56,597 autoreload 35904 35580 Watching for file changes with StatReloader
+INFO 2023-10-12 10:28:17,445 autoreload 35904 35580 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 10:28:17,829 autoreload 4664 18232 Watching for file changes with StatReloader
+INFO 2023-10-12 10:31:01,444 autoreload 4664 18232 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 10:31:01,832 autoreload 37308 36436 Watching for file changes with StatReloader
+INFO 2023-10-12 10:41:58,445 autoreload 1924 28900 Watching for file changes with StatReloader
+INFO 2023-10-12 11:04:11,453 autoreload 26916 23560 Watching for file changes with StatReloader
+INFO 2023-10-12 11:05:12,506 autoreload 26916 23560 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 11:05:12,871 autoreload 35868 24452 Watching for file changes with StatReloader
+INFO 2023-10-12 11:06:04,417 autoreload 35868 24452 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 11:06:04,782 autoreload 24884 10444 Watching for file changes with StatReloader
+INFO 2023-10-12 11:06:07,774 views 24884 26564 Сработал переход на "обо мне" 
+INFO 2023-10-12 11:06:07,775 basehttp 24884 26564 "GET /about/ HTTP/1.1" 200 364
+INFO 2023-10-12 11:17:53,452 autoreload 24884 10444 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\urls_hw1_app.py changed, reloading.
+INFO 2023-10-12 11:17:53,881 autoreload 27604 14232 Watching for file changes with StatReloader
+ERROR 2023-10-12 11:18:01,944 log 27604 19884 Internal Server Error: /user_ords/14
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py", line 67, in users_orders
+    return render(request, 'user_ords.html', context=context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: user_ords.html
+ERROR 2023-10-12 11:18:01,946 basehttp 27604 19884 "GET /user_ords/14 HTTP/1.1" 500 78594
+ERROR 2023-10-12 11:18:54,384 log 27604 19884 Internal Server Error: /user_ords/14
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py", line 67, in users_orders
+    return render(request, 'hw01_app/user_ords.html', context=context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: user_ords.html
+ERROR 2023-10-12 11:18:54,386 basehttp 27604 19884 "GET /user_ords/14 HTTP/1.1" 500 78749
+INFO 2023-10-12 11:18:54,550 autoreload 27604 14232 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 11:18:54,946 autoreload 18424 8820 Watching for file changes with StatReloader
+ERROR 2023-10-12 11:18:57,662 log 18424 27636 Internal Server Error: /user_ords/14
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader_tags.py", line 132, in render
+    compiled_parent = self.get_parent(context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader_tags.py", line 129, in get_parent
+    return self.find_template(parent, context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader_tags.py", line 107, in find_template
+    template, origin = context.template.engine.find_template(
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\engine.py", line 161, in find_template
+    raise TemplateDoesNotExist(name, tried=tried)
+django.template.exceptions.TemplateDoesNotExist: shop_base.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py", line 67, in users_orders
+    return render(request, 'hw01_app/user_ords.html', context=context)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: shop_base.html
+ERROR 2023-10-12 11:18:57,666 basehttp 18424 27636 "GET /user_ords/14 HTTP/1.1" 500 128120
+INFO 2023-10-12 11:19:18,207 basehttp 18424 27636 "GET /user_ords/14 HTTP/1.1" 200 301
+INFO 2023-10-12 11:23:20,189 autoreload 18424 8820 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 11:23:20,640 autoreload 12828 22492 Watching for file changes with StatReloader
+INFO 2023-10-12 11:23:24,891 basehttp 12828 19520 "GET /user_ords/14 HTTP/1.1" 200 495
+INFO 2023-10-12 11:24:07,127 basehttp 12828 19520 "GET /user_ords/14 HTTP/1.1" 200 490
+INFO 2023-10-12 11:24:28,360 basehttp 12828 19520 "GET /user_ords/14 HTTP/1.1" 200 490
+INFO 2023-10-12 11:26:25,728 basehttp 12828 19520 "GET /user_ords/14 HTTP/1.1" 200 594
+INFO 2023-10-12 11:26:53,311 basehttp 12828 19520 "GET /user_ords/14 HTTP/1.1" 200 594
+INFO 2023-10-12 11:26:54,482 basehttp 12828 19520 "GET /user_ords/14 HTTP/1.1" 200 564
+INFO 2023-10-12 11:27:14,055 basehttp 12828 19520 "GET /user_ords/14 HTTP/1.1" 200 564
+INFO 2023-10-12 11:27:15,505 basehttp 12828 19520 "GET /user_ords/14 HTTP/1.1" 200 588
+INFO 2023-10-12 11:29:07,017 autoreload 12828 22492 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 11:29:07,534 autoreload 37420 37680 Watching for file changes with StatReloader
+ERROR 2023-10-12 11:29:10,773 log 37420 2060 Internal Server Error: /user_ords/14
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py", line 61, in users_orders
+    prod = Product.objects.filter(product_id=orders.products)
+AttributeError: 'QuerySet' object has no attribute 'products'
+ERROR 2023-10-12 11:29:10,775 basehttp 37420 2060 "GET /user_ords/14 HTTP/1.1" 500 65237
+INFO 2023-10-12 11:31:11,128 autoreload 37420 37680 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 11:31:11,533 autoreload 26064 23368 Watching for file changes with StatReloader
+INFO 2023-10-12 12:38:42,412 autoreload 26064 23368 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 12:38:42,820 autoreload 17080 18268 Watching for file changes with StatReloader
+INFO 2023-10-12 12:38:44,267 basehttp 17080 20832 "GET /user_ords/14 HTTP/1.1" 200 588
+INFO 2023-10-12 12:39:47,452 basehttp 17080 20832 "GET /user_ords/14 HTTP/1.1" 200 694
+INFO 2023-10-12 12:39:50,882 basehttp 17080 20832 "GET /user_ords/14 HTTP/1.1" 200 694
+INFO 2023-10-12 12:42:52,307 basehttp 17080 20832 "GET /user_ords/14 HTTP/1.1" 200 694
+INFO 2023-10-12 12:42:53,012 basehttp 17080 20832 "GET /user_ords/14 HTTP/1.1" 200 1292
+INFO 2023-10-12 12:45:17,579 autoreload 17080 18268 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 12:45:18,037 autoreload 29920 31620 Watching for file changes with StatReloader
+INFO 2023-10-12 12:49:19,563 autoreload 29920 31620 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 12:49:19,968 autoreload 31092 31292 Watching for file changes with StatReloader
+INFO 2023-10-12 12:52:43,684 autoreload 31092 31292 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 12:52:44,153 autoreload 12020 7360 Watching for file changes with StatReloader
+INFO 2023-10-12 12:53:51,923 autoreload 12020 7360 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 12:53:52,312 autoreload 33320 10064 Watching for file changes with StatReloader
+INFO 2023-10-12 12:59:45,962 autoreload 33320 10064 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 12:59:46,375 autoreload 21852 8240 Watching for file changes with StatReloader
+ERROR 2023-10-12 12:59:52,567 log 21852 22916 Internal Server Error: /users_prods/14
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+TypeError: users_prods() missing 1 required positional argument: 'user_id'
+ERROR 2023-10-12 12:59:52,568 basehttp 21852 22916 "GET /users_prods/14 HTTP/1.1" 500 60903
+INFO 2023-10-12 13:00:38,245 autoreload 21852 8240 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\urls_hw1_app.py changed, reloading.
+INFO 2023-10-12 13:00:38,617 autoreload 23616 1900 Watching for file changes with StatReloader
+ERROR 2023-10-12 13:00:40,007 log 23616 25604 Internal Server Error: /users_prods/14 6
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py", line 80, in users_prods
+    user = User.objects.get(pk=user_id).first()
+AttributeError: 'User' object has no attribute 'first'
+ERROR 2023-10-12 13:00:40,008 basehttp 23616 25604 "GET /users_prods/14%206 HTTP/1.1" 500 65698
+ERROR 2023-10-12 13:00:58,498 log 23616 25604 Internal Server Error: /users_prods/14 6
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py", line 80, in users_prods
+    user = User.objects.get(pk=user_id)
+AttributeError: 'User' object has no attribute 'first'
+ERROR 2023-10-12 13:00:58,499 basehttp 23616 25604 "GET /users_prods/14%206 HTTP/1.1" 500 65819
+INFO 2023-10-12 13:00:58,570 autoreload 23616 1900 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 13:00:58,962 autoreload 32996 4128 Watching for file changes with StatReloader
+ERROR 2023-10-12 13:01:00,526 log 32996 31552 Internal Server Error: /users_prods/14 6
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py", line 81, in users_prods
+    orders = Order.objects.filter(customer=user, date_create_order__range=(before, now)).all()
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'date_create_order' into field. Choices are: create_order_at, customer, customer_id, id, products, total
+ERROR 2023-10-12 13:01:00,529 basehttp 32996 31552 "GET /users_prods/14%206 HTTP/1.1" 500 113419
+ERROR 2023-10-12 13:01:16,271 log 32996 31552 Internal Server Error: /users_prods/14 6
+Traceback (most recent call last):
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py", line 81, in users_prods
+    orders = Order.objects.filter(customer=user, create_order_at__range=(before, now)).all()
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\query.py", line 1436, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\query.py", line 1454, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\query.py", line 1461, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1545, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1576, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1426, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg, summarize)
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1236, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\TurchinMV\Work\GB_python_3\Django\venv_new_1\lib\site-packages\django\db\models\sql\query.py", line 1724, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword 'date_create_order' into field. Choices are: create_order_at, customer, customer_id, id, products, total
+ERROR 2023-10-12 13:01:16,273 basehttp 32996 31552 "GET /users_prods/14%206 HTTP/1.1" 500 113435
+INFO 2023-10-12 13:01:16,890 autoreload 32996 4128 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 13:01:17,256 autoreload 11620 15572 Watching for file changes with StatReloader
+INFO 2023-10-12 13:01:17,686 basehttp 11620 15324 "GET /users_prods/14%206 HTTP/1.1" 200 475
+INFO 2023-10-12 13:01:52,459 autoreload 11620 15572 C:\Users\TurchinMV\Work\GB_python_3\Django\project_dj_hw\hw01_app\views.py changed, reloading.
+INFO 2023-10-12 13:01:52,877 autoreload 17532 10768 Watching for file changes with StatReloader
+WARNING 2023-10-12 13:02:28,101 log 17532 4124 Not Found: /favicon.ico
+WARNING 2023-10-12 13:02:28,101 basehttp 17532 4124 "GET /favicon.ico HTTP/1.1" 404 2860

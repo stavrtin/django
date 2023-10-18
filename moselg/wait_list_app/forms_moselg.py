@@ -23,9 +23,13 @@ class BedsForm(forms.ModelForm):
 
     class Meta:
         model = ReportBedsMod
-        fields = ['med_org',  'm_employ', 'f_employ',
-                'm_free' ,        'f_free',
+        fields = ['med_org',  'm_employ', 'f_employ',     'm_free' ,
+                  'f_free',
                  ]
+        widgets = {'med_org': forms.Select(attrs={'id':'select_mo', 'class': 'form-control form-control-lg  select' })}
+
+
+
 
 class EditBedsForm(forms.ModelForm):
 # -- форма ввода данных по ИЗМЕНЕНИЮ инф по уже переданным КОЙКАМ ----
@@ -44,6 +48,7 @@ class ZayavkaForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields["med_org"].empty_label='Не выбран источник заявки'
+
         self.fields["quickly_categor"].empty_label='Не выбран признак срочности'
         self.fields["gender"].empty_label='Не выбран пол'
 
@@ -63,6 +68,7 @@ class ZayavkaForm(forms.ModelForm):
     class Meta:
         model = ZayavkaNaGospit
         fields = '__all__'
+        widgets = {'med_org': forms.Select(attrs={'id': 'select_mo', 'class': 'form-control form-control-lg  select'})}
 
 
 class AuthUserForm(AuthenticationForm, forms.ModelForm):
@@ -74,6 +80,10 @@ class AuthUserForm(AuthenticationForm, forms.ModelForm):
         super().__init__(*args,**kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs['class'] = 'form-control'
+
+
+
+
 
 # class BedsForm(forms.Form):
 #     # ----- форма ввода данных для передачи инф по КОЙКАМ c CRISPY-------------

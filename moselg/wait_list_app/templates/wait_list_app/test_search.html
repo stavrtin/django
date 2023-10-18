@@ -1,0 +1,36 @@
+{% extends 'wait_list_app/base_moselg.html' %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<style>
+    .center {
+      margin: auto;
+      width: 50%;
+      border: 1px solid gray;
+      padding: 50px;
+    }
+    .inputs {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+      {% csrf_token %}
+
+<div class='center'>
+      <select id="select_mo">
+            <option selected disabled="True"> --- Select --   </option>
+       {% for i in meds %}
+             <option>{{i.name}}</option>
+       {% endfor %}
+      </select>
+
+
+</div>
+
+
+
+
+
+{% endblock %}

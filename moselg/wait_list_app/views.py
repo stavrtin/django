@@ -20,7 +20,6 @@ from .tables import BedsTable
 
 
 
-
 # Create your views here.
 
 def v_about(request):
@@ -32,7 +31,6 @@ def v_start_page(request):
         'page': page
             }
     return render(request, "wait_list_app/base_moselg.html",context=context)
-
 
 
 def v_medorg_info(request):
@@ -202,3 +200,10 @@ class MyprojectLoginView(LoginView):
 
 class MyprojectLogout(LogoutView):
     next_page  = reverse_lazy('v_start_page')
+
+# -----------тест поиск----
+def v_medorg_search(request):
+    # - просто вывод сведений об Мед орг
+    meds = MedOrgMod.objects.all()
+    context = {"meds": meds}
+    return render(request, "wait_list_app/test_search.html", context)

@@ -1,4 +1,6 @@
 {% extends 'wait_list_app/base_moselg.html' %}
+{% load widget_tweaks %}
+{% render_field form.spis class+="select2" data-minimum-results-for-search="Infinity" %}
 
 {% block content %}
 
@@ -17,11 +19,31 @@
     }
 </style>
 
+<!--<script>-->
+<!--$(document).ready(function() {-->
+<!--    $('.select2').each(function (idx, elem) {-->
+<!--        $(elem).select2({-->
+<!--            'language': 'ru',-->
+<!--        });-->
+<!--    });-->
+<!--}-->
+<!--</script>-->
+
     <form action="" method="post" class='center'>
     {% csrf_token %}
-            <table>
-        {{ form.as_table }}
+        <table>
+
+        {{ form }}
+
         </table>
     <input type="submit" value="Отправить">
     </form>
 {% endblock %}
+
+-------------
+<!--      <select id="select_mo">-->
+<!--            <option selected disabled="True"> -&#45;&#45; Select &#45;&#45;   </option>-->
+<!--       {% for i in meds %}-->
+<!--             <option>{{i.name}}</option>-->
+<!--       {% endfor %}-->
+<!--      </select>-->

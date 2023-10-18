@@ -12,6 +12,7 @@ from .views import cool_forms
 from .views import v_login
 from .views import MyprojectLoginView
 from .views import MyprojectLogout
+from .views import v_medorg_search
 
 
 
@@ -37,5 +38,8 @@ urlpatterns = [
 
 #     ------- logout-----
     path('logout/', MyprojectLogout.as_view(), name='logout_page'),
+
+#     ------- search-----
+    path('medorg_search/', v_medorg_search, name='medorg_search'),
 
 ]

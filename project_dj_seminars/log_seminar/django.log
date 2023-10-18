@@ -1589,3 +1589,6 @@ WARNING 2023-10-12 19:37:50,215 log 28512 19788 Not Found: /lec4/forms/
 WARNING 2023-10-12 19:37:50,216 basehttp 28512 19788 "GET /lec4/forms/ HTTP/1.1" 404 3754
 WARNING 2023-10-12 19:37:51,811 log 28512 19788 Not Found: /lec4/forms/
 WARNING 2023-10-12 19:37:51,811 basehttp 28512 19788 "GET /lec4/forms/ HTTP/1.1" 404 3754
+INFO 2023-10-13 12:58:30,731 autoreload 17144 31376 Watching for file changes with StatReloader
+WARNING 2023-10-13 12:59:22,828 log 17144 36636 Not Found: /lec4/upload_img/
+WARNING 2023-10-13 12:59:22,829 basehttp 17144 36636 "POST /lec4/upload_img/ HTTP/1.1" 404 3770
