@@ -13,10 +13,22 @@ class MedOrgMod(models.Model):
 
 class ReportBedsMod(models.Model):
     med_org = models.ForeignKey(MedOrgMod, on_delete=models.CASCADE)
-    m_employ = models.IntegerField()
-    f_employ = models.IntegerField()
+    m_gz = models.IntegerField()
+    f_gz = models.IntegerField()
+    mf_gz = models.IntegerField()
+
+    m_remont = models.IntegerField()
+    f_remont = models.IntegerField()
+    mf_remont = models.IntegerField()
+
+    m_dop = models.IntegerField()
+    f_dop = models.IntegerField()
+    mf_dop = models.IntegerField()
+
     m_free = models.IntegerField()
     f_free = models.IntegerField()
+    mf_free = models.IntegerField()
+
     create_at = models.DateTimeField(auto_now_add=True)
     note = models.CharField(max_length=150)
 
@@ -60,3 +72,17 @@ class UserPatient(models.Model):
 
     def __str__(self):
         return f'{self.username}'
+
+class Hospis(models.Model):
+    hospisname = models.CharField(max_length=150)
+    hosp_m_dostup_bed = models.IntegerField()
+    hosp_f_dostup_bed = models.IntegerField()
+    hosp_m_busy_bed = models.IntegerField()
+    hosp_f_busy_bed = models.IntegerField()
+    hosp_m_free_bed = models.IntegerField()
+    hosp_f_free_bed = models.IntegerField()
+    hosp_m_wait_bed = models.IntegerField()
+    hosp_f_wait_bed = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.hospisname}, свободныхM {self.hosp_m_free_bed}'

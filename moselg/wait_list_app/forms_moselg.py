@@ -11,22 +11,38 @@ from django.contrib.auth.forms import User
 
 class BedsForm(forms.ModelForm):
     # ----- форма ввода данных для передачи инф по КОЙКАМ -------------
-    def __init__(self, *args, **kwargs):
+
+
+    def __init__(self,  *args, **kwargs):
         super().__init__(*args, **kwargs)
+
         self.fields["med_org"].empty_label='Не выбран стационар'
         self.fields["med_org"].label='Выберите стационар'
 
-        self.fields["m_employ"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
-        self.fields["f_employ"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
-        self.fields["m_free"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
-        self.fields["f_free"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
+        # self.fields["m_employ"].label='Занято коек (м)'
+        # self.fields["f_employ"].label='Занято коек (ж)'
+        # self.fields["m_free"].label='Свободно коек (м)'
+        # self.fields["f_free"].label='Свободно коек (ж)'
+
+        self.fields["f_remont"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
+        self.fields["m_remont"].widget = forms.NumberInput(attrs={
+            'class': 'form-special',
+            'title': 'Your name',
+            # 'style' :
+                'color':'blue',
+            'size': '5'})
+        # self.fields["m_free"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
+        # self.fields["f_free"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
 
     class Meta:
         model = ReportBedsMod
-        fields = ['med_org',  'm_employ', 'f_employ',     'm_free' ,
-                  'f_free',
-                 ]
+        fields = '__all__'
+            # ['med_org',
+            #       # 'm_employ', 'f_employ',     'm_free' ,
+            #       # 'f_free',
+            #      ]
         widgets = {'med_org': forms.Select(attrs={'id':'select_mo', 'class': 'form-control form-control-lg  select' })}
+
 
 
 
@@ -37,10 +53,16 @@ class EditBedsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields["med_org"].empty_label= name_edited_med_org
         self.fields["med_org"].label='Выберите стационар'
+        # self.fields["m_employ"].label='Занято коек (м)'
+        # self.fields["f_employ"].label='Занято коек (ж)'
+        # self.fields["m_free"].label='Свободно коек (м)'
+        # self.fields["f_free"].label='Свободно коек (ж)'
+
     class Meta:
         model = ReportBedsMod
-        fields = ['med_org',  'm_employ', 'f_employ',
-                'm_free' ,        'f_free',
+        fields = ['med_org',
+                #   'm_employ', 'f_employ',
+                # 'm_free' ,        'f_free',
                  ]
 
 class ZayavkaForm(forms.ModelForm):

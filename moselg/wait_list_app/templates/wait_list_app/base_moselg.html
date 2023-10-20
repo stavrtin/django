@@ -10,7 +10,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<!--    <link href="{% static 'css/style.css' %}" rel="stylesheet">-->
+      <!--    <link href="{% static 'css/style.css' %}" rel="stylesheet">-->
+
 <!--    <link rel="stylesheet" href="nicepage.css" media="screen">-->
     <script>
       $(document).ready(function()
@@ -22,50 +23,50 @@
 
 
 <body>
+{{ user }}
 <!--    <ul id="navbar" class="nav nav-pills">-->
   <div class="container mt-4">
+<!--    <div class="container  align-items-center">-->
+<!--  <div class="container-fluid">-->
    <ul class="nav nav-pills" >
 
-  <li><a class="nav-link {% if page  == 'main' %}active{% endif %}" href="{% url 'v_start_page' %}">Главная</a></li>
-  <li><a class="nav-link {% if page  == 'beds1' %}active{% endif %}" href="{% url 'v_message_beds' %}">Передать сведения по койкам</a></li>
-  <li><a class="nav-link {% if page  == 'zayavka' %}active{% endif %}" href="{% url 'v_zayavka' %}">Подать заявку на госпитализацию</a></li>
+      <li><a class="nav-link {% if page  == 'main' %}active{% endif %}" href="{% url 'v_start_page' %}">Главная</a></li>
+      <li><a class="nav-link {% if page  == 'beds1' %}active{% endif %}" href="{% url 'v_message_beds' %}">Передать сведения по койкам</a></li>
+      <li><a class="nav-link {% if page  == 'zayavka' %}active{% endif %}" href="{% url 'v_zayavka' %}">Подать заявку на госпитализацию</a></li>
 
 
-  {% if request.user.is_authenticated %}
-   <li><a class="nav-link {% if page  == 'beds_info' %}active{% endif %}" href="{% url 'v_beds_info' %}">Сведения о койках</a></li>
-  <li><a class="nav-link {% if page  == 'zayav_info' %}active{% endif %}" href="{% url 'v_zayavka_info' %}">Сведения о заявках</a></li>
-    <li class="nav-item">   {% url 'logout_page' as url_logout_page %}
+      {% if request.user.is_authenticated %}
+       <li><a class="nav-link {% if page  == 'beds_info' %}active{% endif %}" href="{% url 'v_beds_info' %}">Сведения о койках</a></li>
+       <li><a class="nav-link {% if page  == 'zayav_info' %}active{% endif %}" href="{% url 'v_zayavka_info' %}">Сведения о заявках</a></li>
+       <li><a class="nav-link {% if page  == 'results' %}active{% endif %}" href="{% url 'results' %}">Показатели работы</a></li>
+
+<li class="nav-item">   {% url 'logout_page' as url_logout_page %}
     <a class="nav-link btn-danger" href="{{url_logout_page}}">Выйти</a>      </li>
-  {% else %}
-    <li class="nav-item">
-    {% url 'login_page' as url_login_page %}
-    <a class="nav-link {% if url_login_page  == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
-  {% endif %}
+      {% else %}
+        <li class="nav-item">
+        {% url 'login_page' as url_login_page %}
+        <a class="nav-link {% if url_login_page  == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
+      {% endif %}
+  </ul>
+</div>
 
-
-
-
-<!--  <li><a class="nav-link {% if page  == 'zayavka2' %}active{% endif %}" href="#">Контакты</a></li>-->
-</ul>
-
-<br><br><br>
     
 <!-- Начало вставки 3 колонок -->    
-<div class="container">
-  <div class="row">
-    <div class="col">
-      1 из трёх колонок
-    </div>
-    <div class="col">
-      2 из трёх колонок
-    </div>
-  </div>
-</div>
+<!--        <div class="container">-->
+<!--          <div class="row">-->
+<!--            <div class="col">-->
+<!--              1 из трёх колонок-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--              2 из трёх колонок-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
 <!-- Конец вставки 3 колонок -->
+
   
-</div>  
-  
-<div class="container mt-4">    
+<div class="container mt-4">
+<!--<div >-->
 <br><br><br>
 
 {% block content %}

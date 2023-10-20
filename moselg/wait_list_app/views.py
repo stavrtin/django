@@ -1,4 +1,6 @@
 from django.contrib.auth.views import LoginView, LogoutView
+from django.views.generic import TemplateView, CreateView
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -7,8 +9,8 @@ from .forms_moselg import BedsForm, ZayavkaForm, EditBedsForm, AuthUserForm, Aut
 from .models import ReportBedsMod
 from .models import MedOrgMod
 from .models import ZayavkaNaGospit
+from .models import Hospis
 
-from django.views.generic import CreateView, ListView
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import User
 
@@ -26,11 +28,12 @@ def v_about(request):
     return render(request, "wait_list_app/base_moselg.html")
 
 def v_start_page(request):
-    page = 'main'
-    context = {
-        'page': page
-            }
-    return render(request, "wait_list_app/base_moselg.html",context=context)
+    table_bed = Hospis.objects.all()
+
+    for i in table_bed:
+        table_gzm =  3
+    context = {"table_bed": table_bed}
+    return render(request, "wait_list_app/main_table_bed.html", context)
 
 
 def v_medorg_info(request):
@@ -207,3 +210,23 @@ def v_medorg_search(request):
     meds = MedOrgMod.objects.all()
     context = {"meds": meds}
     return render(request, "wait_list_app/test_search.html", context)
+
+# ------------ вывод коечнызх таблиц------------
+def v_table_bed(request):
+    # - просто вывод сведений об Мед орг
+    table_bed = Hospis.objects.all()
+
+    for i in table_bed:
+        table_gzm =  3
+    context = {"table_bed": table_bed}
+    return render(request, "wait_list_app/test_table_bed.html", context)
+
+def v_results(request):
+    # - просто вывод дашбордов -
+    page = 'results'
+    context = { 'page': page
+               }
+    return render(request, "wait_list_app/base_results.html", context)
+
+
+    return render(request, "wait_list_app/base_results.html")

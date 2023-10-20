@@ -1,0 +1,182 @@
+{% extends 'wait_list_app/base_moselg.html' %}
+
+{# yonetim/templates/list.html #}
+{% load render_table from django_tables2 %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+    <!-- Начало вставки 3 колонок -->
+    <div class="container">
+        <div class="row">
+             <div class="col"> <!-- <БЛОКИ ИНФОРМАЦИОННЫЕ> -->
+                <table class="table table-borderless table-primary">
+                            <thead>
+                              <tr>
+                                  <th>Доступный коечный фонд</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                  <td class="text-end fs-4">98%</td>
+                              </tr>
+                              <tr>
+                                <td class="fw-bold fs-1">613</td>
+                              </tr>
+                            </tbody>
+                          </table>
+             </div>
+
+             <div class="col"> <!-- <БЛОКИ ИНФОРМАЦИОННЫЕ> -->
+                <table class="table table-borderless table-danger">
+                            <thead>
+                              <tr>
+                                  <th>Занятый  коечный фонд</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                  <td class="text-end fs-4">98%</td>
+                              </tr>
+                              <tr>
+                                <td class="fw-bold fs-1">613</td>
+                              </tr>
+                            </tbody>
+                          </table>
+             </div>
+                <div class="col"> <!-- <БЛОКИ ИНФОРМАЦИОННЫЕ> -->
+                <table class="table table-borderless table-success">
+                            <thead>
+                              <tr>
+                                  <th>Свободный  коечный фонд</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                  <td class="text-end fs-4">98%</td>
+                              </tr>
+                              <tr>
+                                <td class="fw-bold fs-1">613</td>
+                              </tr>
+                            </tbody>
+                          </table>
+             </div>
+        </div>
+    </div>
+    <!-- Конец вставки 3 колонок -->
+
+
+<br>
+<!------------------------- Начало вставки 3 колонок -->
+<div class="container">
+    <div class="row">
+        <div class="col">  <!-- ------------------------КОЛОНКА Доступный ---->
+            <table class="table table-striped table-hover">
+                <thead class="table-borderless table-primary">
+                <tr>
+                    <th scope="col" colspan="5" class="text-center">Доступный коечный фонд</th>
+                </tr>
+                <tr>
+                    <th class="align-middle text-center">Филиал</th>
+                    <th>Койки М</th>
+                    <th>Койки Ж</th>
+                    <th>Итого</th>
+<!--                    <th></th>-->
+                </tr>
+                </thead>
+                <tbody>
+                {% for zayavka_ in table_bed %}
+                <tr>
+                    <td>{{ zayavka_.hospisname }}</td>
+                    <td>{{ zayavka_.hosp_m_dostup_bed }}</td>
+                    <td>{{ zayavka_.hosp_f_dostup_bed }}</td>
+                    <td>{{ zayavka_.hosp_f_dostup_bed|add:zayavka_.hosp_f_dostup_bed }}</td>
+<!--                    <td><a href="#">Детально {{ med_.id }}</a></td>-->
+                </tr>
+                {% endfor %}
+                <tr>  <!--TOTAL -->
+                        <th> Итого </th>
+                        <th>    sdf                  </th>
+                        <th>     </th>
+                        <th>     </th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col"> <!-- ------------------------КОЛОНКА Занятый ---->
+            <table class="table table-striped table-hover">
+                <thead class="table-borderless table-danger">
+                <tr>
+                    <th scope="col" colspan="5" class="text-center">Занятый коечный фонд</th>
+                </tr>
+                <tr>
+                    <th class="align-middle text-center">Филиал</th>
+                    <th>Койки М</th>
+                    <th>Койки Ж</th>
+                    <th>Итого</th>
+<!--                    <th></th>-->
+                </tr>
+                </thead>
+                <tbody>
+                {% for zayavka_ in table_bed %}
+                <tr>
+                    <td>{{ zayavka_.hospisname }}</td>
+                    <td>{{ zayavka_.hosp_m_busy_bed }}</td>
+                    <td>{{ zayavka_.hosp_f_busy_bed }}</td>
+                    <td>{{ zayavka_.hosp_m_busy_bed|add:zayavka_.hosp_f_busy_bed }}</td>
+<!--                    <td><a href="#">Детально {{ med_.id }}</a></td>-->
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col"><!-- ------------------------КОЛОНКА Свободный ---->
+            <table class="table table-striped table-hover">
+                <thead class="table-borderless table-success">
+                <tr>
+                    <th scope="col" colspan="5" class="text-center">Свободный коечный фонд</th>
+                </tr>
+                <tr>
+                    <th class="align-middle text-center">Филиал</th>
+                    <th>Койки М</th>
+                    <th>Койки Ж</th>
+                    <th>Итого</th>
+<!--                    <th></th>-->
+                </tr>
+                </thead>
+                <tbody>
+                {% for zayavka_ in table_bed %}
+                <tr>
+                    <td>{{ zayavka_.hospisname }}</td>
+                    <td>{{ zayavka_.hosp_m_free_bed }}</td>
+                    <td>{{ zayavka_.hosp_f_free_bed }}</td>
+                    <td>{{ zayavka_.hosp_m_free_bed|add:zayavka_.hosp_f_free_bed }}</td>
+<!--                    <td><a href="#">Детально {{ med_.id }}</a></td>-->
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+<!--            {{table_bed}}-->
+        </div>
+    </div>
+</div>
+
+<!-- Конец вставки 3 колонок -->
+
+
+
+{% endblock %}

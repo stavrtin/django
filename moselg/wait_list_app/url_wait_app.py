@@ -13,6 +13,8 @@ from .views import v_login
 from .views import MyprojectLoginView
 from .views import MyprojectLogout
 from .views import v_medorg_search
+from .views import v_table_bed
+from .views import v_results
 
 
 
@@ -29,17 +31,17 @@ urlpatterns = [
     path('edit_report_beds/<int:report_beds_id>', edit_report_beds, name='edit_report_beds'),
     # --------лист 1.1 ЕЛГ ---
     path('zayavki/', v_zayavka_info, name='v_zayavka_info'),
-
-#     ------- тест кул_форм-----
+        #     ------- тест кул_форм-----
     path('cool/', cool_forms, name='cool_forms'),
-#     ------- login-----
+        #     ------- login-----
     path('login1/', MyprojectLoginView.as_view(), name='login_page'),
     # path('login/', v_login, name='v_login'),
-
-#     ------- logout-----
+        #     ------- logout-----
     path('logout/', MyprojectLogout.as_view(), name='logout_page'),
-
-#     ------- search-----
+        #     ------- search-----
     path('medorg_search/', v_medorg_search, name='medorg_search'),
+    # path('tablbeds/', v_table_bed, name='table_beds'),
+    path('results/', v_results, name='results'),
+
 
 ]
