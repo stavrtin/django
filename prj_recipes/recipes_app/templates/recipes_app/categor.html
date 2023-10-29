@@ -1,0 +1,16 @@
+{% extends 'recipes_app/base.html' %}
+
+{% block title %}
+    Мой сайт
+{% endblock %}
+
+{% block content %}
+<p> Тут рецепты.</p>
+<table>
+{% for cat in categor %}
+{{cat.categ_name}}<br>
+
+{% endfor %}
+</table>
+
+{% endblock %}

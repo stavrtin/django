@@ -1,0 +1,31 @@
+{% extends 'recipes_app/base.html' %}
+
+{% block title %}
+    Мой сайт
+{% endblock %}
+
+{% block content %}
+<p> Тут рецепты.</p>
+
+
+
+<table>
+{% for rec_ in recipe %}
+    - - -
+{{rec_.rec_name}}<br>
+{{rec_.rec_description}}<br>
+
+    Ингредиенты:<br>
+    {% for ingr in ingreds %}
+        {% if rec_ == ingr.ingr_rec %}
+          {{ingr.ingr_name}} -  {{ingr.ingr_amount}} {{ingr.ingr_unit}} <br>
+        {% endif %}
+    {% endfor %}
+
+
+    <br><br><br>
+
+{% endfor %}
+</table>
+
+{% endblock %}
