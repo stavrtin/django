@@ -1,0 +1,28 @@
+{% extends 'recipes_app/base.html' %}
+
+{% block title %}
+    Мой сайт
+{% endblock %}
+
+{% block content %}
+        <h1>Привет!</h1>
+        <h2>Тут ВСЕ КАТЕГОРИИ рецептов</h2>
+<br>
+<table class="table table-borderless table-primary">
+<!--<table >-->
+    <thead >
+              <th >Название категории</th>
+              <th>Описание</th>
+    </thead>
+          <tr>
+              {% for cat in categoryes %}
+              <td > <a href="#"  > {{cat.categ_name}} </a>
+              </td>
+              <td>   {{cat.categ_description}}        </td>
+          </tr>
+
+{% endfor %}
+</table>
+
+
+{% endblock %}
