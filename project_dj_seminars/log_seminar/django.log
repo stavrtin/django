@@ -1592,3 +1592,7 @@ WARNING 2023-10-12 19:37:51,811 basehttp 28512 19788 "GET /lec4/forms/ HTTP/1.1"
 INFO 2023-10-13 12:58:30,731 autoreload 17144 31376 Watching for file changes with StatReloader
 WARNING 2023-10-13 12:59:22,828 log 17144 36636 Not Found: /lec4/upload_img/
 WARNING 2023-10-13 12:59:22,829 basehttp 17144 36636 "POST /lec4/upload_img/ HTTP/1.1" 404 3770
+INFO 2023-11-20 18:55:22,334 autoreload 24616 10004 Watching for file changes with StatReloader
+INFO 2023-11-20 18:55:26,989 basehttp 24616 26044 "GET / HTTP/1.1" 200 26
+WARNING 2023-11-20 18:55:28,518 log 24616 26044 Not Found: /favicon.ico
+WARNING 2023-11-20 18:55:28,519 basehttp 24616 26044 "GET /favicon.ico HTTP/1.1" 404 3754

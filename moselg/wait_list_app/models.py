@@ -35,25 +35,57 @@ class ReportBedsMod(models.Model):
     def __str__(self):
         return f'Койки от : {self.med_org}'
 
-class ZayavkaNaGospit(models.Model):
-    fio = models.CharField(unique=True, max_length=150)
-    birthday = models.DateField(unique=True)
 
-    diagnoz = models.CharField(max_length=150)
-    dateVk = models.DateField()
-    quickly_categor = models.CharField(max_length=15,
-                                        choices=[('Мед_план','Мед_план'),
-                                                 ('Соц_план', 'Соц_план'),
-                                                 ('Мед_CITO', 'Мед_CITO'),
-                                                 ('Соц_CITO', 'Соц_CITO') ])
-    gender = models.CharField(max_length=1,
-                            choices=[('M', 'Male'), ('F', 'Female')])
-    med_org = models.ForeignKey(MedOrgMod, on_delete=models.CASCADE)
-    comment = models.TextField()
-    create_at = models.DateTimeField(auto_now_add=True)
+class Filials(models.Model):
+    name = models.CharField(max_length=255)
 
     def __str__(self):
-        return f' Пациент {self.fio} {self.birthday}'
+        return f' Filial {self.name}'
+
+class ZayavkaNaGospit(models.Model):
+    now_status = models.CharField(max_length=50,
+                                        choices=[('Ожидает одобрения', 'Ожидает одобрения'),
+                                                ('Одобрена', 'Одобрена'),
+                                                ('Отложена', 'Отложена'),
+                                                ('Отменена', 'Отменена'),
+                                                ('Умер', 'Умер'),
+                                                ('Госпитализирован', 'Госпитализирован') ])
+    pokaz_on_gospit = models.CharField(max_length=15,
+                                       choices=[('Мед план', 'Мед план'),
+                                                ('Мед срочно', 'Мед срочно'),
+                                                ('ОРДП план', 'ОРДП план')])
+    date_created = models.DateTimeField(auto_now_add=True)
+    location_from = models.CharField(max_length=150)
+    med_critary = models.IntegerField(max_length=5)
+    reason_hospit = models.TextField()
+    type_transport = models.CharField(max_length=50,
+                                        choices=[('СМП', 'СМП'),
+                                                ('Машина с  носилками', 'Машина с  носилками'),
+                                                ('Cобственным транспортом', 'Cобственным транспортом'),
+                                                ('ЦЭМП', 'ЦЭМП'),
+                                                ('Умер', 'Умер'),
+                                                ('Машина без носилок', 'Машина без носилок') ])
+
+    prefer_filial = models.ForeignKey(Filials, on_delete=models.CASCADE)
+
+    who_agreed_zayavka = models.CharField(max_length=15,
+                                       choices=[('Зав_ОВПП', 'Зав_ОВПП'),
+                                                ('Зав_филиалом', 'Зав_филиалом'),
+                                                ('Зав_ОДРП', 'Зав_ОДРП'),
+                                                ('Врач_КЦ', 'Врач_КЦ'),
+                                                ('Врач_деж_админ', 'Врач_деж_админ'),
+                                                ('Глав_врач', 'Глав_врач'),
+                                                ('Зам_по_амб', 'Зам_по_амб'),
+                                                ('Зам_по_стац', 'Зам_по_стац'),
+                                                ('ГВС', 'ГВС')])
+
+
+    def __str__(self):
+        return f' Заявка {self.fio} {self.birthday}'
+
+
+
+
 
 class Client(models.Model):
     name = models.CharField(max_length=255)
