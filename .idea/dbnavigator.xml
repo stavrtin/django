@@ -22,12 +22,12 @@
     </last-used-providers>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="46050b7a-0c3f-429a-8531-6f628bf70a4c" object-ref="schemas/main/tables/hw01_app_user" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="46050b7a-0c3f-429a-8531-6f628bf70a4c" dataset="main.hw01_app_user" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="46050b7a-0c3f-429a-8531-6f628bf70a4c" dataset="main.wait_list_app_reportbeds" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="46050b7a-0c3f-429a-8531-6f628bf70a4c" dataset="main.wait_list_app_hospis" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="46050b7a-0c3f-429a-8531-6f628bf70a4c" dataset="main.lection_04_app_user" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
@@ -64,7 +64,7 @@
           <tns-folder value="" />
           <tns-profile value="" />
           <files>
-            <file path="C:\Users\stavr\django\project_dj_hw\db_shop.sqlite3" schema="main" />
+            <file path="C:\Users\stavr\django\moselg\moselg_db.sqlite3" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />

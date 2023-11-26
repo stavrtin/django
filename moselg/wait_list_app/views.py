@@ -29,9 +29,7 @@ def v_about(request):
 
 def v_start_page(request):
     # table_bed = ReportBeds.objects.filter().distinct('filial')
-    table_bed = ReportBeds.objects.raw('SELECT * from '
-                                       ''
-                                       'wait_list_app_reportbeds')
+    table_bed = ReportBeds.objects.raw('SELECT * from wait_list_app_reportbeds group by filial_id order by create_at ')
     # table_bed = ReportBeds.objects.filter().distinct()
     # table_bed = ReportBeds.objects.latest('filial')
 
