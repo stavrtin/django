@@ -6,8 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 from .forms_moselg import BedsForm, ZayavkaForm, EditBedsForm, AuthUserForm, AuthenticationForm
 
-from .models import ReportBedsMod
-from .models import MedOrgMod
+from .models import ReportBeds
+# from .models import MedOrgMod
 from .models import ZayavkaNaGospit
 from .models import Hospis
 
@@ -28,10 +28,16 @@ def v_about(request):
     return render(request, "wait_list_app/base_moselg.html")
 
 def v_start_page(request):
-    table_bed = Hospis.objects.all()
+    # table_bed = ReportBeds.objects.filter().distinct('filial')
+    table_bed = ReportBeds.objects.raw('SELECT * from '
+                                       ''
+                                       'wait_list_app_reportbeds')
+    # table_bed = ReportBeds.objects.filter().distinct()
+    # table_bed = ReportBeds.objects.latest('filial')
 
     for i in table_bed:
         table_gzm =  3
+        print(i)
     context = {"table_bed": table_bed}
     return render(request, "wait_list_app/main_table_bed.html", context)
 
@@ -39,7 +45,7 @@ def v_start_page(request):
 def v_medorg_info(request):
     # - просто вывод сведений об Мед орг
 
-    meds = MedOrgMod.objects.all()
+    meds = Hospis.objects.all()
     context = {"meds": meds}
     return render(request, "wait_list_app/test.html", context)
 
@@ -78,7 +84,7 @@ def v_zayavka(request):
 def v_beds_info(request):
     # - просто вывод сведений об beds от Мед
 
-    beds = ReportBedsMod.objects.all()
+    beds = ReportBeds.objects.all()
 
     # ---------- фильтры ---------------
     myFilter = OrderFilter(request.GET, queryset=beds)
@@ -113,7 +119,7 @@ def v_zayavka_info(request):
     return render(request, "wait_list_app/zayavki_list.html", context)
 
 def books(request):
-    table = BedsTable(ReportBedsMod.objects.all())
+    table = BedsTable(ReportBeds.objects.all())
     return render(request, 'wait_list_app/test.html', {'table': table})
 
 
@@ -121,7 +127,7 @@ def edit_report_beds(request, report_beds_id: int):
     # ------- изменение значений полей из РАПОРТА по койкам -------
     # ------- тут  правим только   report.m_free и report.f_free---
 
-    report = ReportBedsMod.objects.get(id=report_beds_id)
+    report = ReportBeds.objects.get(id=report_beds_id)
     report_namemo = report.med_org
     report_m_free = report.m_free
     report_f_free = report.f_free
@@ -207,7 +213,7 @@ class MyprojectLogout(LogoutView):
 # -----------тест поиск----
 def v_medorg_search(request):
     # - просто вывод сведений об Мед орг
-    meds = MedOrgMod.objects.all()
+    meds = Hospis.objects.all()
     context = {"meds": meds}
     return render(request, "wait_list_app/test_search.html", context)
 

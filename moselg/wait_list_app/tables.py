@@ -1,5 +1,5 @@
 import django_tables2 as tables
-from .models import ReportBedsMod
+from .models import ReportBeds
 
 
 class BedsTable(tables.Table):
@@ -18,5 +18,5 @@ class BedsTable(tables.Table):
     #                             order_by=('create_at', '-create_at'))
 
     class Meta:
-        model = ReportBedsMod
+        model = ReportBeds
         # template_name = 'wait_list_app/test.html'

@@ -1,7 +1,7 @@
 from django import forms
 # from django.forms import ModelForm
-from .models import MedOrgMod
-from .models import ReportBedsMod
+# from .models import MedOrgMod
+from .models import ReportBeds
 from .models import ZayavkaNaGospit
 import datetime
 from crispy_forms.helper import FormHelper
@@ -16,16 +16,16 @@ class BedsForm(forms.ModelForm):
     def __init__(self,  *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-        self.fields["med_org"].empty_label='Не выбран стационар'
-        self.fields["med_org"].label='Выберите стационар'
+        self.fields["filial"].empty_label='Не выбран стационар'
+        self.fields["filial"].label='Выберите стационар'
 
         # self.fields["m_employ"].label='Занято коек (м)'
         # self.fields["f_employ"].label='Занято коек (ж)'
         # self.fields["m_free"].label='Свободно коек (м)'
         # self.fields["f_free"].label='Свободно коек (ж)'
 
-        self.fields["f_remont"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
-        self.fields["m_remont"].widget = forms.NumberInput(attrs={
+        # self.fields["f_remont"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
+        self.fields["beds_remont"].widget = forms.NumberInput(attrs={
             'class': 'form-special',
             'title': 'Your name',
             # 'style' :
@@ -35,13 +35,13 @@ class BedsForm(forms.ModelForm):
         # self.fields["f_free"].widget = forms.NumberInput(attrs={'class': 'form-control', 'size': '10'})
 
     class Meta:
-        model = ReportBedsMod
+        model = ReportBeds
         fields = '__all__'
             # ['med_org',
             #       # 'm_employ', 'f_employ',     'm_free' ,
             #       # 'f_free',
             #      ]
-        widgets = {'med_org': forms.Select(attrs={'id':'select_mo', 'class': 'form-control form-control-lg  select' })}
+        widgets = {'filial': forms.Select(attrs={'id':'select_mo', 'class': 'form-control form-control-lg  select' })}
 
 
 
@@ -51,16 +51,16 @@ class EditBedsForm(forms.ModelForm):
 # -- форма ввода данных по ИЗМЕНЕНИЮ инф по уже переданным КОЙКАМ ----
     def __init__(self, name_edited_med_org, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["med_org"].empty_label= name_edited_med_org
-        self.fields["med_org"].label='Выберите стационар'
+        self.fields["filial"].empty_label= name_edited_med_org
+        self.fields["filial"].label='Выберите стационар'
         # self.fields["m_employ"].label='Занято коек (м)'
         # self.fields["f_employ"].label='Занято коек (ж)'
         # self.fields["m_free"].label='Свободно коек (м)'
         # self.fields["f_free"].label='Свободно коек (ж)'
 
     class Meta:
-        model = ReportBedsMod
-        fields = ['med_org',
+        model = ReportBeds
+        fields = ['filial',
                 #   'm_employ', 'f_employ',
                 # 'm_free' ,        'f_free',
                  ]
@@ -69,7 +69,7 @@ class ZayavkaForm(forms.ModelForm):
     # ----- форма ввода данных для передачи инф по ПАЦИЕНТУ -------------
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields["med_org"].empty_label='Не выбран источник заявки'
+        self.fields["filial"].empty_label='Не выбран источник заявки'
 
         self.fields["quickly_categor"].empty_label='Не выбран признак срочности'
         self.fields["gender"].empty_label='Не выбран пол'
@@ -90,7 +90,7 @@ class ZayavkaForm(forms.ModelForm):
     class Meta:
         model = ZayavkaNaGospit
         fields = '__all__'
-        widgets = {'med_org': forms.Select(attrs={'id': 'select_mo', 'class': 'form-control form-control-lg  select'})}
+        widgets = {'filial': forms.Select(attrs={'id': 'select_mo', 'class': 'form-control form-control-lg  select'})}
 
 
 class AuthUserForm(AuthenticationForm, forms.ModelForm):

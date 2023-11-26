@@ -90,13 +90,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for zayavka_ in table_bed %}
+                {% for koyki_ in table_bed %}
                 <tr>
-                    <td>{{ zayavka_.hospisname }}</td>
-                    <td>{{ zayavka_.hosp_m_dostup_bed }}</td>
-                    <td>{{ zayavka_.hosp_f_dostup_bed }}</td>
-                    <td>{{ zayavka_.hosp_f_dostup_bed|add:zayavka_.hosp_f_dostup_bed }}</td>
-<!--                    <td><a href="#">Детально {{ med_.id }}</a></td>-->
+                    <td>{{ koyki_.filial }}</td>
+                    <td>{{ koyki_.m_free|add:koyki_.m_busy}}</td>
+                    <td>{{ koyki_.f_free|add:koyki_.f_busy}}</td>
+                    <td>{{ koyki_.f_free|add:koyki_.f_busy|add:koyki_.m_free|add:koyki_.m_busy}}</td>
+
                 </tr>
                 {% endfor %}
                 <tr>  <!--TOTAL -->
@@ -125,10 +125,10 @@
                 <tbody>
                 {% for zayavka_ in table_bed %}
                 <tr>
-                    <td>{{ zayavka_.hospisname }}</td>
-                    <td>{{ zayavka_.hosp_m_busy_bed }}</td>
-                    <td>{{ zayavka_.hosp_f_busy_bed }}</td>
-                    <td>{{ zayavka_.hosp_m_busy_bed|add:zayavka_.hosp_f_busy_bed }}</td>
+                    <td>{{ zayavka_.filial }}</td>
+                    <td>{{ zayavka_.m_busy }}</td>
+                    <td>{{ zayavka_.f_busy }}</td>
+                    <td>{{ zayavka_.m_busy|add:zayavka_.f_busy }}</td>
 <!--                    <td><a href="#">Детально {{ med_.id }}</a></td>-->
                 </tr>
                 {% endfor %}
@@ -159,10 +159,10 @@
                 <tbody>
                 {% for zayavka_ in table_bed %}
                 <tr>
-                    <td>{{ zayavka_.hospisname }}</td>
-                    <td>{{ zayavka_.hosp_m_free_bed }}</td>
-                    <td>{{ zayavka_.hosp_f_free_bed }}</td>
-                    <td>{{ zayavka_.hosp_m_free_bed|add:zayavka_.hosp_f_free_bed }}</td>
+                    <td>{{ zayavka_.filial }}</td>
+                    <td>{{ zayavka_.m_free }}</td>
+                    <td>{{ zayavka_.f_free }}</td>
+                    <td>{{ zayavka_.m_free|add:zayavka_.f_free }}</td>
 <!--                    <td><a href="#">Детально {{ med_.id }}</a></td>-->
                 </tr>
                 {% endfor %}
