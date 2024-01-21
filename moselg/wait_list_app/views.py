@@ -29,7 +29,13 @@ def v_about(request):
 
 def v_start_page(request):
     # table_bed = ReportBeds.objects.filter().distinct('filial')
-    table_bed = ReportBeds.objects.raw('SELECT * from wait_list_app_reportbeds group by filial_id order by create_at ')
+    # table_bed = ReportBeds.objects.raw('SELECT * from wait_list_app_reportbeds group by filial_id order by create_at ')
+    table_bed = ReportBeds.objects.raw('select * from '
+                                                       '(SELECT *  from wait_list_app_reportbeds rep_beds '
+                                                        'JOIN wait_list_app_hospis hosp on  rep_beds.filial_id = hosp.id '
+                                                        'ORDER BY create_at DESC )'
+                                       ' GROUP BY filial_id'
+                                       )
     # table_bed = ReportBeds.objects.filter().distinct()
     # table_bed = ReportBeds.objects.latest('filial')
 
@@ -126,7 +132,7 @@ def edit_report_beds(request, report_beds_id: int):
     # ------- тут  правим только   report.m_free и report.f_free---
 
     report = ReportBeds.objects.get(id=report_beds_id)
-    report_namemo = report.med_org
+    report_namemo = report.filial
     report_m_free = report.m_free
     report_f_free = report.f_free
 
@@ -151,17 +157,17 @@ def edit_report_beds(request, report_beds_id: int):
     else:
         # ----- передаем парметры для заполнения полей в форме -----
         form = EditBedsForm(initial={
-                            'med_org': report.med_org,
-                            'm_employ': report.m_employ,
-                            'f_employ': report.f_employ,
+                            'med_org': report.filial,
+                            # 'm_employ': report.m_employ,
+                            # 'f_employ': report.f_employ,
                             'm_free': report.m_free,
                             'f_free': report.f_free,
                                                 },
-                            name_edited_med_org=report.med_org   )
+                            name_edited_med_org=report.filial   )
 
         message = 'Заполните форму'
     context = {
-    'message': message,
+    # 'message': message,
         'report_namemo': report_namemo,
         'report_m_free': report_m_free,
         'report_f_free': report_f_free,
@@ -213,6 +219,7 @@ def v_medorg_search(request):
     # - просто вывод сведений об Мед орг
     meds = Hospis.objects.all()
     context = {"meds": meds}
+
     return render(request, "wait_list_app/test_search.html", context)
 
 # ------------ вывод коечнызх таблиц------------

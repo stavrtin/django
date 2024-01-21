@@ -1,13 +1,41 @@
 {% extends 'wait_list_app/base_moselg.html' %}
 
-{# yonetim/templates/list.html #}
-{% load render_table from django_tables2 %}
-{% load static %}
+<!--{# yonetim/templates/list.html #}-->
+<!--{% load render_table from django_tables2 %}-->
+<!--{% load static %}-->
 
 
 
 {% block content %}
+<script>
+<!-- ---------------Обзовем переменные   -->
+var znyat_total  <!-- ---------------Обзовем переменные   -->
+var total_gz    <!-- Сколько всего по ГЗ -->
+var total_dop    <!-- Сколько всего по dop -->
+var total_rem    <!-- Сколько всего по rem -->
+var total_m    <!-- Сколько всего по муж -->
+var total_f    <!-- Сколько всего по жен -->
 
+var filial_total
+
+znyat_total = 0
+total_gz = 0
+total_dop = 0
+total_rem = 0
+total_m = 0
+total_f = 0
+
+     {% for koyki_ in table_bed %}
+                    znyat_total = znyat_total +  {{ koyki_.m_busy}} + {{koyki_.f_busy}}
+                    total_gz = total_gz + {{ koyki_.beds_gz }}
+                    total_dop = total_dop + {{ koyki_.beds_dop }}
+                    total_rem = total_rem + {{ koyki_.beds_remont }}
+                    total_m = total_m + {{ koyki_.m_free }}  + {{ koyki_.m_busy }}
+                    total_f = total_f + {{ koyki_.f_free }}  + {{ koyki_.f_busy }}
+     {% endfor %}
+
+
+</script>
 
     <!-- Начало вставки 3 колонок -->
 <!--    <div class="container">-->
@@ -79,31 +107,39 @@
             <table class="table table-striped table-hover">
                 <thead class="table-borderless table-primary">
                 <tr>
-<!--                    <th scope="col" colspan="5" class="text-center">Доступный коечный фонд</th>-->
                 </tr>
                 <tr>
                     <th class="align-middle text-center">Филиал</th>
-                    <th>Койки_М</th>
-                    <th>Койки_Ж</th>
-                    <th>Итого</th>
-<!--                    <th></th>-->
+                    <th class="align-middle text-center">По ГЗ</th>
+                    <th class="align-middle text-center">Доп. коек</th>
+                    <th class="align-middle text-center">Рем.</th>
+                   <th class="align-middle text-center">Итог</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for koyki_ in table_bed %}
+                <script> filial_total = 0 </script>
+                {% for dostup_koyki in table_bed %}
                 <tr>
-                    <td>{{ koyki_.filial }}</td>
-                    <td>{{ koyki_.m_free|add:koyki_.m_busy}}</td>
-                    <td>{{ koyki_.f_free|add:koyki_.f_busy}}</td>
-                    <td>{{ koyki_.f_free|add:koyki_.f_busy|add:koyki_.m_free|add:koyki_.m_busy}}</td>
+                    <script>
+                    filial_total = {{ dostup_koyki.beds_gz }} + {{ dostup_koyki.beds_dop }} - {{ dostup_koyki.beds_remont }}
+                    </script>
+                    <td>{{ dostup_koyki.filial }}</td>
+                    <td>{{ dostup_koyki.beds_gz }}</td>
+                    <td>{{ dostup_koyki.beds_dop }}</td>
+                    <td>{{ dostup_koyki.beds_remont }}</td>
+<!--                    <td>{{ dostup_koyki.beds_gz|add:dostup_koyki.beds_dop|add:dostup_koyki.beds_remont }}</td>-->
+                    <td> <script>document.write(filial_total) </script> </td>
+
 
                 </tr>
                 {% endfor %}
                 <tr>  <!--TOTAL -->
                         <th> Итого </th>
-                        <th>    xxxx </th>
-                        <th>    xxxx </th>
-                        <th>    xxx  </th>
+                        <th>    -------  <script> document.write(total_gz) </script></th>
+                        <th>    -------  <script> document.write(total_dop) </script></th>
+                        <th>    -------  <script> document.write(total_rem) </script></th>
+                        <th>    -------  <script> document.write(total_gz + total_dop - total_rem) </script></th>
+
                 </tr>
                 </tbody>
             </table>
@@ -188,6 +224,7 @@
 
 <!--            {{table_bed}}-->
         </div>
+
     </div>
 </div>
 

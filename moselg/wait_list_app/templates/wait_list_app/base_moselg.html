@@ -23,7 +23,14 @@
 
 
 <body>
-{{ user }}
+
+{% if user.is_authenticated %}
+    <p>Вы авторизованы как <br> <b>{{user}}</b></p>
+    {% else %}
+    <p>Вы НЕ авторизованы, пройдите авторизацию</p>
+{% endif %}
+
+
 <!--    <ul id="navbar" class="nav nav-pills">-->
   <div class="container mt-4">
 <!--    <div class="container  align-items-center">-->
