@@ -9,7 +9,7 @@
 {% block content %}
 <script>
 <!-- ---------------Обзовем переменные   -->
-var znyat_total  <!-- ---------------Обзовем переменные   -->
+var total_koek  <!-- ---------------Обзовем переменные   -->
 var total_gz    <!-- Сколько всего по ГЗ -->
 var total_dop    <!-- Сколько всего по dop -->
 var total_rem    <!-- Сколько всего по rem -->
@@ -32,6 +32,7 @@ total_f = 0
                     total_rem = total_rem + {{ koyki_.beds_remont }}
                     total_m = total_m + {{ koyki_.m_free }}  + {{ koyki_.m_busy }}
                     total_f = total_f + {{ koyki_.f_free }}  + {{ koyki_.f_busy }}
+                    total_koek = total_gz + total_dop - total_rem
      {% endfor %}
 
 
@@ -54,7 +55,8 @@ total_f = 0
                                   <td class="text-end fs-4">100%</td>
                               </tr>
                               <tr>
-                                <td class="fw-bold fs-1">635</td>
+                            <td class="fw-bold fs-1">
+                                <script> document.write(total_koek) </script> </td>
                               </tr>
                             </tbody>
                           </table>
@@ -112,7 +114,7 @@ total_f = 0
                     <th class="align-middle text-center">Филиал</th>
                     <th class="align-middle text-center">По ГЗ</th>
                     <th class="align-middle text-center">Доп. коек</th>
-                    <th class="align-middle text-center">Рем.</th>
+                    <th class="align-middle text-center">В Ремонте</th>
                    <th class="align-middle text-center">Итог</th>
                 </tr>
                 </thead>
@@ -124,21 +126,21 @@ total_f = 0
                     filial_total = {{ dostup_koyki.beds_gz }} + {{ dostup_koyki.beds_dop }} - {{ dostup_koyki.beds_remont }}
                     </script>
                     <td>{{ dostup_koyki.filial }}</td>
-                    <td>{{ dostup_koyki.beds_gz }}</td>
-                    <td>{{ dostup_koyki.beds_dop }}</td>
-                    <td>{{ dostup_koyki.beds_remont }}</td>
+                    <td class="align-middle text-center">{{ dostup_koyki.beds_gz }}</td>
+                    <td class="align-middle text-center">{{ dostup_koyki.beds_dop }}</td>
+                    <td class="align-middle text-center">{{ dostup_koyki.beds_remont }}</td>
 <!--                    <td>{{ dostup_koyki.beds_gz|add:dostup_koyki.beds_dop|add:dostup_koyki.beds_remont }}</td>-->
-                    <td> <script>document.write(filial_total) </script> </td>
+                    <td class="align-middle text-center"> <script>document.write(filial_total) </script> </td>
 
 
                 </tr>
                 {% endfor %}
                 <tr>  <!--TOTAL -->
                         <th> Итого </th>
-                        <th>    -------  <script> document.write(total_gz) </script></th>
-                        <th>    -------  <script> document.write(total_dop) </script></th>
-                        <th>    -------  <script> document.write(total_rem) </script></th>
-                        <th>    -------  <script> document.write(total_gz + total_dop - total_rem) </script></th>
+                        <th class="align-middle text-center">      <script> document.write(total_gz) </script></th>
+                        <th class="align-middle text-center">      <script> document.write(total_dop) </script></th>
+                        <th class="align-middle text-center">      <script> document.write(total_rem) </script></th>
+                        <th class="align-middle text-center">      <script> document.write(total_gz + total_dop - total_rem) </script></th>
 
                 </tr>
                 </tbody>
