@@ -13,8 +13,13 @@ var total_koek  <!-- ---------------Обзовем переменные   -->
 var total_gz    <!-- Сколько всего по ГЗ -->
 var total_dop    <!-- Сколько всего по dop -->
 var total_rem    <!-- Сколько всего по rem -->
+<!--var total_zanyat    &lt;!&ndash; Сколько всего zanyat &ndash;&gt;-->
+<!--var total_free    &lt;!&ndash; Сколько всего free &ndash;&gt;-->
+var zanyat_m    <!-- Сколько zanyat по муж -->
+var zanyat_f    <!-- Сколько zanyat по жен -->
 var total_m    <!-- Сколько всего по муж -->
 var total_f    <!-- Сколько всего по жен -->
+
 
 var filial_total
 
@@ -22,14 +27,22 @@ znyat_total = 0
 total_gz = 0
 total_dop = 0
 total_rem = 0
+zanyat_m = 0
+zanyat_f = 0
 total_m = 0
 total_f = 0
+free_m = 0
+free_f = 0
 
      {% for koyki_ in table_bed %}
                     znyat_total = znyat_total +  {{ koyki_.m_busy}} + {{koyki_.f_busy}}
                     total_gz = total_gz + {{ koyki_.beds_gz }}
                     total_dop = total_dop + {{ koyki_.beds_dop }}
                     total_rem = total_rem + {{ koyki_.beds_remont }}
+                    zanyat_m = zanyat_m + {{ koyki_.m_busy }}
+                    zanyat_f = zanyat_f + {{ koyki_.f_busy }}
+                    free_m = free_m + {{ koyki_.m_free }}
+                    free_f = free_f + {{ koyki_.f_free }}
                     total_m = total_m + {{ koyki_.m_free }}  + {{ koyki_.m_busy }}
                     total_f = total_f + {{ koyki_.f_free }}  + {{ koyki_.f_busy }}
                     total_koek = total_gz + total_dop - total_rem
@@ -74,24 +87,20 @@ total_f = 0
                                   <td class="text-end fs-4">95 %</td>
                               </tr>
                               <tr>
-                                <td class="fw-bold fs-1">601</td>
+                                <td class="fw-bold fs-1"> <script>document.write(zanyat_m + zanyat_f) </script></td>
+
                               </tr>
                             </tbody>
                           </table>
              </div>
                 <div class="col"> <!-- <БЛОКИ ИНФОРМАЦИОННЫЕ> -->
                 <table class="table table-borderless table-success">
-                            <thead>
-                              <tr>
-                                  <th>Свободный  коечный фонд</th>
-                              </tr>
+                            <thead>    <tr>    <th>Свободный  коечный фонд</th>    </tr>
                             </thead>
                             <tbody>
+                              <tr>  <td class="text-end fs-4">    5 %</td>   </tr>
                               <tr>
-                                  <td class="text-end fs-4">5 %</td>
-                              </tr>
-                              <tr>
-                                <td class="fw-bold fs-1">34</td>
+                                <td class="fw-bold fs-1"><script> document.write(free_f + free_m) </script></td>
                               </tr>
                             </tbody>
                           </table>
@@ -107,15 +116,15 @@ total_f = 0
     <div class="row">
         <div class="col">  <!-- ------------------------КОЛОНКА Доступный ---->
             <table class="table table-striped table-hover">
-                <thead class="table-borderless table-primary">
+                <thead class="table-borderless table-primary align-middle text-center" >
+<!--                <tr>-->
+<!--                </tr>-->
                 <tr>
-                </tr>
-                <tr>
-                    <th class="align-middle text-center">Филиал</th>
+                    <th >Филиал</th>
                     <th class="align-middle text-center">По ГЗ</th>
-                    <th class="align-middle text-center">Доп. коек</th>
-                    <th class="align-middle text-center">В Ремонте</th>
-                   <th class="align-middle text-center">Итог</th>
+                    <th class="align-middle text-center">Доп.</th>
+                    <th class="align-middle text-center">Ремонт</th>
+                    <th class="align-middle text-center">Итог</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -154,8 +163,8 @@ total_f = 0
                 </tr>
                 <tr>
                     <th class="align-middle text-center">Филиал</th>
-                    <th>Койки_М</th>
-                    <th>Койки_Ж</th>
+                    <th>Койки (муж.)</th>
+                    <th>Койки (жен.)</th>
                     <th>Итого</th>
 <!--                    <th></th>-->
                 </tr>
@@ -172,9 +181,9 @@ total_f = 0
                 {% endfor %}
                                 <tr>  <!--TOTAL -->
                         <th> Итого </th>
-                        <th>    xxxx </th>
-                        <th>    xxxx </th>
-                        <th>    xxx  </th>
+                        <th>  <script> document.write(zanyat_m) </script></th>
+                        <th>  <script> document.write(zanyat_f) </script></th>
+                        <th>  <script> document.write(zanyat_f + zanyat_m) </script></th>
                 </tr>
                 </tbody>
                 </tbody>
@@ -188,8 +197,8 @@ total_f = 0
                 </tr>
                 <tr>
                     <th class="align-middle text-center">Филиал</th>
-                    <th>Койки_М</th>
-                    <th>Койки_Ж</th>
+                    <th>Койки (муж.)</th>
+                    <th>Койки (жен.)</th>
                     <th>Итого</th>
 <!--                    <th></th>-->
                 </tr>
@@ -201,14 +210,16 @@ total_f = 0
                     <td>{{ zayavka_.m_free }}</td>
                     <td>{{ zayavka_.f_free }}</td>
                     <td>{{ zayavka_.m_free|add:zayavka_.f_free }}</td>
+                    <td>{{ zayavka_.create_at|date:"d.m.y h:m" }}</td>
+<!--                    {{ value|date:"d M Y h" }}-->
 <!--                    <td><a href="#">Детально {{ med_.id }}</a></td>-->
                 </tr>
                 {% endfor %}
                                 <tr>  <!--TOTAL -->
                         <th> Итого </th>
-                        <th>    xxxx </th>
-                        <th>    xxxx </th>
-                        <th>    xxx  </th>
+                        <th>  <script> document.write(free_m) </script></th>
+                        <th>  <script> document.write(free_f) </script></th>
+                        <th>  <script> document.write(free_f + free_m) </script></th>
                 </tr>
                 </tbody>
                 </tbody>
