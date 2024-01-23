@@ -28,16 +28,20 @@ def v_about(request):
     return render(request, "wait_list_app/base_moselg.html")
 
 def v_start_page(request):
-    # table_bed = ReportBeds.objects.filter().distinct('filial')
-    # table_bed = ReportBeds.objects.raw('SELECT * from wait_list_app_reportbeds group by filial_id order by create_at ')
+    # table_bed = ReportBeds.objects.raw('select * from '
+    #                                                    '(SELECT *  from wait_list_app_reportbeds rep_beds '
+    #                                                     'JOIN wait_list_app_hospis hosp on  rep_beds.filial_id = hosp.id '
+    #                                                     'ORDER BY create_at DESC )'
+    #                                    ' GROUP BY filial_id'
+    #                                    )
     table_bed = ReportBeds.objects.raw('select * from '
-                                                       '(SELECT *  from wait_list_app_reportbeds rep_beds '
-                                                        'JOIN wait_list_app_hospis hosp on  rep_beds.filial_id = hosp.id '
-                                                        'ORDER BY create_at DESC )'
-                                       ' GROUP BY filial_id'
+                                       '(select distinct on (filial_id) filial_id,  '
+                                       'create_at from wait_list_app_reportbeds  '
+                                       'GROUP BY filial_id, create_at '
+                                       'ORDER By filial_id, create_at desc) tab_time '
+                                       'JOIN wait_list_app_hospis hosp on  tab_time.filial_id = hosp.id '
+                                       'JOIN wait_list_app_reportbeds rep_beds on  tab_time.filial_id = rep_beds.id;'
                                        )
-    # table_bed = ReportBeds.objects.filter().distinct()
-    # table_bed = ReportBeds.objects.latest('filial')
 
     for i in table_bed:
         table_gzm =  3

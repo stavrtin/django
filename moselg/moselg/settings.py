@@ -96,10 +96,21 @@ WSGI_APPLICATION = 'moselg.wsgi.application'
 # }
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'moselg_db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'moselg_db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'my_test_db',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '',
     }
+
+
+
 }
 
 
