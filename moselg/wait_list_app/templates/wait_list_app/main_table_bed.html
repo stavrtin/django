@@ -36,7 +36,7 @@ free_f = 0
 
      {% for koyki_ in table_bed %}
                     znyat_total = znyat_total +  {{ koyki_.m_busy}} + {{koyki_.f_busy}}
-                    total_gz = total_gz + {{ koyki_.beds_gz }}
+                    total_gz = total_gz + {{ koyki_.filial.beds_gz }}
                     total_dop = total_dop + {{ koyki_.beds_dop }}
                     total_rem = total_rem + {{ koyki_.beds_remont }}
                     zanyat_m = zanyat_m + {{ koyki_.m_busy }}
@@ -136,7 +136,7 @@ free_f = 0
                     filial_total = {{ dostup_koyki.beds_gz }} + {{ dostup_koyki.beds_dop }} - {{ dostup_koyki.beds_remont }}
                     </script>
                     <td>{{ dostup_koyki.filial }}</td>
-                    <td class="align-middle text-center">{{ dostup_koyki.beds_gz }}</td>
+                    <td class="align-middle text-center">{{ dostup_koyki.filial.beds_gz }}</td>
                     <td class="align-middle text-center">{{ dostup_koyki.beds_dop }}</td>
                     <td class="align-middle text-center">{{ dostup_koyki.beds_remont }}</td>
 <!--                    <td>{{ dostup_koyki.beds_gz|add:dostup_koyki.beds_dop|add:dostup_koyki.beds_remont }}</td>-->
@@ -211,7 +211,7 @@ free_f = 0
                     <td>{{ zayavka_.m_free }}</td>
                     <td>{{ zayavka_.f_free }}</td>
                     <td>{{ zayavka_.m_free|add:zayavka_.f_free }}</td>
-                    <td>{{ zayavka_.create_at|date:"d.m.y h:m" }}</td>
+                    <td>{{ zayavka_.create_at|date:"d.m.y H:i" }}</td>
 <!--                    {{ value|date:"d M Y h" }}-->
 <!--                    <td><a href="#">Детально {{ med_.id }}</a></td>-->
                 </tr>

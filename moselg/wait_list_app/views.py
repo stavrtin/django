@@ -34,14 +34,13 @@ def v_start_page(request):
     #                                                     'ORDER BY create_at DESC )'
     #                                    ' GROUP BY filial_id'
     #                                    )
-    table_bed = ReportBeds.objects.raw('select * from '
-                                       '(select distinct on (filial_id) filial_id,  '
-                                       'create_at from wait_list_app_reportbeds  '
-                                       'GROUP BY filial_id, create_at '
-                                       'ORDER By filial_id, create_at desc) tab_time '
-                                       'JOIN wait_list_app_hospis hosp on  tab_time.filial_id = hosp.id '
-                                       'JOIN wait_list_app_reportbeds rep_beds on  tab_time.filial_id = rep_beds.id;'
-                                       )
+    table_bed = ReportBeds.objects.raw('select distinct on (filial_id) filial_id, id, wait.id as id_w, '
+                                       'create_at, beds_remont, beds_dop,  m_free,  f_free,  m_busy,    f_busy,    note '
+                                       'from '
+                                      '(select * from wait_list_app_reportbeds order by filial_id, create_at desc) wait'
+                                       ' GROUP BY filial_id, '
+                                       '  id,  id_w,    create_at, beds_remont,beds_dop, m_free, f_free, m_busy, f_busy, note '
+                                       'order by filial_id, create_at desc;' )
 
     for i in table_bed:
         table_gzm =  3
