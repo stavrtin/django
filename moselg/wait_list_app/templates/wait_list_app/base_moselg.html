@@ -46,6 +46,7 @@
        <li><a class="nav-link {% if page  == 'beds_info' %}active{% endif %}" href="{% url 'v_beds_info' %}">Сведения о койках</a></li>
        <li><a class="nav-link {% if page  == 'zayav_info' %}active{% endif %}" href="{% url 'v_zayavka_info' %}">Сведения о заявках</a></li>
        <li><a class="nav-link {% if page  == 'results' %}active{% endif %}" href="{% url 'results' %}">Показатели работы</a></li>
+       <li><a class="nav-link {% if page  == 'zayav_info' %}active{% endif %}" href="{% url 'v_zayavka_info' %}">Поиск пациента</a></li>
 
 <li class="nav-item">   {% url 'logout_page' as url_logout_page %}
     <a class="nav-link btn-danger" href="{{url_logout_page}}">Выйти</a>      </li>

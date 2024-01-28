@@ -67,24 +67,24 @@ class EditBedsForm(forms.ModelForm):
 
 class ZayavkaForm(forms.ModelForm):
     # ----- форма ввода данных для передачи инф по ПАЦИЕНТУ -------------
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields["filial"].empty_label='Не выбран источник заявки'
-
-        self.fields["quickly_categor"].empty_label='Не выбран признак срочности'
-        self.fields["gender"].empty_label='Не выбран пол'
-
-        self.fields["fio"].label='Введите фио'
-        self.fields["fio"].widget = forms.TextInput(attrs={'class': 'special',
-                                                           'size': '50'})
-
-        self.fields["quickly_categor"].label='Введите катег'
-        # self.fields["quickly_categor"].widget = forms.ChoiceField(attrs={'class': 'form-control'})
-        # self.fields["quickly_categor"].widget = forms.RadioSelect(attrs={'class': 'form-check-input'})
-
-        self.fields["birthday"].label='Введите ДР'
-        self.fields["birthday"].widget = forms.DateInput(attrs={'class': 'form-control', 'type':'date'})
-        self.fields["dateVk"].widget = forms.DateInput(attrs={'class': 'form-control', 'type':'date'})
+    # def __init__(self, *args, **kwargs):
+    #     super().__init__(*args, **kwargs)
+    #     self.fields["filial"].empty_label='Не выбран источник заявки'
+    #
+    #     self.fields["quickly_categor"].empty_label='Не выбран признак срочности'
+    #     self.fields["gender"].empty_label='Не выбран пол'
+    #
+    #     self.fields["fio"].label='Введите фио'
+    #     self.fields["fio"].widget = forms.TextInput(attrs={'class': 'special',
+    #                                                        'size': '50'})
+    #
+    #     self.fields["quickly_categor"].label='Введите катег'
+    #     # self.fields["quickly_categor"].widget = forms.ChoiceField(attrs={'class': 'form-control'})
+    #     # self.fields["quickly_categor"].widget = forms.RadioSelect(attrs={'class': 'form-check-input'})
+    #
+    #     self.fields["birthday"].label='Введите ДР'
+    #     self.fields["birthday"].widget = forms.DateInput(attrs={'class': 'form-control', 'type':'date'})
+    #     self.fields["dateVk"].widget = forms.DateInput(attrs={'class': 'form-control', 'type':'date'})
 
 
     class Meta:

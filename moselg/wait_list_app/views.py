@@ -125,9 +125,9 @@ def v_zayavka_info(request):
                }
     return render(request, "wait_list_app/zayavki_list.html", context)
 
-def books(request):
-    table = BedsTable(ReportBeds.objects.all())
-    return render(request, 'wait_list_app/test.html', {'table': table})
+# def books(request):
+#     table = BedsTable(ReportBeds.objects.all())
+#     return render(request, 'wait_list_app/test.html', {'table': table})
 
 
 def edit_report_beds(request, report_beds_id: int):
