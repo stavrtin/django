@@ -3,6 +3,9 @@
 работа со статическими файлами в django
 https://yandex.ru/video/preview/7035404840106240398?translate_snippets=1
 
+#### Примеры
+https://pressanybutton.ru/post/sajt-na-django/django-28-dobavlyaem-paginaciyu-na-sajt/
+
 ### Ссылка на описание классов
 
 https://ccbv.co.uk/projects/Django/4.2/django.views.generic.list/ListView/
