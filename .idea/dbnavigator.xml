@@ -12,8 +12,8 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="46050b7a-0c3f-429a-8531-6f628bf70a4c">
-      <console name="Connection" type="STANDARD" schema="" session="Main" />
+    <connection id="64bfde1c-5e08-48b3-9080-4ac0858d99f2">
+      <console name="Connection" type="STANDARD" schema="my_test_db" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -25,10 +25,8 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="46050b7a-0c3f-429a-8531-6f628bf70a4c" dataset="main.hw01_app_user" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="46050b7a-0c3f-429a-8531-6f628bf70a4c" dataset="main.wait_list_app_reportbeds" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="46050b7a-0c3f-429a-8531-6f628bf70a4c" dataset="main.wait_list_app_hospis" active-filter-id="EMPTY_FILTER" />
-    <filter-actions connection-id="46050b7a-0c3f-429a-8531-6f628bf70a4c" dataset="main.lection_04_app_user" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="64bfde1c-5e08-48b3-9080-4ac0858d99f2" dataset="public.kis_csv" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="64bfde1c-5e08-48b3-9080-4ac0858d99f2" dataset="public.wait_list_app_kis" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
@@ -47,28 +45,25 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="46050b7a-0c3f-429a-8531-6f628bf70a4c" active="true" signed="true">
+      <connection id="64bfde1c-5e08-48b3-9080-4ac0858d99f2" active="true" signed="true">
         <database>
           <name value="Connection" />
           <description value="" />
-          <database-type value="SQLITE" />
+          <database-type value="POSTGRES" />
           <config-type value="BASIC" />
-          <database-version value="3.41" />
+          <database-version value="16.0" />
           <driver-source value="BUNDLED" />
           <driver-library value="" />
           <driver value="" />
-          <url-type value="FILE" />
-          <host value="" />
-          <port value="" />
-          <database value="" />
+          <url-type value="DATABASE" />
+          <host value="localhost" />
+          <port value="5432" />
+          <database value="my_test_db" />
           <tns-folder value="" />
           <tns-profile value="" />
-          <files>
-            <file path="C:\Users\stavr\django\moselg\moselg_db.sqlite3" schema="main" />
-          </files>
-          <type value="NONE" />
-          <user value="" />
-          <deprecated-pwd value="" />
+          <type value="USER_PASSWORD" />
+          <user value="postgres" />
+          <deprecated-pwd value="MTIzNA==" />
         </database>
         <properties>
           <auto-commit value="false" />

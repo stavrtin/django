@@ -1,0 +1,34 @@
+{% extends 'wait_list_app/base_moselg.html' %}
+
+<!--{# yonetim/templates/list.html #}-->
+<!--{% load render_table from django_tables2 %}-->
+<!--{% load static %}-->
+
+
+{% block content %}
+
+<nav>
+    <ul>
+        {% for p in kis_datas.paginator.page_range %}
+        <li>
+            <a href="?page={{ p }}">{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+
+
+
+<!--    Тут просто тест вывода содержимого БД Мед-организации<br>-->
+
+
+{% for med_ in kis_datas %}
+
+   - {{ med_.fio }} -  {{ med_.date_gospit }} --- {{ med_.date_out }} --- <br>
+
+
+{% endfor %}
+ ---
+
+{% endblock %}
+

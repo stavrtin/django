@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Hospis(models.Model):
     name = models.CharField(max_length=150)
     beds_gz = models.IntegerField()
@@ -10,7 +11,6 @@ class Hospis(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-
 
 class Status_now(models.Model):
     #     ---------- текущий статус -------
@@ -107,16 +107,22 @@ class UserPatient(models.Model):
     def __str__(self):
         return f'{self.username}'
 
-# class Hospis(models.Model):
-#     hospisname = models.CharField(max_length=150)
-#     hosp_m_dostup_bed = models.IntegerField()
-#     hosp_f_dostup_bed = models.IntegerField()
-#     hosp_m_busy_bed = models.IntegerField()
-#     hosp_f_busy_bed = models.IntegerField()
-#     hosp_m_free_bed = models.IntegerField()
-#     hosp_f_free_bed = models.IntegerField()
-#     hosp_m_wait_bed = models.IntegerField()
-#     hosp_f_wait_bed = models.IntegerField()
-#
-#     def __str__(self):
-#         return f'{self.hospisname}, свободныхM {self.hosp_m_free_bed}'
+class Kis(models.Model):
+    fio = models.CharField(max_length=250)
+    dr = models.DateField()
+    snils = models.CharField(max_length=150)
+    adress_town = models.CharField(max_length=150)
+    adress_reg = models.CharField(max_length=500)
+    citizen = models.CharField(max_length=150)
+    soc = models.CharField(max_length=150)
+    fil = models.CharField(max_length=150)
+    date_gospit = models.DateField()
+    date_out = models.DateField()
+    hospis = models.CharField(max_length=500)
+    res_gospit = models.CharField(max_length=160)
+
+    def __str__(self):
+        return f'{self.fio}'
+
+
+

@@ -10,9 +10,14 @@ from .models import ReportBeds
 # from .models import MedOrgMod
 from .models import ZayavkaNaGospit
 from .models import Hospis
+from .models import Kis
+
 
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import User
+
+# --------------------------- пагинация ----------
+from django.core.paginator import Paginator
 
 
 
@@ -54,7 +59,7 @@ def v_medorg_info(request):
 
     meds = Hospis.objects.all()
     context = {"meds": meds}
-    return render(request, "wait_list_app/test.html", context)
+    return render(request, "wait_list_app/beds_info.html", context)
 
 def v_message_beds(request):
     # --------запись данных из формы коек в БД РАПОРТ по КОЙКАМ  (через связку с ФОРМОЙ сразу)--
@@ -107,7 +112,7 @@ def v_beds_info(request):
               'myFilter':myFilter,
               'page': page
                }
-    return render(request, "wait_list_app/test.html", context)
+    return render(request, "wait_list_app/beds_info.html", context)
 
 def v_zayavka_info(request):
     # - просто вывод сведений о PATIENT
@@ -127,7 +132,7 @@ def v_zayavka_info(request):
 
 # def books(request):
 #     table = BedsTable(ReportBeds.objects.all())
-#     return render(request, 'wait_list_app/test.html', {'table': table})
+#     return render(request, 'wait_list_app/beds_info.html', {'table': table})
 
 
 def edit_report_beds(request, report_beds_id: int):
@@ -244,3 +249,21 @@ def v_results(request):
 
 
     return render(request, "wait_list_app/base_results.html")
+
+def v_kis_page(request):
+    page = 'kis'
+    table_kis = Kis.objects.all()
+
+# ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
+    paginator = Paginator(table_kis, 25)
+    page_number = request.GET.get('page', 2)
+    page_obj = paginator.get_page(page_number)
+
+
+    context = { 'page': page,
+                'page_obj' : page_obj,
+                # 'table_kis' : table_kis,
+               }
+    # return render(request, 'wait_list_app/test_kis.html', context=context)
+    return render(request, 'wait_list_app/pagination.html', context=context)
+    # return render(request, 'wait_list_app/test_pag2.html', context=context)

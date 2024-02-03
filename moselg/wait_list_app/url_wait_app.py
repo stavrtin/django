@@ -15,6 +15,7 @@ from .views import MyprojectLogout
 from .views import v_medorg_search
 from .views import v_table_bed
 from .views import v_results
+from .views import v_kis_page
 
 
 
@@ -23,7 +24,7 @@ urlpatterns = [
     path('', v_start_page, name='v_start_page'),
     path('about/', v_about, name='about'),
     path('beds/', v_message_beds, name='v_message_beds'),
-    path('mo/', v_medorg_info, name='v_medorg_info'),
+    path('mo/', v_medorg_info, name='v_medorg_info'), # ----- beds_info.html
     path('bedsinfo/', v_beds_info, name='v_beds_info'),
     # path('books/', books, name='books'),
     path('zayavka/', v_zayavka, name='v_zayavka'),
@@ -42,6 +43,7 @@ urlpatterns = [
     path('medorg_search/', v_medorg_search, name='medorg_search'),
     # path('tablbeds/', v_table_bed, name='table_beds'),
     path('results/', v_results, name='results'),
+    path('kis/', v_kis_page, name='kis_page'),
 
 
 ]

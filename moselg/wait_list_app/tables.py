@@ -19,4 +19,4 @@ class BedsTable(tables.Table):
 
     class Meta:
         model = ReportBeds
-        # template_name = 'wait_list_app/test.html'
+        # template_name = 'wait_list_app/beds_info.html'
