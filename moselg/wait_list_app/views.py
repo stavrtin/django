@@ -21,7 +21,7 @@ from django.core.paginator import Paginator
 
 
 
-from .filters import OrderFilter, FilterZayavki
+from .filters import OrderFilter, FilterZayavki, FilterKis
 
 from .tables import BedsTable
 
@@ -58,7 +58,18 @@ def v_medorg_info(request):
     # - просто вывод сведений об Мед орг
 
     meds = Hospis.objects.all()
-    context = {"meds": meds}
+
+    # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
+    paginator = Paginator(meds, 2)
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+               'page_obj': page_obj,
+
+    }
+
+
     return render(request, "wait_list_app/beds_info.html", context)
 
 def v_message_beds(request):
@@ -123,11 +134,18 @@ def v_zayavka_info(request):
     myFilterZayv = FilterZayavki(request.GET, queryset=zayavki)
     zayavki = myFilterZayv.qs
     page = 'zayav_info'
+
+    # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
+    paginator = Paginator(zayavki, 2)
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
     context = {"zayavki": zayavki,
               'myFilter':myFilterZayv,
-              # 'page_obj':page_obj,
+              'page_obj':page_obj,
                'page': page
                }
+
+
     return render(request, "wait_list_app/zayavki_list.html", context)
 
 # def books(request):
@@ -235,9 +253,18 @@ def v_table_bed(request):
     # - просто вывод сведений об Мед орг
     table_bed = Hospis.objects.all()
 
-    for i in table_bed:
-        table_gzm =  3
-    context = {"table_bed": table_bed}
+    # for i in table_bed:
+    #     table_gzm =  3
+    # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
+    paginator = Paginator(table_bed, 2)
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+               'page_obj': page_obj,
+               # 'table_kis' : table_kis,
+
+    }
     return render(request, "wait_list_app/test_table_bed.html", context)
 
 def v_results(request):
@@ -253,17 +280,47 @@ def v_results(request):
 def v_kis_page(request):
     page = 'kis'
     table_kis = Kis.objects.all()
+# ---------------- фильтры в кис ------
+    myFilterKis = FilterKis(request.GET, queryset=table_kis)
+    table_kis_f = myFilterKis.qs
+
 
 # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
-    paginator = Paginator(table_kis, 25)
-    page_number = request.GET.get('page', 2)
+    paginator = Paginator(table_kis_f, 10)
+    page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
 
 
     context = { 'page': page,
+                'myFilter': myFilterKis,
                 'page_obj' : page_obj,
-                # 'table_kis' : table_kis,
+                'table_kis' : table_kis_f,
                }
-    # return render(request, 'wait_list_app/test_kis.html', context=context)
-    return render(request, 'wait_list_app/pagination.html', context=context)
-    # return render(request, 'wait_list_app/test_pag2.html', context=context)
+    return render(request, 'wait_list_app/search_kis.html', context=context)
+
+def v_kis_page_test(request):
+    page = 'kis_2'
+    table_kis = Kis.objects.all()
+# ---------------- фильтры в кис ------
+    myFilterKis = FilterKis(request.GET, queryset=table_kis)
+    table_kis_f = myFilterKis.qs
+    table_kis_start_date = myFilterKis.data.get('start_date')
+    table_kis_end_date = myFilterKis.data.get('end_date1')
+    str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
+
+
+# ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
+    paginator = Paginator(table_kis_f, 10)
+    page_number = request.GET.get('page', 1)
+    page_obj = paginator.get_page(page_number)
+
+
+    context = { 'page': page,
+                'myFilter': myFilterKis,
+                'page_obj' : page_obj,
+                'table_kis_f' : table_kis_f,
+                'table_kis_start_date' : table_kis_start_date,
+                'table_kis_end_date' : table_kis_end_date,
+                'str_test' : str_test,
+               }
+    return render(request, 'wait_list_app/search_kis_test.html', context=context)

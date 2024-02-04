@@ -13,6 +13,61 @@
 <!--     {% endfor %}-->
 <!--    {{ beds.as_table }}-->
 
+<!--<div class="col-12">-->
+<!--    <?php include "test_pag2.html" with page_obj=page_obj ?>-->
+
+<!--</div>-->
+
+<!--<nav class="list-pages">-->
+<!--    <ul>-->
+<!--        {% for p in page_obj.paginator.page_range %}-->
+<!--        <li>-->
+<!--            <a href="?page={{ p }}">{{ p }}</a>-->
+<!--        </li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--</nav>-->
+<!--****************************-->
+
+
+
+{% if page_obj.has_previous %}
+  <li><a href="?page={{ page_obj.previous_page_number }}">(Prev)</a></li>
+
+  {% if page_obj.number > 3 %}
+      <li><a href="?page=1">(1)</a></li>
+    {% if page_obj.number > 4 %}
+      <li><a >...</a></li>
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+  {% if page_obj.number == num %}
+      <li><a href="?page={{ num }}">({{ num }})</a></li>
+  {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+      <li><a href="?page={{ num }}">({{ num }})</a></li>
+  {% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+  {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+    <li><a >...</a></li>
+    <li><a href="?page={{ page_obj.paginator.num_pages }}">
+      ({{ page_obj.paginator.num_pages }})
+    </a></li>
+  {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+    <li><a href="?page={{ page_obj.paginator.num_pages }}">
+      ({{ page_obj.paginator.num_pages }})
+    </a></li>
+  {% endif %}
+
+  <li><a href="?page={{ page_obj.next_page_number }}">(Next)</a></li>
+{% endif %}
+
+{{ page_obj }} {{ page_obj.number }} sss
+<br><br>
+<!--****************************-->
     <br>
     <div class="row">
         <div class="col">
@@ -43,7 +98,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for med_ in meds|slice:":105" %}
+            {% for med_ in page_obj|slice:":105" %}
             <tr>
                 <td><button class="editbtn">Госпит</button></td>
                 <td>{{ med_.id }}</td>

@@ -48,6 +48,7 @@
        <li><a class="nav-link {% if page  == 'results' %}active{% endif %}" href="{% url 'results' %}">Показатели работы</a></li>
        <li><a class="nav-link {% if page  == 'zayav_info' %}active{% endif %}" href="{% url 'v_zayavka_info' %}">Поиск пациента</a></li>
        <li><a class="nav-link {% if page  == 'kis' %}active{% endif %}" href="{% url 'kis_page' %}">Поиск в КИС</a></li>
+       <li><a class="nav-link {% if page  == 'kis_2' %}active{% endif %}" href="{% url 'kis_page_2' %}">Поиск в КИС_test</a></li>
 
 <li class="nav-item">   {% url 'logout_page' as url_logout_page %}
     <a class="nav-link btn-danger" href="{{url_logout_page}}">Выйти</a>      </li>

@@ -16,6 +16,7 @@ from .views import v_medorg_search
 from .views import v_table_bed
 from .views import v_results
 from .views import v_kis_page
+from .views import v_kis_page_test
 
 
 
@@ -44,6 +45,7 @@ urlpatterns = [
     # path('tablbeds/', v_table_bed, name='table_beds'),
     path('results/', v_results, name='results'),
     path('kis/', v_kis_page, name='kis_page'),
+    path('kis_test/', v_kis_page_test, name='kis_page_2'),
 
 
 ]
