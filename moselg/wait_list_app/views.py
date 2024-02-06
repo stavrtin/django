@@ -12,6 +12,8 @@ from .models import ZayavkaNaGospit
 from .models import Hospis
 from .models import Kis
 
+from django.core.cache import cache
+
 
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import User
@@ -303,7 +305,7 @@ def v_kis_page_test(request):
     table_kis = Kis.objects.all()
 # ---------------- фильтры в кис ------
     myFilterKis = FilterKis(request.GET, queryset=table_kis)
-    table_kis_f = myFilterKis.qs
+    table_kis_f = myFilterKis.qs   # --- результат применения фильтра
     table_kis_start_date = myFilterKis.data.get('start_date')
     table_kis_end_date = myFilterKis.data.get('end_date1')
     str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
@@ -315,12 +317,83 @@ def v_kis_page_test(request):
     page_obj = paginator.get_page(page_number)
 
 
+
     context = { 'page': page,
                 'myFilter': myFilterKis,
                 'page_obj' : page_obj,
-                'table_kis_f' : table_kis_f,
-                'table_kis_start_date' : table_kis_start_date,
-                'table_kis_end_date' : table_kis_end_date,
+                'table_kis_f' : table_kis_f, # --- результат применения фильтра
+                # 'table_kis_start_date' : table_kis_start_date,
+                # 'table_kis_end_date' : table_kis_end_date,
                 'str_test' : str_test,
                }
+
+    # ------------- Эксель ----------
+    # if request.GET:
+    #     response = HttpResponse(content_type='application/ms-excel')
+    #     response['Content-Disposition'] = 'attachment; filename="products.xlsx"'
+    #
+    #     wb = Workbook()
+    #     ws = wb.active
+    #     ws.title = "Products"
+    #
+    #     # Add headers
+    #     headers = ["Name", "Price", "Quantity"]
+    #     ws.append(headers)
+    #
+    #     # Add data from the model
+    #     table_kis = Kis.objects.all()
+    #     # ---------------- фильтры в кис ------
+    #     myFilterKis = FilterKis(request.GET, queryset=table_kis)
+    #     table_kis_f = myFilterKis.qs
+    #
+    #     # print(len(table_kis_f))
+    #     products = table_kis_f
+    #
+    #     for product in products:
+    #         ws.append([product.fio, product.dr, product.snils])
+    #
+    #     # Save the workbook to the HttpResponse
+    #     wb.save(response)
+
+    # ------------- Эксель ----------
+
+
+
     return render(request, 'wait_list_app/search_kis_test.html', context=context)
+
+
+from django.http import HttpResponse
+from openpyxl import Workbook
+# from .models import Product
+
+def export_to_excel_2(request):
+
+
+
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="products.xlsx"'
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Products"
+
+    # Add headers
+    headers = ["Name", "Price", "Quantity"]
+    ws.append(headers)
+
+    # Add data from the model
+    # table_kis = Kis.objects.all()
+    # # ---------------- фильтры в кис ------
+    # myFilterKis = FilterKis(request.GET, queryset=table_kis)
+    # table_kis_f = myFilterKis.qs
+
+    print(len(table_kis_f))
+    products = table_kis_f
+
+
+    for product in products:
+        ws.append([product.fio, product.dr, product.snils])
+
+    # Save the workbook to the HttpResponse
+    wb.save(response)
+    return response
