@@ -7,17 +7,19 @@
 
 {% block content %}
 
-<a class="btn btn-primary" href="{% url 'export_to_excel_2' %}">Export all users</a><br>
-<button type="submit" value={{table_kis_f}} onclick="location.href='{% url 'export_to_excel_2' %}'" name='mybtn2'>Download Excel file</button>
-<a href="{% url 'export_to_excel_2' %}?{{ request.GET.urlencode }}">
-    <button type="submit">Выгрузить</button>
-</a>
-<br>
+<a class="btn btn-primary" href="{% url 'export_to_excel_2'  %}">Export all users</a><br>
+
+
+
 
 <!--    Тут просто тест вывода содержимого БД Мед-организации<br>-->
 <!--установка фильтра начало-->
 Фильр по дате выбытия
-
+{{myFilter.form.start_date.value}}
+<form method="POST">
+    {% csrf_token %}
+   <button type="submit" class="btn btn-success">Print Table</button>
+</form>
 <br>
     <div class="row">
         <div class="col">

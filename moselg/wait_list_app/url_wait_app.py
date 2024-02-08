@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import v_start_page, export_to_excel_2
+from .views import v_start_page, export_to_excel_2, button_view
 from .views import v_about
 from .views import v_message_beds
 from .views import v_medorg_info
@@ -47,6 +47,7 @@ urlpatterns = [
     path('kis/', v_kis_page, name='kis_page'),
     path('kis_test/', v_kis_page_test, name='kis_page_2'),
     path('excel/', export_to_excel_2, name='export_to_excel_2'),
+    path('button_view/', button_view, name='button_view'),
 
 
 ]

@@ -302,72 +302,60 @@ def v_kis_page(request):
 
 def v_kis_page_test(request):
     page = 'kis_2'
-    table_kis = Kis.objects.all()
-# ---------------- фильтры в кис ------
+    table_kis = Kis.objects.all()# ---------------- фильтры в кис ------
     myFilterKis = FilterKis(request.GET, queryset=table_kis)
     table_kis_f = myFilterKis.qs   # --- результат применения фильтра
-    table_kis_start_date = myFilterKis.data.get('start_date')
-    table_kis_end_date = myFilterKis.data.get('end_date1')
-    str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
-
+    # table_kis_start_date = myFilterKis.data.get('start_date')
+    # table_kis_end_date = myFilterKis.data.get('end_date1')
+    # str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
 
 # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
     paginator = Paginator(table_kis_f, 10)
     page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
 
-
-
     context = { 'page': page,
                 'myFilter': myFilterKis,
                 'page_obj' : page_obj,
                 'table_kis_f' : table_kis_f, # --- результат применения фильтра
-                # 'table_kis_start_date' : table_kis_start_date,
-                # 'table_kis_end_date' : table_kis_end_date,
-                'str_test' : str_test,
-               }
-
+                # 'table_kis_start_date' : table_kis_start_date,                # 'table_kis_end_date' : table_kis_end_date,
+                # 'str_test' : str_test,
+                }
     # ------------- Эксель ----------
-    # if request.GET:
-    #     response = HttpResponse(content_type='application/ms-excel')
-    #     response['Content-Disposition'] = 'attachment; filename="products.xlsx"'
-    #
-    #     wb = Workbook()
-    #     ws = wb.active
-    #     ws.title = "Products"
-    #
-    #     # Add headers
-    #     headers = ["Name", "Price", "Quantity"]
-    #     ws.append(headers)
-    #
-    #     # Add data from the model
-    #     table_kis = Kis.objects.all()
-    #     # ---------------- фильтры в кис ------
-    #     myFilterKis = FilterKis(request.GET, queryset=table_kis)
-    #     table_kis_f = myFilterKis.qs
-    #
-    #     # print(len(table_kis_f))
-    #     products = table_kis_f
-    #
-    #     for product in products:
-    #         ws.append([product.fio, product.dr, product.snils])
-    #
-    #     # Save the workbook to the HttpResponse
-    #     wb.save(response)
+    # submitbutton = request.POST.get("submit")
+    if request.method == 'POST':
+        form = FilterKis(request.POST)
+        if form.is_valid():
+            print('sss')
+            response = HttpResponse(content_type='application/ms-excel')
+            response['Content-Disposition'] = 'attachment; filename="products11.xlsx"'
+            wb = Workbook()
+            ws = wb.active
+            ws.title = "Products"
+            # Add headers
+            headers = ["Name", "Price", "Quantity"]
+            ws.append(headers)
+            # Add data from the model
+            table_kis = Kis.objects.all()            # ---------------- фильтры в кис ------
+            myFilterKis = FilterKis(request.GET, queryset=table_kis)
+            table_kis_f = myFilterKis.qs
+            # print(len(table_kis_f))
+            products = table_kis_f
+            for product in products:
+                ws.append([product.fio, product.dr, product.snils])
+            # Save the workbook to the HttpResponse
+            wb.save(response)
+            # print(table_kis_f)
+            return response # ------------- Эксель ----------
 
-    # ------------- Эксель ----------
-
-
-
-    return render(request, 'wait_list_app/search_kis_test.html', context=context)
-
+    return render(request, 'wait_list_app/search_kis_test.html',
+                  context=context)
 
 from django.http import HttpResponse
 from openpyxl import Workbook
 # from .models import Product
 
-def export_to_excel_2(request):
-
+def export_to_excel_2(render):
 
 
     response = HttpResponse(content_type='application/ms-excel')
@@ -380,20 +368,25 @@ def export_to_excel_2(request):
     # Add headers
     headers = ["Name", "Price", "Quantity"]
     ws.append(headers)
-
+    # print(parameter)
     # Add data from the model
-    # table_kis = Kis.objects.all()
-    # # ---------------- фильтры в кис ------
+    table_kis = Kis.objects.filter(date_gospit__lt='2024-02-02')
+    # ---------------- фильтры в кис ------
     # myFilterKis = FilterKis(request.GET, queryset=table_kis)
     # table_kis_f = myFilterKis.qs
+    #
+    # print(len(table_kis_f))
+    # products = table_kis_f
 
-    print(len(table_kis_f))
-    products = table_kis_f
 
-
-    for product in products:
+    for product in table_kis:
         ws.append([product.fio, product.dr, product.snils])
 
     # Save the workbook to the HttpResponse
     wb.save(response)
     return response
+
+def button_view(request):
+    if request.method == 'POST' and 'button' in request.POST: # обработка нажатия кнопки
+        return HttpResponse('Кнопка нажата')
+    return render(request, 'export_to_excel.html')
