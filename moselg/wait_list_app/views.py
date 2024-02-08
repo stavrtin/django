@@ -305,9 +305,9 @@ def v_kis_page_test(request):
     table_kis = Kis.objects.all()# ---------------- фильтры в кис ------
     myFilterKis = FilterKis(request.GET, queryset=table_kis)
     table_kis_f = myFilterKis.qs   # --- результат применения фильтра
-    # table_kis_start_date = myFilterKis.data.get('start_date')
-    # table_kis_end_date = myFilterKis.data.get('end_date1')
-    # str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
+    table_kis_start_date = myFilterKis.data.get('start_date')
+    table_kis_end_date = myFilterKis.data.get('end_date1')
+    str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
 
 # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
     paginator = Paginator(table_kis_f, 10)
@@ -326,9 +326,12 @@ def v_kis_page_test(request):
     if request.method == 'POST':
         form = FilterKis(request.POST)
         if form.is_valid():
-            print('sss')
+            print(table_kis_start_date)
+
             response = HttpResponse(content_type='application/ms-excel')
-            response['Content-Disposition'] = 'attachment; filename="products11.xlsx"'
+            file_name = f'"dead_{table_kis_start_date}_{table_kis_end_date}.xlsx"'
+            print(file_name)
+            response['Content-Disposition'] = f'attachment; filename={file_name}'
             wb = Workbook()
             ws = wb.active
             ws.title = "Products"
