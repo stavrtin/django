@@ -29,6 +29,9 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     '192.168.56.1',
     '10.107.74.106',
+    '172.19.255.255',
+    '195.211.79.70',
+    '45.91.8.172',
 ]
 
 
@@ -45,7 +48,7 @@ INSTALLED_APPS = [
     'django_tables2',
     'django_filters',
     'crispy_forms',
-    'crispy_bootstrap4',
+    # 'crispy_bootstrap4',
     'widget_tweaks',
 ]
 

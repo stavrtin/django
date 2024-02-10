@@ -39,7 +39,7 @@ class Ingredients(models.Model):
         return f'Ингредиент: {self.ingr_name}'
 
 class Step(models.Model):
-    step_number = models.IntegerField(max_length=100)
+    step_number = models.IntegerField()
     step_text = models.TextField()
     step_rec = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
