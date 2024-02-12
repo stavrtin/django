@@ -11,9 +11,12 @@ from .models import ReportBeds
 from .models import ZayavkaNaGospit
 from .models import Hospis
 from .models import Kis
+from .models import Kontacts
+from .filters import OrderFilter, FilterZayavki, FilterKis
 
+from .tables import BedsTable
 from django.core.cache import cache
-
+from openpyxl import Workbook
 
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import User
@@ -23,9 +26,7 @@ from django.core.paginator import Paginator
 
 
 
-from .filters import OrderFilter, FilterZayavki, FilterKis
 
-from .tables import BedsTable
 
 
 
@@ -300,14 +301,45 @@ def v_kis_page(request):
                }
     return render(request, 'wait_list_app/search_kis.html', context=context)
 
+import pandas as pd
+
+from django.db.models.query import RawQuerySet
+from django.db import connection
 def v_kis_page_test(request):
     page = 'kis_2'
-    table_kis = Kis.objects.all()# ---------------- фильтры в кис ------
+
+
+    query_1 = '''SELECT "wait_list_app_kis"."id",
+                        "wait_list_app_kis"."dr",
+                        "wait_list_app_kis"."snils" ,
+                        "wait_list_app_kis"."date_out" 
+                        from "wait_list_app_kis" '''
+
+    # query_1 = '''select "wait_list_app_kis"."fio",
+    #                         "wait_list_app_kis"."dr",
+    #                         "wait_list_app_kis"."snils",
+    #                         "wait_list_app_kis"."date_out",
+    #                         "wait_list_app_kontacts"."tel_1"
+    #                         from "wait_list_app_kis"
+    # left join wait_list_app_kontacts cont on kis.fio = cont.fio;'''
+
+
+    # Используем RawSQL для выполнения запроса
+    raw_queryset = Kis.objects.raw(query_1)
+    print(raw_queryset)
+    # Преобразуем RawQuerySet в QuerySet, чтобы использовать его в шаблонах
+    kis_tel = Kis.objects.filter(pk__in=[p.pk for p in raw_queryset])
+    # kis_tel = Kis.objects.filter(pk__in=[p.pk for p in raw_queryset].annotate(
+    # review_count=Cast(F('review_count'), output_field=models.IntegerField()))
+
+    # table_kis = Kis.objects.all()# ---------------- фильтры в кис ------
+    table_kis = kis_tel# ---------------- фильтры в кис ------
     myFilterKis = FilterKis(request.GET, queryset=table_kis)
     table_kis_f = myFilterKis.qs   # --- результат применения фильтра
     table_kis_start_date = myFilterKis.data.get('start_date')
     table_kis_end_date = myFilterKis.data.get('end_date1')
     str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
+
 
 # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
     paginator = Paginator(table_kis_f, 10)
@@ -318,11 +350,12 @@ def v_kis_page_test(request):
                 'myFilter': myFilterKis,
                 'page_obj' : page_obj,
                 'table_kis_f' : table_kis_f, # --- результат применения фильтра
-                # 'table_kis_start_date' : table_kis_start_date,                # 'table_kis_end_date' : table_kis_end_date,
-                # 'str_test' : str_test,
+                'table_kis_start_date' : table_kis_start_date,
+                'table_kis_end_date' : table_kis_end_date,
+                'str_test' : str_test,
                 }
     # ------------- Эксель ----------
-    # submitbutton = request.POST.get("submit")
+    # submitbutton = request.POST.get("submit ")
     if request.method == 'POST':
         form = FilterKis(request.POST)
         if form.is_valid():
@@ -354,42 +387,6 @@ def v_kis_page_test(request):
     return render(request, 'wait_list_app/search_kis_test.html',
                   context=context)
 
-from django.http import HttpResponse
-from openpyxl import Workbook
-# from .models import Product
-
-def export_to_excel_2(render):
 
 
-    response = HttpResponse(content_type='application/ms-excel')
-    response['Content-Disposition'] = 'attachment; filename="products.xlsx"'
 
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "Products"
-
-    # Add headers
-    headers = ["Name", "Price", "Quantity"]
-    ws.append(headers)
-    # print(parameter)
-    # Add data from the model
-    table_kis = Kis.objects.filter(date_gospit__lt='2024-02-02')
-    # ---------------- фильтры в кис ------
-    # myFilterKis = FilterKis(request.GET, queryset=table_kis)
-    # table_kis_f = myFilterKis.qs
-    #
-    # print(len(table_kis_f))
-    # products = table_kis_f
-
-
-    for product in table_kis:
-        ws.append([product.fio, product.dr, product.snils])
-
-    # Save the workbook to the HttpResponse
-    wb.save(response)
-    return response
-
-def button_view(request):
-    if request.method == 'POST' and 'button' in request.POST: # обработка нажатия кнопки
-        return HttpResponse('Кнопка нажата')
-    return render(request, 'export_to_excel.html')

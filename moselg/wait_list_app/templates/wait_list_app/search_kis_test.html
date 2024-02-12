@@ -7,9 +7,6 @@
 
 {% block content %}
 
-<a class="btn btn-primary" href="{% url 'export_to_excel_2'  %}">Export all users</a><br>
-
-
 
 
 <!--    Тут просто тест вывода содержимого БД Мед-организации<br>-->
@@ -20,6 +17,7 @@
     {% csrf_token %}
    <button type="submit" class="btn btn-success">Print Table</button>
 </form>
+
 <br>
     <div class="row">
         <div class="col">

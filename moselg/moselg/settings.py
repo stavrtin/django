@@ -100,15 +100,18 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'moselg_db.sqlite3',
     # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'my_test_db',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'my_test_db',
+    #     'USER': 'postgres',
+    #     'PASSWORD': '1234',
+    #     'HOST': 'localhost',
+    #     'PORT': '',
+    # }
+'default': {    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'zxxlz',    'USER': 'zxxlz',
+    'PASSWORD': 'Cpp122023',    'HOST': 'pg3.sweb.ru',
+    'PORT': '5432',}
 
 
 }

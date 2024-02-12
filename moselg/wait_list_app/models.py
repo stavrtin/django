@@ -126,3 +126,15 @@ class Kis(models.Model):
 
 
 
+class Kontacts(models.Model):
+    kod = models.CharField(max_length=250)
+    dr = models.DateField()
+    tel_1 = models.CharField(max_length=150, blank=True)
+    tel_2 = models.CharField(max_length=150, blank=True)
+    tel_3 = models.CharField(max_length=500, blank=True)
+    tel_4 = models.CharField(max_length=150, blank=True)
+    tel_5 = models.CharField(max_length=150, blank=True)
+
+
+    def __str__(self):
+        return f'{self.kod}'
