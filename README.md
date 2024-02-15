@@ -4,7 +4,13 @@
 https://yandex.ru/video/preview/7035404840106240398?translate_snippets=1
 
 #### документация
+
 https://djangodoc.ru/3.2/ref/models/fields/
+
+### докум-2
+
+https://django.fun/docs/django/5.0/
+
 
 #### Примеры
 https://pressanybutton.ru/post/sajt-na-django/django-28-dobavlyaem-paginaciyu-na-sajt/
