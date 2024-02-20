@@ -1,0 +1,113 @@
+{% extends 'search_man/base_moselg1.html' %}
+
+
+{% block content %}
+
+
+
+<!--    Тут просто тест вывода содержимого БД Мед-организации<br>-->
+<!--установка фильтра начало-->
+Фильр по дате выбытия
+{{myFilter.form.start_date.value}}
+<form method="POST">
+    {% csrf_token %}
+   <button type="submit" class="btn btn-success">Print Table</button>
+</form>
+
+<br>
+    <div class="row">
+        <div class="col">
+            <div class="card card-body's">
+                <form method="get">
+                        <table>
+                    {{ myFilter.form}}
+                    {{ myFilter.as_table }}
+                        </table>
+<!--{{table_kis_start_date}}<br>-->
+<!--{{table_kis_end_date}}-->
+                    <button class="btn btn-primary" type="submit">Поиск</button>
+
+</form>
+            </div>
+        </div>
+    </div>
+<!--установка фильтра конец-->
+
+<!--****************************-->
+
+{% if page_obj.has_previous %}
+  <li><a href="?{{  str_test }}&page={{ page_obj.previous_page_number }}">(Prev)</a></li>
+
+  {% if page_obj.number > 3 %}
+      <li><a href="?page=1">(1)</a></li>
+    {% if page_obj.number > 4 %}
+      <li><a >...</a></li>
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% for num in page_obj.paginator.page_range %}
+  {% if page_obj.number == num %}
+<!--      <li><a href="?page={{ num }}">({{ num }})</a></li>-->
+      <li><a href="?{{  str_test }}&page={{ num }}">({{ num }})</a></li>
+  {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+<!--      <li><a href="?page={{ num }}">({{ num }})</a></li>-->
+      <li><a href="?{{  str_test }}&page={{ num }}">({{ num }})</a></li>
+  {% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+  {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+    <li><a >...</a></li>
+    <li><a href="?{{  str_test }}&page={{ page_obj.paginator.num_pages }}">
+      ({{ page_obj.paginator.num_pages }})
+    </a></li>
+  {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+    <li><a href="?{{  str_test }}&page={{ page_obj.paginator.num_pages }}">
+      ({{ page_obj.paginator.num_pages }})
+    </a></li>
+  {% endif %}
+
+<!--  <li><a href="?page={{ page_obj.next_page_number }}">(Next)</a></li>-->
+  <li><a href="?{{  str_test }}&page={{ page_obj.next_page_number }}">(Next)</a></li>
+{% endif %}
+
+{{ page_obj }} {{ page_obj.number }} sss
+{{ str_test }}
+<br><br>
+<!--****************************-->
+<!--сам вывод визуальной таблицы (начало)-->
+<table  class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>ФИО</th>
+                <th>Дата госпит</th>
+                <th>Дата выписки</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for kis_zapis_ in page_obj %}
+
+            <tr>
+                <td>{{ kis_zapis_.id }}</td>
+                <td>{{ kis_zapis_.pacient.pacient}}</td>
+                <td>{{ kis_zapis_.data_gospit|date:"d.m.y"}}</td>
+                <td>{{ kis_zapis_.data_vipiski|date:"d.m.y" }}</td>
+
+                <td><a href="#">Исправить {{ med_.id  }}</a></td>
+                <td><button class="editbtn">Удалить</button></td>
+            </tr>
+            {% endfor %}
+
+    <!--     { render_table table %}-->
+        </tbody>
+    </table>
+<!--сам вывод визуальной таблицы (конец)-->
+ ---
+<!--{{table_kis_f}}-->
+
+{% endblock %}
+

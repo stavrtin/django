@@ -41,12 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'wait_list_app',
-    'django_tables2',
-    'django_filters',
-    'crispy_forms',
-    'crispy_bootstrap4',
-    'widget_tweaks',
+    'search_man',
+    # 'wait_list_app',
+    # 'django_tables2',
+    # 'django_filters',
+    # 'crispy_forms',
+    # 'crispy_bootstrap4',
+    # 'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -109,8 +110,10 @@ DATABASES = {
     #     'PORT': '',
     # }
 'default': {    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'zxxlz',    'USER': 'zxxlz',
-    'PASSWORD': 'Cpp122023',    'HOST': 'pg3.sweb.ru',
+    'NAME': 'zxxlz_oa',
+    'USER': 'zxxlz_oa',
+    'PASSWORD': 'Cpp122023',
+    'HOST': 'pg3.sweb.ru',
     'PORT': '5432',}
 
 

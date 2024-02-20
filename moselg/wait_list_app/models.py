@@ -108,6 +108,7 @@ class UserPatient(models.Model):
         return f'{self.username}'
 
 class Kis(models.Model):
+    kod = models.CharField(max_length=50)
     fio = models.CharField(max_length=250)
     dr = models.DateField()
     snils = models.CharField(max_length=150)
@@ -119,22 +120,30 @@ class Kis(models.Model):
     date_gospit = models.DateField()
     date_out = models.DateField()
     hospis = models.CharField(max_length=500)
-    res_gospit = models.CharField(max_length=160)
+    res_gospit = models.CharField(max_length=150)
 
     def __str__(self):
         return f'{self.fio}'
 
 
 
-class Kontacts(models.Model):
-    kod = models.CharField(max_length=250)
-    dr = models.DateField()
-    tel_1 = models.CharField(max_length=150, blank=True)
-    tel_2 = models.CharField(max_length=150, blank=True)
-    tel_3 = models.CharField(max_length=500, blank=True)
-    tel_4 = models.CharField(max_length=150, blank=True)
-    tel_5 = models.CharField(max_length=150, blank=True)
+# class Kontacts(models.Model):
+#     kod = models.CharField(max_length=250)
+#     dr = models.DateField()
+#     tel_1 = models.CharField(max_length=150, blank=True)
+#     tel_2 = models.CharField(max_length=150, blank=True)
+#     tel_3 = models.CharField(max_length=500, blank=True)
+#     tel_4 = models.CharField(max_length=150, blank=True)
+#     tel_5 = models.CharField(max_length=150, blank=True)
+#
+#
+#     def __str__(self):
+#         return f'{self.kod}'
 
 
+class Contacts(models.Model):
+    kod = models.CharField(max_length=50, blank=True)
+    fio_cont = models.CharField(max_length=150, blank=True)
+    all_tel = models.CharField(max_length=150, blank=True)
     def __str__(self):
         return f'{self.kod}'

@@ -1596,3 +1596,6 @@ INFO 2024-01-15 22:36:12,551 autoreload 15412 15844 Watching for file changes wi
 INFO 2024-01-15 22:36:15,637 basehttp 15412 14568 "GET / HTTP/1.1" 200 26
 WARNING 2024-01-15 22:36:15,757 log 15412 14568 Not Found: /favicon.ico
 WARNING 2024-01-15 22:36:15,758 basehttp 15412 14568 "GET /favicon.ico HTTP/1.1" 404 3754
+INFO 2024-02-17 13:07:11,757 autoreload 5608 4728 Watching for file changes with StatReloader
+INFO 2024-02-18 01:11:16,370 autoreload 13432 2540 Watching for file changes with StatReloader
+INFO 2024-02-18 01:11:26,287 basehttp 13432 1392 "GET /about/ HTTP/1.1" 200 25

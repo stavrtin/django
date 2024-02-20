@@ -11,7 +11,7 @@ from .models import ReportBeds
 from .models import ZayavkaNaGospit
 from .models import Hospis
 from .models import Kis
-from .models import Kontacts
+# from .models import Kontacts
 from .filters import OrderFilter, FilterZayavki, FilterKis
 
 from .tables import BedsTable
@@ -33,7 +33,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def v_about(request):
-    return render(request, "wait_list_app/base_moselg.html")
+    return render(request, "search_man/base_moselg1.html")
 
 def v_start_page(request):
     # table_bed = ReportBeds.objects.raw('select * from '
@@ -54,7 +54,7 @@ def v_start_page(request):
         table_gzm =  3
         print(i)
     context = {"table_bed": table_bed}
-    return render(request, "wait_list_app/main_table_bed.html", context)
+    return render(request, "search_man/main_table_bed.html", context)
 
 
 def v_medorg_info(request):
@@ -73,7 +73,7 @@ def v_medorg_info(request):
     }
 
 
-    return render(request, "wait_list_app/beds_info.html", context)
+    return render(request, "search_man/beds_info.html", context)
 
 def v_message_beds(request):
     # --------запись данных из формы коек в БД РАПОРТ по КОЙКАМ  (через связку с ФОРМОЙ сразу)--
@@ -89,7 +89,7 @@ def v_message_beds(request):
                     'form': form,
                     'page' : page
                   }
-    return render(request, 'wait_list_app/bed_message_form.html', context=context)
+    return render(request, 'search_man/bed_message_form.html', context=context)
 
 def v_zayavka(request):
     # --------запись данных из формы коек в БД РАПОРТ по КОЙКАМ  (через связку с ФОРМОЙ сразу)--
@@ -105,7 +105,7 @@ def v_zayavka(request):
                     'form': form,
                     'page' : page
                   }
-    return render(request, 'wait_list_app/zayavka.html', context=context)
+    return render(request, 'search_man/zayavka.html', context=context)
 
 def v_beds_info(request):
     # - просто вывод сведений об beds от Мед
@@ -126,7 +126,7 @@ def v_beds_info(request):
               'myFilter':myFilter,
               'page': page
                }
-    return render(request, "wait_list_app/beds_info.html", context)
+    return render(request, "search_man/beds_info.html", context)
 
 def v_zayavka_info(request):
     # - просто вывод сведений о PATIENT
@@ -149,11 +149,11 @@ def v_zayavka_info(request):
                }
 
 
-    return render(request, "wait_list_app/zayavki_list.html", context)
+    return render(request, "search_man/zayavki_list.html", context)
 
 # def books(request):
 #     table = BedsTable(ReportBeds.objects.all())
-#     return render(request, 'wait_list_app/beds_info.html', {'table': table})
+#     return render(request, 'search_man/beds_info.html', {'table': table})
 
 
 def edit_report_beds(request, report_beds_id: int):
@@ -202,11 +202,11 @@ def edit_report_beds(request, report_beds_id: int):
         'report_f_free': report_f_free,
         'form': form,
         }
-    return render(request, 'wait_list_app/report_bed_edit.html', context=context)
+    return render(request, 'search_man/report_bed_edit.html', context=context)
 
 def cool_forms(request):
     context = {'form': BedsForm()}
-    return render(request, 'wait_list_app/test_cool_form.html', context=context)
+    return render(request, 'search_man/test_cool_form.html', context=context)
 
 
 def v_login(request):
@@ -225,7 +225,7 @@ def v_login(request):
         context = {'form': form,
                    'page': page
                    }
-    return render(request, 'wait_list_app/login.html', context=context)
+    return render(request, 'search_man/login.html', context=context)
 
 
 
@@ -233,7 +233,7 @@ def v_login(request):
 
 # ------------ авторизация ---------
 class MyprojectLoginView(LoginView):
-    template_name = 'wait_list_app/login.html'
+    template_name = 'search_man/login.html'
     form_class = AuthUserForm
     success_url = reverse_lazy('v_start_page') # - - куда переходим после авториз
     def get_success_url(self):
@@ -249,7 +249,7 @@ def v_medorg_search(request):
     meds = Hospis.objects.all()
     context = {"meds": meds}
 
-    return render(request, "wait_list_app/test_search.html", context)
+    return render(request, "search_man/test_search.html", context)
 
 # ------------ вывод коечнызх таблиц------------
 def v_table_bed(request):
@@ -268,17 +268,17 @@ def v_table_bed(request):
                # 'table_kis' : table_kis,
 
     }
-    return render(request, "wait_list_app/test_table_bed.html", context)
+    return render(request, "search_man/test_table_bed.html", context)
 
 def v_results(request):
     # - просто вывод дашбордов -
     page = 'results'
     context = { 'page': page
                }
-    return render(request, "wait_list_app/base_results.html", context)
+    return render(request, "search_man/base_results.html", context)
 
 
-    return render(request, "wait_list_app/base_results.html")
+    return render(request, "search_man/base_results.html")
 
 def v_kis_page(request):
     page = 'kis'
@@ -299,7 +299,7 @@ def v_kis_page(request):
                 'page_obj' : page_obj,
                 'table_kis' : table_kis_f,
                }
-    return render(request, 'wait_list_app/search_kis.html', context=context)
+    return render(request, 'search_man/search_kis.html', context=context)
 
 import pandas as pd
 
@@ -384,7 +384,7 @@ def v_kis_page_test(request):
             # print(table_kis_f)
             return response # ------------- Эксель ----------
 
-    return render(request, 'wait_list_app/search_kis_test.html',
+    return render(request, 'search_man/search_kis_test.html',
                   context=context)
 
 
