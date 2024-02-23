@@ -106,8 +106,17 @@
         </tbody>
     </table>
 <!--сам вывод визуальной таблицы (конец)-->
- ---
-<!--{{table_kis_f}}-->
+ ---0<br><br>
+{{ test_con}}
+{% for kis_ in test_con %}
+    {{ kis_.pacient.pacient}}<br>
+    {{ kis_.data_vipiski}}<br>
+    {{ kis_.pacient.gr}}<br>
+    {% for kis_t in kis_ %}
+        {{ kis_t.cont.kont_tel}}<br>
+    {% endfor %}
+{% endfor %}
+
 
 {% endblock %}
 
