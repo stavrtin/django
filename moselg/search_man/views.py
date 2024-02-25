@@ -300,6 +300,7 @@ def v_kis_page(request):
     return render(request, 'search_man/search_kis.html', context=context)
 
 import pandas as pd
+from django.db.models import Count
 from itertools import chain
 from django.db.models.query import RawQuerySet
 from django.db import connection
@@ -307,7 +308,7 @@ def v_kis_page_test(request):
     page = 'kis_2'
 
     # table_kis = Kis.objects.select_related().all()# ---------------- фильтры в кис ------
-    table_kis = Kis.objects.all()# ---------------- фильтры в кис ------
+    table_kis = Kis.objects.all().filter(ishod='Умер в стационаре')# ---------------- фильтры в кис ------
     # table_kis = Kis.objects.all()# ---------------- фильтры в кис ------
     myFilterKis = FilterKis(request.GET, queryset=table_kis)
     table_kis_f = myFilterKis.qs   # --- результат применения фильтра
@@ -315,33 +316,28 @@ def v_kis_page_test(request):
     table_kis_end_date = myFilterKis.data.get('end_date1')
     str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
 
-    kis_tel = Contacts.objects.select_related().filter(kont_pac__in=[p.pacient.kod_p for p in table_kis_f])
+    # kis_tel = Contacts.objects.select_related().filter(kont_pac__in=[p.pacient.kod_p for p in table_kis_f])
 
 # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
     paginator = Paginator(table_kis_f, 10)
     page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
 
-    # test_con = Kis.objects.filter(data_vipiski='2024-02-01')[5].pacient.cont.all()[0]
-    # test_con = table_kis_f.all().pacient.all().select_related("cont", 'cont__kont_tel')
-    # test_con = table_kis_f.prefetch_related('pacient__cont')[:3]
-    test_con = table_kis_f.all()
-
-
-    # result_list = list(chain(test_con, kis_tel))
 
     context = { 'page': page,
                 'myFilter': myFilterKis,
                 'page_obj' : page_obj,
-                'kis_tel' : kis_tel,
-                'test_con' : test_con,
+                # 'cont_all' : cont_all,
+                # 'test_con' : test_con,
                 'table_kis_f' : table_kis_f, # --- результат применения фильтра
                 'table_kis_start_date' : table_kis_start_date,
                 'table_kis_end_date' : table_kis_end_date,
                 'str_test' : str_test,
                 }
-    # ------------- Эксель ----------
-    # submitbutton = request.POST.get("submit ")
+
+
+    # # ------------- Эксель ----------
+    # # submitbutton = request.POST.get("submit ")
     if request.method == 'POST':
         form = FilterKis(request.POST)
         if form.is_valid():
@@ -355,16 +351,25 @@ def v_kis_page_test(request):
             ws = wb.active
             ws.title = "Products"
             # Add headers
-            headers = ["Name", "Price", "Quantity"]
+            headers = ["ФИО_пациента", "Дата_рождения",
+                       "Дата_смерти", "ФИО_контактного_лица", "Телефон_конт."]
             ws.append(headers)
             # Add data from the model
             table_kis = Kis.objects.all()            # ---------------- фильтры в кис ------
             myFilterKis = FilterKis(request.GET, queryset=table_kis)
             table_kis_f = myFilterKis.qs
-            # print(len(table_kis_f))
-            products = table_kis_f
-            for product in products:
-                ws.append([product.fio, product.dr, product.snils])
+
+            result = table_kis_f
+
+            for res_ in result:
+                for cont in res_.pacient.cont.all():
+                    ws.append([res_.pacient.pacient,
+                               res_.data_rozhd,
+                               res_.data_vipiski,
+                               cont.kont_fio,
+                               cont.kont_tel,
+                               ])
+
             # Save the workbook to the HttpResponse
             wb.save(response)
             # print(table_kis_f)

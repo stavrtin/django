@@ -45,7 +45,7 @@ urlpatterns = [
     # path('tablbeds/', v_table_bed, name='table_beds'),
     path('results/', v_results, name='results'),
     path('kis/', v_kis_page, name='kis_page'),
-    path('kis_test/', v_kis_page_test, name='kis_page_2'),
+    path('kis_test1/', v_kis_page_test, name='kis_page_2'),
     # path('excel/', export_to_excel_2, name='export_to_excel_2'),
     # path('button_view/', button_view, name='button_view'),
 

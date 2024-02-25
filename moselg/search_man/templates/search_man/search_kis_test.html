@@ -84,38 +84,39 @@
                 <th>ФИО</th>
                 <th>Дата госпит</th>
                 <th>Дата выписки</th>
-                <th></th>
-                <th></th>
+                <th>ФИО контакта</th>
+                <th>Тел. контакта</th>
+                <th>Исход</th>
             </tr>
         </thead>
         <tbody>
             {% for kis_zapis_ in page_obj %}
-
+                    {%  for tel_  in kis_zapis_.pacient.cont.all %}
             <tr>
                 <td>{{ kis_zapis_.id }}</td>
                 <td>{{ kis_zapis_.pacient.pacient}}</td>
                 <td>{{ kis_zapis_.data_gospit|date:"d.m.y"}}</td>
                 <td>{{ kis_zapis_.data_vipiski|date:"d.m.y" }}</td>
 
-                <td><a href="#">Исправить {{ med_.id  }}</a></td>
-                <td><button class="editbtn">Удалить</button></td>
+                <td>{{ tel_.kont_fio }}</td>
+                <td>{{ tel_.kont_tel }}</td>
+                <td>{{ kis_zapis_.ishod}}</td>
             </tr>
+                     {% endfor %}
             {% endfor %}
-
     <!--     { render_table table %}-->
         </tbody>
     </table>
 <!--сам вывод визуальной таблицы (конец)-->
  ---0<br><br>
-{{ test_con}}
-{% for kis_ in test_con %}
-    {{ kis_.pacient.pacient}}<br>
-    {{ kis_.data_vipiski}}<br>
-    {{ kis_.pacient.gr}}<br>
-    {% for kis_t in kis_ %}
-        {{ kis_t.cont.kont_tel}}<br>
-    {% endfor %}
-{% endfor %}
+
+
+<!--    {%  for cont_ in cont_all %}-->
+<!--    1.    pac     {{kis_.pacient.pacient}} <br>-->
+<!--    2.    kis    {{kis_.data_vipiski}} <br>-->
+<!--    3.    tel    {{cont_.kont_tel}} <br>-->
+<!--   {% endfor %}-->
+
 
 
 {% endblock %}

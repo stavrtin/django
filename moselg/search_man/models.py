@@ -88,4 +88,4 @@ class Contacts(models.Model):
     kont_fio = models.CharField(max_length=255)
 
     def __str__(self):
-        return f'Cont {self.kont_pac} - {self.kont_fio}'
+        return f'Cont {self.kont_pac} - {self.kont_tel}- {self.kont_fio}'
