@@ -33,6 +33,11 @@ from django.core.paginator import Paginator
 def v_about(request):
     return render(request, "search_man/base_moselg1.html")
 
+
+def v_maine_page(request):
+    return render(request, "search_man/main.html")
+
+
 def v_start_page(request):
     # table_bed = ReportBeds.objects.raw('select * from '
     #                                                    '(SELECT *  from wait_list_app_reportbeds rep_beds '
