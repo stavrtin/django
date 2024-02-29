@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>elg_info</title>
+</head>
+<body>
+{% if user.groups.all.0 == "Elg" %}
+    <p> User belongs to group ТУТ будет ЕЛГ </p>
+{% else %}
+    <p> User doesn't belong to group  {{user.groups.all.0}}</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+{% extends 'search_man/base_moselg1.html' %}
+{% load static %}
+
+{% block content %}
+<!-- установка фильтров-->
+
+
+<!--------------------  пагинация -->
+<!--****************************-->
+        {% if page_obj.has_previous %}
+          <li><a href="?page={{ page_obj.previous_page_number }}">(Prev)</a></li>
+
+          {% if page_obj.number > 3 %}
+              <li><a href="?page=1">(1)</a></li>
+            {% if page_obj.number > 4 %}
+              <li><a >...</a></li>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+              <li><a href="?page={{ num }}">({{ num }})</a></li>
+          {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+              <li><a href="?page={{ num }}">({{ num }})</a></li>
+          {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+            <li><a >...</a></li>
+            <li><a href="?page={{ page_obj.paginator.num_pages }}">
+              ({{ page_obj.paginator.num_pages }})
+            </a></li>
+          {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+            <li><a href="?page={{ page_obj.paginator.num_pages }}">
+              ({{ page_obj.paginator.num_pages }})
+            </a></li>
+          {% endif %}
+
+          <li><a href="?page={{ page_obj.next_page_number }}">(Next)</a></li>
+        {% endif %}
+
+        {{ page_obj }} {{ page_obj.number }} sss
+        <br><br>
+        <!--****************************-->
+<!-- ------------------ пагинация -->
+<!--установка фильтра начало-->
+<br>
+    <div class="row">
+        <div class="col">
+            <div class="card card-body's">
+                <form method="get">
+                    {{ myFilter.form}}
+                    <button class="btn btn-primary" type="submit">Поиск</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<!--установка фильтра конец-->
+
+ <table  class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Тек.статус</th>
+                <th>Дата заявки</th>
+                <th>Срочность</th>
+                <th>Откуда</th>
+                <th>Фио</th>
+                <th>ДР</th>
+                <th>Пол</th>
+                <th>Диагноз</th>
+                <th>Мед.критерий</th>
+                <th>Обосн.напр.на госпит</th>
+                <th>Трансп.</th>
+                <th>Иниц.госп</th>
+                <th>Курирующее</th>
+                <th>Филиал предп.</th>
+                <th>Кто согл.</th>
+
+<!--                <th>Прим.</th>-->
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for zayavka_ in page_obj %}
+            <tr>
+                <td>{{ zayavka_.id }}</td>
+                <td><button class="editbtn">{{ zayavka_.now_status.name_status }}</button></td>
+
+                <td>{{ zayavka_.date_created|date:"d.m.y H:i"}}</td>
+                <td>{{ zayavka_.pokaz_on_gospit.name_pokazOnGospit }}</td>
+                <td>{{ zayavka_.location_from }}</td>
+                <td>{{ zayavka_.pacient_data.first_name }}</td>
+                <td>{{ zayavka_.pacient_data.birthday|date:"d.m.y" }}</td>
+                <td>{{ zayavka_.pacient_data.gender }}</td>
+                <td>{{ zayavka_.pacient_data.diagnoz }}</td>
+                <td>{{ zayavka_.med_critary }}</td>
+                <td>{{ zayavka_.reason_hospit }}</td>
+                <td>{{ zayavka_.type_transport }}</td>
+                <td>{{ zayavka_.iniciator_hospit }}</td>
+                <td>{{ zayavka_.pacient_data.escort_filial }}</td>
+                <td>{{ zayavka_.prefer_filial }}</td>
+                <td>{{ zayavka_.who_agreed_zayav }}</td>
+    <!--        <td><button> <a href="{% url 'v_start_page' %}"> Исправить {{ med_.id  }}</a> </button></td>-->
+                <td><a href="#">Исправить {{ med_.id  }}</a></td>
+<!--                <td><button  type="submit" onclick="location.href='{% url 'v_start_page' %}'" >Исправить {{ med_.id  }} </button></td>-->
+                <td><button class="editbtn">Удалить</button></td>
+            </tr>
+            {% endfor %}
+    <!--     { render_table table %}-->
+        </tbody>
+    </table>
+
+{% endblock %}

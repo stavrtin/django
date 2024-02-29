@@ -1,5 +1,7 @@
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import TemplateView, CreateView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import user_passes_test
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
@@ -131,13 +133,15 @@ def v_beds_info(request):
                }
     return render(request, "search_man/beds_info.html", context)
 
+# @login_required(login_url='/login/')
+@login_required(login_url='/login1/')
 def v_zayavka_info(request):
     # - просто вывод сведений о PATIENT
 
-    zayavki = ZayavkaNaGospit.objects.all()
+    zayavki = Kis.objects.all()
 
     # ---------- фильтры ---------------
-    myFilterZayv = FilterZayavki(request.GET, queryset=zayavki)
+    myFilterZayv = FilterKis(request.GET, queryset=zayavki)
     zayavki = myFilterZayv.qs
     page = 'zayav_info'
 
@@ -154,9 +158,9 @@ def v_zayavka_info(request):
 
     return render(request, "search_man/zayavki_list.html", context)
 
-# def books(request):
-#     table = BedsTable(ReportBeds.objects.all())
-#     return render(request, 'search_man/beds_info.html', {'table': table})
+@login_required(login_url='/login1/')
+def v_elg(request):
+    return render(request, 'search_man/elg_info.html', )
 
 
 def edit_report_beds(request, report_beds_id: int):
