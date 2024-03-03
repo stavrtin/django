@@ -384,7 +384,7 @@ def v_kis_page_test(request):
             # print(table_kis_f)
             return response # ------------- Эксель ----------
 
-    return render(request, 'search_man/search_kis_test.html',
+    return render(request, 'search_man/search_kis_dead_cont.html',
                   context=context)
 
 

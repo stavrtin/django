@@ -21,6 +21,10 @@ from openpyxl import Workbook
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.forms import User
 
+from django import template
+from django.contrib.auth.models import Group
+
+
 # --------------------------- пагинация ----------
 from django.core.paginator import Paginator
 
@@ -160,7 +164,14 @@ def v_zayavka_info(request):
 
 @login_required(login_url='/login1/')
 def v_elg(request):
-    return render(request, 'search_man/elg_info.html', )
+    group_list = []
+    for i in request.user.groups.all():
+        group_list.append(i.name)
+    # print(request.user)
+    # print(group_list)
+    context = {'group_list':group_list}
+    return render(request, 'search_man/elg_info.html',
+                  context =context  )
 
 
 def edit_report_beds(request, report_beds_id: int):
@@ -287,34 +298,9 @@ def v_results(request):
 
     return render(request, "search_man/base_results.html")
 
-def v_kis_page(request):
+
+def v_kis_dead_contacts(request):
     page = 'kis'
-    table_kis = Kis.objects.all()
-# ---------------- фильтры в кис ------
-    myFilterKis = FilterKis(request.GET, queryset=table_kis)
-    table_kis_f = myFilterKis.qs
-
-
-# ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
-    paginator = Paginator(table_kis_f, 10)
-    page_number = request.GET.get('page', 1)
-    page_obj = paginator.get_page(page_number)
-
-
-    context = { 'page': page,
-                'myFilter': myFilterKis,
-                'page_obj' : page_obj,
-                'table_kis' : table_kis_f,
-               }
-    return render(request, 'search_man/search_kis.html', context=context)
-
-import pandas as pd
-from django.db.models import Count
-from itertools import chain
-from django.db.models.query import RawQuerySet
-from django.db import connection
-def v_kis_page_test(request):
-    page = 'kis_2'
 
     # table_kis = Kis.objects.select_related().all()# ---------------- фильтры в кис ------
     table_kis = Kis.objects.all().filter(ishod='Умер в стационаре')# ---------------- фильтры в кис ------
@@ -325,7 +311,6 @@ def v_kis_page_test(request):
     table_kis_end_date = myFilterKis.data.get('end_date1')
     str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
 
-    # kis_tel = Contacts.objects.select_related().filter(kont_pac__in=[p.pacient.kod_p for p in table_kis_f])
 
 # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
     paginator = Paginator(table_kis_f, 10)
@@ -384,7 +369,7 @@ def v_kis_page_test(request):
             # print(table_kis_f)
             return response # ------------- Эксель ----------
 
-    return render(request, 'search_man/search_kis_test.html',
+    return render(request, 'search_man/search_kis_dead_cont.html',
                   context=context)
 
 

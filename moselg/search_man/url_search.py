@@ -15,8 +15,8 @@ from .views import MyprojectLogout
 from .views import v_medorg_search
 from .views import v_table_bed
 from .views import v_results
-from .views import v_kis_page
-from .views import v_kis_page_test
+# from .views import v_kis_page
+from .views import v_kis_dead_contacts
 
 
 
@@ -45,8 +45,8 @@ urlpatterns = [
     path('medorg_search/', v_medorg_search, name='medorg_search'),
     # path('tablbeds/', v_table_bed, name='table_beds'),
     path('results/', v_results, name='results'),
-    path('kis/', v_kis_page, name='kis_page'),
-    path('kis_test/', v_kis_page_test, name='kis_page'),
+    # path('kis/', v_kis_page, name='kis_page'),
+    path('kis_dead_contacts/', v_kis_dead_contacts, name='kis_page'),
     path('elg/', v_elg, name='v_elg'),
     # path('button_view/', button_view, name='button_view'),
 

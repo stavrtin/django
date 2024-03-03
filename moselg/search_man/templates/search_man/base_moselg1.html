@@ -25,7 +25,11 @@
 <body>
 
 {% if user.is_authenticated %}
-    <p>Вы авторизованы как <br> <b>{{user}}</b></p>
+    <p>Вы авторизованы как <b>{{user}}</b></p>
+    <p>У Вас открыт доступ к группам
+        {% for user_ in user.groups.all %}
+        <b> {{user_}}</b>
+        {% endfor %}
     {% else %}
     <p>Вы НЕ авторизованы, пройдите авторизацию</p>
 {% endif %}
@@ -38,8 +42,8 @@
    <ul class="nav nav-pills" >
 
       <li><a class="nav-link {% if page  == 'main' %}active{% endif %}" href="{% url 'v_start_page' %}">Главная</a></li>
-      <li><a class="nav-link {% if page  == 'beds1' %}active{% endif %}" href="{% url 'v_message_beds' %}">Передать сведения по койкам</a></li>
-      <li><a class="nav-link {% if page  == 'zayavka' %}active{% endif %}" href="{% url 'v_zayavka' %}">Подать заявку на госпитализацию</a></li>
+<!--      <li><a class="nav-link {% if page  == 'beds1' %}active{% endif %}" href="{% url 'v_message_beds' %}">Передать сведения по койкам</a></li>-->
+<!--      <li><a class="nav-link {% if page  == 'zayavka' %}active{% endif %}" href="{% url 'v_zayavka' %}">Подать заявку на госпитализацию</a></li>-->
 
 
       {% if request.user.is_authenticated %}
@@ -47,8 +51,8 @@
        <li><a class="nav-link {% if page  == 'zayav_info' %}active{% endif %}" href="{% url 'v_zayavka_info' %}">Сведения о заявках</a></li>
        <li><a class="nav-link {% if page  == 'results' %}active{% endif %}" href="{% url 'results' %}">Показатели работы</a></li>
        <li><a class="nav-link {% if page  == 'zayav_info' %}active{% endif %}" href="{% url 'v_zayavka_info' %}">Поиск пациента</a></li>
-       <li><a class="nav-link {% if page  == 'kis' %}active{% endif %}" href="{% url 'kis_page' %}">Поиск в КИС</a></li>
-       <li><a class="nav-link {% if page  == 'kis_2' %}active{% endif %}" href="{% url 'kis_page' %}">Поиск в КИС_test</a></li>
+<!--       <li><a class="nav-link {% if page  == 'kis' %}active{% endif %}" href="{% url 'kis_page' %}">Поиск в КИС</a></li>-->
+       <li><a class="nav-link {% if page  == 'kis' %}active{% endif %}" href="{% url 'kis_page' %}">Поиск контактов</a></li>
 
 <li class="nav-item">   {% url 'logout_page' as url_logout_page %}
     <a class="nav-link btn-danger" href="{{url_logout_page}}">Выйти</a>      </li>
