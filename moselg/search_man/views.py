@@ -296,7 +296,6 @@ def v_results(request):
     return render(request, "search_man/base_results.html", context)
 
 
-    return render(request, "search_man/base_results.html")
 
 
 def v_kis_dead_contacts(request):
