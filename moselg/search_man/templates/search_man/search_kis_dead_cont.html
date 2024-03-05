@@ -1,18 +1,15 @@
-{% extends 'search_man/base_moselg1.html' %}
+{% extends 'search_man/base_moselg.html' %}
 
 
 {% block content %}
 
 
+ {% if 'Kiss' in group_list %} <!--  ----- тут начало проверки ПОЛЬОВАТЕЛЯ на доступ к функционалу-->
 
-<!--    Тут просто тест вывода содержимого БД Мед-организации<br>-->
+
 <!--установка фильтра начало-->
-Фильр по дате выбытия
-{{myFilter.form.start_date.value}}
-<form method="POST">
-    {% csrf_token %}
-   <button type="submit" class="btn btn-success">Print Table</button>
-</form>
+<h4 align="center" >Сбор контактов пациентов, ушедших в стационарах ЦПП </h4>
+Фильтр по дате выбытия
 
 <br>
     <div class="row">
@@ -21,16 +18,16 @@
                 <form method="get">
                         <table>
                     {{ myFilter.form}}
-                    {{ myFilter.as_table }}
+<!--                    {{ myFilter.as_table }}-->
                         </table>
-<!--{{table_kis_start_date}}<br>-->
-<!--{{table_kis_end_date}}-->
+
                     <button class="btn btn-primary" type="submit">Поиск</button>
 
 </form>
             </div>
         </div>
     </div>
+
 <!--установка фильтра конец-->
 
 <!--****************************-->
@@ -72,9 +69,18 @@
   <li><a href="?{{  str_test }}&page={{ page_obj.next_page_number }}">(Next)</a></li>
 {% endif %}
 
-{{ page_obj }} {{ page_obj.number }} sss
-{{ str_test }}
+
 <br><br>
+В рассматриваеймый период скончалось {{count_of_pacient}} пациентов
+
+<!--****************************-->
+<form  method="POST">
+    {% csrf_token %}
+   <button  type="submit" class="btn btn-success" >Сохранить в Excel</button>
+</form>
+
+<!--****************************-->
+
 <!--****************************-->
 <!--сам вывод визуальной таблицы (начало)-->
 <table  class="table table-striped table-hover">
@@ -108,15 +114,15 @@
         </tbody>
     </table>
 <!--сам вывод визуальной таблицы (конец)-->
- ---0<br><br>
 
 
-<!--    {%  for cont_ in cont_all %}-->
-<!--    1.    pac     {{kis_.pacient.pacient}} <br>-->
-<!--    2.    kis    {{kis_.data_vipiski}} <br>-->
-<!--    3.    tel    {{cont_.kont_tel}} <br>-->
-<!--   {% endfor %}-->
 
+
+
+
+    {% else %} <!---- тут конец проверки ГРУППЫ ПОЛЬОВАТЕЛЯ на доступ к функционалу-->
+        <p> Пользователь не имеет допуска к данному разделу</p>
+    {% endif %}
 
 
 {% endblock %}

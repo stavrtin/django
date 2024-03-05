@@ -1,0 +1,14 @@
+{% extends 'search_man/base_moselg.html' %}
+{% block content %}
+
+<p>Вы авторизованы как {{user}}</p>
+<p>Имеется доступ к группам {{group_list}}</p>
+    {% if 'Elg' in group_list %}
+    <p>  ТУТ будет раздел, обеспечивающий ЕЛГ </p>
+
+    {% else %}
+        <p> Пользователь не имеет допуска к данному разделу</p>
+    {% endif %}
+
+
+{% endblock %}

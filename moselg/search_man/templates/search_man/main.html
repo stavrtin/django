@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'search_man/topic_info.html' %}
 
-
-<!--          <a class="nav-link {% if url_main_page == request.path %}active{% endif %}" href="{{url_main_page}}">Главная</a></li>-->
-<!--      <li class="nav-link"><a href="{% url 'v_zayavka_info' %}">Сведения о заявках</a></li>-->
+{% block content %}
       <li class="nav-link"><a href="{% url 'v_elg' %}">ЕЛГ</a></li>
-      <li class="nav-link"><a href="#">БСО</a></li>
-      <li class="nav-link"><a href="#">Транспортировки</a></li>
-      <li class="nav-link"><a href="#">Визиты (регистрация чек-листа на визите)</a></li>
+      <li class="nav-link"><a href="{% url 'v_bso' %}">БСО</a></li>
+      <li class="nav-link"><a href="{% url 'v_kis' %}">КИС</a></li>
+      <li class="nav-link"><a href="#">Визиты (чек-лист)</a></li>
       <li class="nav-link"><a href="#">Поиск пациента</a></li>
-      <li class="nav-link"><a href="{% url 'kis_page' %}">Сбор контактов о пациенте</a></li>
-      <li class="nav-link"><a href="#">Сбор сведений о выданных МСОС</a></li>
+      <li class="nav-link"><a href="{% url 'contacts_kis' %}">Сбор контактов</a></li>
+      <li class="nav-link"><a href="#">Сбор сведений о МСОС</a></li>
       <li class="nav-link"><a href="#">Итоги/дашборды</a></li>
       <li class="nav-link"><a href="{% url 'login_page' %}">Авторизация</a></li>
 
-</body>
-</html>
+{% endblock %}

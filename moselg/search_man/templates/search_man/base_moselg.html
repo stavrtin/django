@@ -1,0 +1,99 @@
+<!--{% load static %}-->
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}   Главная   {% endblock %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+      <!--    <link href="{% static 'css/style.css' %}" rel="stylesheet">-->
+
+<!--    <link rel="stylesheet" href="nicepage.css" media="screen">-->
+<!--    <script>-->
+<!--      $(document).ready(function()-->
+<!--      {-->
+<!--      $('#select_mo').select2();-->
+<!--      });-->
+<!--    </script>-->
+  </head>
+
+
+<body>
+{% if user.is_authenticated %}
+    <p>Вы авторизованы как <b>{{user}}</b></p>
+    У Вас открыт доступ к группам
+        {% for user_ in user.groups.all %}
+        <b> {{user_}}</b>
+        {% endfor %}
+    {% else %}
+    <p>Вы НЕ авторизованы, пройдите авторизацию</p>
+    {% endif %}
+
+  <div class="container mt-4">
+  <ul class="nav nav-pills" >
+
+      <li><a class="nav-link {% if page  == 'main' %}active{% endif %}" href="{% url 'v_start_page' %}">Главная</a></li>
+
+
+      {% if request.user.is_authenticated %}
+           <li><a class="nav-link {% if page  == 'elg' and 'Kiss' in group_list %}active{% endif %}" href="{% url 'v_elg' %}">ЕЛГ</a></li>
+           <li><a class="nav-link {% if page  == 'bso' %}active{% endif %}" href="{% url 'v_bso' %}">БСО</a></li>
+           <li><a class="nav-link {% if page  == 'kis' %}active{% endif %}" href="{% url 'v_kis' %}">КИС</a></li>
+           <li><a class="nav-link {% if page  == 'visits' %}active{% endif %}" href="#">Визиты (чек-лист)</a></li>
+           <li><a class="nav-link {% if page  == 'results' %}active{% endif %}" href="#">Поиск пациента</a></li>
+           <li><a class="nav-link {% if page  == 'contacts_kis' %}active{% endif %}" href="{% url 'contacts_kis' %}">Сбор контактов</a></li>
+           <li><a class="nav-link {% if page  == '1' %}active{% endif %}" href="#">Сбор сведений о МСОС</a></li>
+           <li><a class="nav-link {% if page  == 'dash' %}active{% endif %}" href="#">Итоги/дашборды</a></li>
+
+
+           <form action="{% url 'logout_page' %}" method="post">
+             {% csrf_token %}
+           <button type="submit" class="btn btn-success">выйти</button>
+            </form>
+
+      {% else %}
+        <li class="nav-item">
+        {% url 'login_page' as url_login_page %}
+        <a class="nav-link {% if url_login_page  == request.path %}active{% endif %}" href="{{url_login_page}}">Авторизация</a>
+      {% endif %}
+  </ul>
+</div>
+
+    
+<!-- Начало вставки 3 колонок -->    
+<!--        <div class="container">-->
+<!--          <div class="row">-->
+<!--            <div class="col">-->
+<!--              1 из трёх колонок-->
+<!--            </div>-->
+<!--            <div class="col">-->
+<!--              2 из трёх колонок-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!-- Конец вставки 3 колонок -->
+
+  
+<div class="container mt-4">
+<!--<div >-->
+<br><br><br>
+
+{% block content %}
+
+    <h1 class="mt-4">Тут разместим основные сведения</h1>
+
+{% endblock %}
+
+
+
+      </div>
+</body>
+</html>
+
+
+
+

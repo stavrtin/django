@@ -1,6 +1,9 @@
 from django.urls import path
-from .views import v_start_page, v_maine_page, v_elg
+from .views import v_start_page, v_maine_page
 from .views import v_about
+from .views import v_elg
+from .views import v_bso
+from .views import v_kis
 from .views import v_message_beds
 from .views import v_medorg_info
 from .views import v_beds_info
@@ -8,13 +11,13 @@ from .views import v_zayavka
 # from .views import books
 from .views import edit_report_beds
 from .views import v_zayavka_info
-from .views import cool_forms
+# from .views import cool_forms
 from .views import v_login
 from .views import MyprojectLoginView
 from .views import MyprojectLogout
-from .views import v_medorg_search
-from .views import v_table_bed
-from .views import v_results
+# from .views import v_medorg_search
+# from .views import v_table_bed
+# from .views import v_results
 # from .views import v_kis_page
 from .views import v_kis_dead_contacts
 
@@ -35,20 +38,22 @@ urlpatterns = [
     # --------лист 1.1 ЕЛГ ---
     path('zayavki/', v_zayavka_info, name='v_zayavka_info'),
         #     ------- тест кул_форм-----
-    path('cool/', cool_forms, name='cool_forms'),
+    # path('cool/', cool_forms, name='cool_forms'),
         #     ------- login-----
-    path('login1/', MyprojectLoginView.as_view(), name='login_page'),
+    path('login/', MyprojectLoginView.as_view(), name='login_page'),
     # path('login/', v_login, name='v_login'),
         #     ------- logout-----
     path('logout/', MyprojectLogout.as_view(), name='logout_page'),
         #     ------- search-----
-    path('medorg_search/', v_medorg_search, name='medorg_search'),
-    # path('tablbeds/', v_table_bed, name='table_beds'),
-    path('results/', v_results, name='results'),
+    # path('medorg_search/', v_medorg_search, name='medorg_search'),
+    # # path('tablbeds/', v_table_bed, name='table_beds'),
+    # path('results/', v_results, name='results'),
     # path('kis/', v_kis_page, name='kis_page'),
-    path('kis_dead_contacts/', v_kis_dead_contacts, name='kis_page'),
+    path('kis_dead_contacts/', v_kis_dead_contacts, name='contacts_kis'),
     path('elg/', v_elg, name='v_elg'),
-    # path('button_view/', button_view, name='button_view'),
+    path('bso/', v_bso, name='v_bso'),
+    path('kis/', v_kis, name='v_kis'),
+
 
 
 ]

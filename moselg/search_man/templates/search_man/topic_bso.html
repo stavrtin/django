@@ -1,0 +1,17 @@
+{% extends 'search_man/topic_info.html' %}
+
+<p>Вы авторизованы как {{user}}</p>
+<p>Имеется доступ к группам {{group_list}}</p>
+
+{% block content %}
+
+
+    {% if 'Bso' in group_list %}
+    <p>  ТУТ будет раздел, обеспечивающий БСО  </p>
+
+    {% else %}
+        <p> Пользователь не имеет допуска к данному разделу</p>
+    {% endif %}
+
+
+{% endblock %}
