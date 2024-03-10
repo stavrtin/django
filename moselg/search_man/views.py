@@ -24,6 +24,7 @@ from django.contrib.auth.forms import User
 from django import template
 from django.contrib.auth.models import Group
 
+from django.db.models import F, Q
 
 # --------------------------- пагинация ----------
 from django.core.paginator import Paginator
@@ -281,7 +282,7 @@ def v_kis_dead_contacts(request):
     # for _ in table_kis_f.all():
     #     count_of_contacts.append(_.pacient.cont.all())
     # print(len(count_of_contacts))
-    print(count_of_contacts)
+    # print(count_of_contacts)
     print('ssss')
 
 # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
@@ -310,6 +311,7 @@ def v_kis_dead_contacts(request):
         form = FilterKis(request.POST)
         if form.is_valid():
             print(table_kis_start_date)
+            print(table_kis_end_date)
 
             response = HttpResponse(content_type='application/ms-excel')
             file_name = f'"dead_{table_kis_start_date}_{table_kis_end_date}.xlsx"'
@@ -320,28 +322,132 @@ def v_kis_dead_contacts(request):
             ws.title = "Products"
             # Add headers
             headers = ["ФИО_пациента", "Дата_рождения",
-                       "Дата_смерти", "ФИО_контактного_лица", "Телефон_конт."]
+                       # "Дата_смерти",
+                       "ФИО_контактного_лица",
+                       "Телефон_конт.",
+                       # 'ish'
+                       ]
             ws.append(headers)
             # Add data from the model
             table_kis = Kis.objects.all()            # ---------------- фильтры в кис ------
-            myFilterKis = FilterKis(request.GET, queryset=table_kis)
-            table_kis_f = myFilterKis.qs
 
-            result = table_kis_f
+            kis_po_date_dead = (Kis.objects.filter(
+                  Q(data_vipiski__gte=table_kis_start_date)
+                & Q(data_vipiski__lte=table_kis_end_date)
+                & Q(ishod ='Умер в стационаре'))
+                                .all().values('pacient_id'))
 
+            values_id_pacientov = [i['pacient_id'] for i in kis_po_date_dead]
+
+            contacts_is_spiska_id_pacientod = (Contacts.objects.select_related('kont_pac')
+                                               .filter(kont_pac__in=values_id_pacientov).all())
+            # contacts_is_spiska_id_pacientod = (Contacts.objects.filter(kont_pac__in=values_id_pacientov).all())
+            # count_ = 1
+            # for i in contacts_is_spiska_id_pacientod:
+            #     count_ += 1
+            #     print(count_, i.kont_pac, i.kont_tel, i.kont_fio)
+
+
+            # myFilterKis = FilterKis(request.GET, queryset=table_kis)
+            # table_kis_f = myFilterKis.qs
+
+            # result = table_kis_f.filter(ishod='Умер в стационаре')# ---------------- фильтры в кис ------
+            result = contacts_is_spiska_id_pacientod
+            count_ = 0
             for res_ in result:
-                for cont in res_.pacient.cont.all():
-                    ws.append([res_.pacient.pacient,
-                               res_.data_rozhd,
-                               res_.data_vipiski,
-                               cont.kont_fio,
-                               cont.kont_tel,
+                # for cont in res_.pacient.cont.all():
+                count_ += 1
+
+
+
+                print([     count_,
+                               res_.kont_pac.kod_p,
+                               res_.kont_pac.pacient,
+                               res_.kont_pac.data_rozhd,
+                               # res_.data_vipiski,
+                               res_.kont_fio,
+                               res_.kont_tel,
+                               res_.kont_tel,
+                               # res_.ishod,
                                ])
+
+                ws.append([
+                           res_.kont_pac.pacient,
+                           res_.kont_pac.data_rozhd,
+                           res_.kont_fio,
+                           res_.kont_tel,
+
+                                              ])
+
+            # for res_ in result:
+            #     for cont in res_.pacient.cont.all():
+            #         ws.append([res_.pacient.pacient,
+            #                    res_.data_rozhd,
+            #                    res_.data_vipiski,
+            #                    cont.kont_fio,
+            #                    cont.kont_tel,
+            #                    cont.kont_tel,
+            #                    res_.ishod,
+            #                    ])
 
             # Save the workbook to the HttpResponse
             wb.save(response)
             # print(table_kis_f)
             return response # ------------- Эксель ----------
+
+ # # # ------------- Эксель ---------- СТАРАЯ ВЕРСИЯ -----------------
+ #    # # submitbutton = request.POST.get("submit ")
+ #    if request.method == 'POST':
+ #        form = FilterKis(request.POST)
+ #        if form.is_valid():
+ #            print(table_kis_start_date)
+ #            print(table_kis_end_date)
+ #
+ #            response = HttpResponse(content_type='application/ms-excel')
+ #            file_name = f'"dead_{table_kis_start_date}_{table_kis_end_date}.xlsx"'
+ #            print(file_name)
+ #            response['Content-Disposition'] = f'attachment; filename={file_name}'
+ #            wb = Workbook()
+ #            ws = wb.active
+ #            ws.title = "Products"
+ #            # Add headers
+ #            headers = ["ФИО_пациента", "Дата_рождения",
+ #                       "Дата_смерти", "ФИО_контактного_лица", "Телефон_конт.", 'ish']
+ #            ws.append(headers)
+ #            # Add data from the model
+ #            table_kis = Kis.objects.all()            # ---------------- фильтры в кис ------
+ #            myFilterKis = FilterKis(request.GET, queryset=table_kis)
+ #            table_kis_f = myFilterKis.qs
+ #
+ #            # result = table_kis_f.filter(ishod='Умер в стационаре')# ---------------- фильтры в кис ------
+ #            result = table_kis_f
+ #
+ #            for res_ in result:
+ #                for cont in res_.pacient.cont.all():
+ #                    print([res_.pacient.pacient,
+ #                               res_.data_rozhd,
+ #                               res_.data_vipiski,
+ #                               cont.kont_fio,
+ #                               cont.kont_tel,
+ #                               cont.kont_tel,
+ #                               res_.ishod,
+ #                               ])
+ #
+ #            # for res_ in result:
+ #            #     for cont in res_.pacient.cont.all():
+ #            #         ws.append([res_.pacient.pacient,
+ #            #                    res_.data_rozhd,
+ #            #                    res_.data_vipiski,
+ #            #                    cont.kont_fio,
+ #            #                    cont.kont_tel,
+ #            #                    cont.kont_tel,
+ #            #                    res_.ishod,
+ #            #                    ])
+ #
+ #            # Save the workbook to the HttpResponse
+ #            wb.save(response)
+ #            # print(table_kis_f)
+ #            return response # ------------- Эксель ----------
 
     return render(request, 'search_man/search_kis_dead_cont.html',
                   context=context)
