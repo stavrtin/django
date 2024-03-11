@@ -321,8 +321,10 @@ def v_kis_dead_contacts(request):
             ws = wb.active
             ws.title = "Products"
             # Add headers
-            headers = ["ФИО_пациента", "Дата_рождения",
-                       # "Дата_смерти",
+            headers = ["ФИО_пациента",
+                       "Дата_рождения",
+                       "Дата_смерти",
+                       "Исход",
                        "ФИО_контактного_лица",
                        "Телефон_конт.",
                        # 'ish'
@@ -347,37 +349,45 @@ def v_kis_dead_contacts(request):
             #     count_ += 1
             #     print(count_, i.kont_pac, i.kont_tel, i.kont_fio)
 
-
             # myFilterKis = FilterKis(request.GET, queryset=table_kis)
             # table_kis_f = myFilterKis.qs
-
             # result = table_kis_f.filter(ishod='Умер в стационаре')# ---------------- фильтры в кис ------
+
             result = contacts_is_spiska_id_pacientod
             count_ = 0
-            for res_ in result:
-                # for cont in res_.pacient.cont.all():
-                count_ += 1
-
-
-
-                print([     count_,
-                               res_.kont_pac.kod_p,
-                               res_.kont_pac.pacient,
-                               res_.kont_pac.data_rozhd,
-                               # res_.data_vipiski,
-                               res_.kont_fio,
-                               res_.kont_tel,
-                               res_.kont_tel,
-                               # res_.ishod,
-                               ])
-
-                ws.append([
-                           res_.kont_pac.pacient,
-                           res_.kont_pac.data_rozhd,
-                           res_.kont_fio,
-                           res_.kont_tel,
-
-                                              ])
+            # for res_ in result:
+            #     count_ += 1
+            #     print([     count_,
+            #                    res_.kont_pac.kod_p,
+            #                    res_.kont_pac.pacient,
+            #                    res_.kont_pac.data_rozhd,
+            #                    res_.kont_pac.pacient.kis_set.all(),
+            #                    res_.kont_fio,
+            #                    res_.kont_tel,
+            #                    res_.kont_tel,
+            #                    # res_.ishod,
+            #                    ])
+            pac_all_kc = (Pacient.objects.prefetch_related('kis_set').prefetch_related('cont')
+                          .filter(kod_p__in=values_id_pacientov)
+                          .filter(kis__ishod='Умер в стационаре')
+                          .all())
+            con = 0
+            for pac_ in pac_all_kc.all():
+                con += 1
+                for con_ in pac_.cont.all():
+                    print(con, pac_.pacient, pac_.kod_p,
+                          pac_.kis_set.all()[0].data_vipiski,
+                          pac_.kis_set.all()[0].ishod,
+                          con_.kont_tel,
+                          con_.kont_fio)
+                    ws.append([
+                               pac_.pacient,
+                               pac_.data_rozhd,
+                               pac_.kis_set.all()[0].data_vipiski,
+                               pac_.kis_set.all()[0].ishod,
+                               con_.kont_tel,
+                               con_.kont_fio
+                                                      ])
 
             # for res_ in result:
             #     for cont in res_.pacient.cont.all():
