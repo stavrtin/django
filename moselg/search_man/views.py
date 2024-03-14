@@ -376,15 +376,15 @@ def v_kis_dead_contacts(request):
                 con += 1
                 for con_ in pac_.cont.all():
                     print(con, pac_.pacient, pac_.kod_p,
-                          pac_.kis_set.all()[0].data_vipiski,
-                          pac_.kis_set.all()[0].ishod,
+                          [i.data_vipiski for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'],
+                          [i.ishod for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'],
                           con_.kont_tel,
                           con_.kont_fio)
                     ws.append([
                                pac_.pacient,
                                pac_.data_rozhd,
-                               pac_.kis_set.all()[0].data_vipiski,
-                               pac_.kis_set.all()[0].ishod,
+                        [i.data_vipiski for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'][0],
+                        [i.ishod for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'][0],
                                con_.kont_tel,
                                con_.kont_fio
                                                       ])
