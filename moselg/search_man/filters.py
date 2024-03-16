@@ -35,7 +35,7 @@ class FilterKis(django_filters.FilterSet):
                             lookup_expr='gte',
                             widget=DateInput(attrs={'type': 'date'}))
     # end_date = DateFilter(label='Дата заверш. отбора', field_name='create_at', lookup_expr='lte')
-    end_date1 = DateTimeFilter(label='Дата зав. отбора',
+    end_date = DateTimeFilter(label='Дата зав. отбора',
                            field_name='data_vipiski',
                            lookup_expr='lte',
                            widget=DateInput(attrs={'type': 'date'})

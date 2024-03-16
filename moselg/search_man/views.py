@@ -262,6 +262,7 @@ def v_kis_dead_contacts(request):
     for i in request.user.groups.all():
         group_list.append(i.name)
 
+
     table_kis = Kis.objects.all().filter(ishod='Умер в стационаре')# ---------------- фильтры в кис ------
 
 
@@ -269,24 +270,15 @@ def v_kis_dead_contacts(request):
     myFilterKis = FilterKis(request.GET, queryset=table_kis)
     table_kis_f = myFilterKis.qs   # --- результат применения фильтра
 
-    # count_of_pacient = len(table_kis_f)
+
     count_of_pacient = table_kis_f.count()
     table_kis_start_date = myFilterKis.data.get('start_date')
-    table_kis_end_date = myFilterKis.data.get('end_date1')
-    str_test = f'start_date={table_kis_start_date}&end_date1={table_kis_end_date}'
+    table_kis_end_date = myFilterKis.data.get('end_date')
+    str_test = f'start_date={table_kis_start_date}&end_date={table_kis_end_date}'
 
-    # # count_of_contacts = table_kis_f.all()[5].pacient.cont.all()
-    # count_of_contacts = Kis.objects.select_related()
-
-    # count_of_contacts = []
-    # for _ in table_kis_f.all():
-    #     count_of_contacts.append(_.pacient.cont.all())
-    # print(len(count_of_contacts))
-    # print(count_of_contacts)
-    print('ssss')
 
 # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
-    paginator = Paginator(table_kis_f, 5)
+    paginator = Paginator(table_kis_f, 10)
     page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
 
@@ -294,8 +286,6 @@ def v_kis_dead_contacts(request):
     context = { 'page': page,
                 'myFilter': myFilterKis,
                 'page_obj' : page_obj,
-                # 'cont_all' : cont_all,
-                # 'test_con' : test_con,
                 'table_kis_f' : table_kis_f, # --- результат применения фильтра
                 'table_kis_start_date' : table_kis_start_date,
                 'table_kis_end_date' : table_kis_end_date,
@@ -308,6 +298,7 @@ def v_kis_dead_contacts(request):
     # # ------------- Эксель ----------
     # # submitbutton = request.POST.get("submit ")
     if request.method == 'POST':
+
         form = FilterKis(request.POST)
         if form.is_valid():
             print(table_kis_start_date)
@@ -343,30 +334,7 @@ def v_kis_dead_contacts(request):
 
             contacts_is_spiska_id_pacientod = (Contacts.objects.select_related('kont_pac')
                                                .filter(kont_pac__in=values_id_pacientov).all())
-            # contacts_is_spiska_id_pacientod = (Contacts.objects.filter(kont_pac__in=values_id_pacientov).all())
-            # count_ = 1
-            # for i in contacts_is_spiska_id_pacientod:
-            #     count_ += 1
-            #     print(count_, i.kont_pac, i.kont_tel, i.kont_fio)
 
-            # myFilterKis = FilterKis(request.GET, queryset=table_kis)
-            # table_kis_f = myFilterKis.qs
-            # result = table_kis_f.filter(ishod='Умер в стационаре')# ---------------- фильтры в кис ------
-
-            result = contacts_is_spiska_id_pacientod
-            count_ = 0
-            # for res_ in result:
-            #     count_ += 1
-            #     print([     count_,
-            #                    res_.kont_pac.kod_p,
-            #                    res_.kont_pac.pacient,
-            #                    res_.kont_pac.data_rozhd,
-            #                    res_.kont_pac.pacient.kis_set.all(),
-            #                    res_.kont_fio,
-            #                    res_.kont_tel,
-            #                    res_.kont_tel,
-            #                    # res_.ishod,
-            #                    ])
             pac_all_kc = (Pacient.objects.prefetch_related('kis_set').prefetch_related('cont')
                           .filter(kod_p__in=values_id_pacientov)
                           .filter(kis__ishod='Умер в стационаре')
@@ -386,8 +354,7 @@ def v_kis_dead_contacts(request):
                         [i.data_vipiski for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'][0],
                         [i.ishod for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'][0],
                                con_.kont_tel,
-                               con_.kont_fio
-                                                      ])
+                               con_.kont_fio ])
 
             # for res_ in result:
             #     for cont in res_.pacient.cont.all():
