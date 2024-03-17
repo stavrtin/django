@@ -30,12 +30,12 @@ from .models import *
 #         # exclude = ['f_employ', 'm_employ', 'f_free', 'm_free', 'create_at'] # - исключаем поля для фильтрации
 
 class FilterKis(django_filters.FilterSet):
-    start_date = DateTimeFilter(label='Дата начала отбора',
+    start_date = DateTimeFilter(label='Выбрать начальную дату отбора',
                             field_name='data_vipiski',
                             lookup_expr='gte',
                             widget=DateInput(attrs={'type': 'date'}))
     # end_date = DateFilter(label='Дата заверш. отбора', field_name='create_at', lookup_expr='lte')
-    end_date = DateTimeFilter(label='Дата зав. отбора',
+    end_date = DateTimeFilter(label='Выбрать дату завершения отбора',
                            field_name='data_vipiski',
                            lookup_expr='lte',
                            widget=DateInput(attrs={'type': 'date'})

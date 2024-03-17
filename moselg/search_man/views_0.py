@@ -280,7 +280,6 @@ def v_kis_dead_contacts(request):
 
 # ---------------  пагинация, классная ссылка https://www.youtube.com/watch?v=pDB9GSlQ7iY --
     paginator = Paginator(table_kis_f, 5)
-    # paginator = Paginator(pac_all_kc, 5)
     page_number = request.GET.get('page', 1)
     page_obj = paginator.get_page(page_number)
 
@@ -304,14 +303,13 @@ def v_kis_dead_contacts(request):
         form = FilterKis(request.POST)
         if form.is_valid():
 # -------- начальную и конечную даты для предотвращения ошибки при ПУСТЫХ датах --
-#             if table_kis_start_date is None:
-#                 today_ = str(datetime.date.today())
-#                 y = str(datetime.date.today()).split('-')[0]
-#                 m = str(datetime.date.today()).split('-')[1]
-#                 table_kis_end_date = today_
-#                 table_kis_start_date = f'{y}-{m}-01'
-#                 print(table_kis_start_date)
-#                 print(table_kis_end_date)
+            today_ = str(datetime.date.today())
+            y = str(datetime.date.today()).split('-')[0]
+            m = str(datetime.date.today()).split('-')[1]
+            table_kis_end_date = today_
+            table_kis_start_date = f'{y}-{m}-01'
+            print(table_kis_start_date)
+            print(table_kis_end_date)
 
             response = HttpResponse(content_type='application/ms-excel')
             file_name = f'"dead_{table_kis_start_date}_{table_kis_end_date}.xlsx"'
@@ -352,11 +350,11 @@ def v_kis_dead_contacts(request):
             for pac_ in pac_all_kc.all():
                 con += 1
                 for con_ in pac_.cont.all():
-                    # print(con, pac_.pacient, pac_.kod_p,
-                    #       [i.data_vipiski for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'],
-                    #       [i.ishod for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'],
-                    #       con_.kont_tel,
-                    #       con_.kont_fio)
+                    print(con, pac_.pacient, pac_.kod_p,
+                          [i.data_vipiski for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'],
+                          [i.ishod for i in pac_.kis_set.all() if i.ishod == 'Умер в стационаре'],
+                          con_.kont_tel,
+                          con_.kont_fio)
                     ws.append([
                                pac_.pacient,
                                pac_.data_rozhd,
@@ -365,13 +363,75 @@ def v_kis_dead_contacts(request):
                                con_.kont_tel,
                                con_.kont_fio ])
 
+            # for res_ in result:
+            #     for cont in res_.pacient.cont.all():
+            #         ws.append([res_.pacient.pacient,
+            #                    res_.data_rozhd,
+            #                    res_.data_vipiski,
+            #                    cont.kont_fio,
+            #                    cont.kont_tel,
+            #                    cont.kont_tel,
+            #                    res_.ishod,
+            #                    ])
 
             # Save the workbook to the HttpResponse
             wb.save(response)
             # print(table_kis_f)
             return response # ------------- Эксель ----------
 
-
+ # # # ------------- Эксель ---------- СТАРАЯ ВЕРСИЯ -----------------
+ #    # # submitbutton = request.POST.get("submit ")
+ #    if request.method == 'POST':
+ #        form = FilterKis(request.POST)
+ #        if form.is_valid():
+ #            print(table_kis_start_date)
+ #            print(table_kis_end_date)
+ #
+ #            response = HttpResponse(content_type='application/ms-excel')
+ #            file_name = f'"dead_{table_kis_start_date}_{table_kis_end_date}.xlsx"'
+ #            print(file_name)
+ #            response['Content-Disposition'] = f'attachment; filename={file_name}'
+ #            wb = Workbook()
+ #            ws = wb.active
+ #            ws.title = "Products"
+ #            # Add headers
+ #            headers = ["ФИО_пациента", "Дата_рождения",
+ #                       "Дата_смерти", "ФИО_контактного_лица", "Телефон_конт.", 'ish']
+ #            ws.append(headers)
+ #            # Add data from the model
+ #            table_kis = Kis.objects.all()            # ---------------- фильтры в кис ------
+ #            myFilterKis = FilterKis(request.GET, queryset=table_kis)
+ #            table_kis_f = myFilterKis.qs
+ #
+ #            # result = table_kis_f.filter(ishod='Умер в стационаре')# ---------------- фильтры в кис ------
+ #            result = table_kis_f
+ #
+ #            for res_ in result:
+ #                for cont in res_.pacient.cont.all():
+ #                    print([res_.pacient.pacient,
+ #                               res_.data_rozhd,
+ #                               res_.data_vipiski,
+ #                               cont.kont_fio,
+ #                               cont.kont_tel,
+ #                               cont.kont_tel,
+ #                               res_.ishod,
+ #                               ])
+ #
+ #            # for res_ in result:
+ #            #     for cont in res_.pacient.cont.all():
+ #            #         ws.append([res_.pacient.pacient,
+ #            #                    res_.data_rozhd,
+ #            #                    res_.data_vipiski,
+ #            #                    cont.kont_fio,
+ #            #                    cont.kont_tel,
+ #            #                    cont.kont_tel,
+ #            #                    res_.ishod,
+ #            #                    ])
+ #
+ #            # Save the workbook to the HttpResponse
+ #            wb.save(response)
+ #            # print(table_kis_f)
+ #            return response # ------------- Эксель ----------
 
     return render(request, 'search_man/search_kis_dead_cont.html',
                   context=context)
